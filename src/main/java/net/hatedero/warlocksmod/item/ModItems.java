@@ -1,7 +1,9 @@
 package net.hatedero.warlocksmod.item;
 
 import net.hatedero.warlocksmod.WarlocksMod;
-import net.minecraft.world.item.Item;
+import net.hatedero.warlocksmod.block.ModBlocks;
+import net.hatedero.warlocksmod.item.custom.FuelItem;
+import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -9,8 +11,93 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(WarlocksMod.MOD_ID);
 
-    public static final DeferredItem<Item> BISMUTH = ITEMS.register("bismuth",
+    public static final DeferredItem<Item> ABYSS_SHARD = ITEMS.register("abyss_shard",
             () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> SULFUR_POWDER = ITEMS.register("sulfur_powder",
+            () -> new FuelItem(new Item.Properties(), 500));
+
+    public static final DeferredItem<Item> SALT_POWDER = ITEMS.register("salt_powder",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> VOLCANIC_DUST = ITEMS.register("volcanic_dust",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> CURED_ROTTEN_FLESH = ITEMS.register("cured_rotten_flesh",
+            () -> new Item(new Item.Properties().food(ModFoods.CURED_ROTTEN_FLESH)));
+
+    public static final DeferredItem<Item> COOKED_CURED_ROTTEN_FLESH = ITEMS.register("cooked_cured_rotten_flesh",
+            () -> new Item(new Item.Properties().food(ModFoods.COOKED_CURED_ROTTEN_FLESH)));
+
+    public static final DeferredItem<Item> J_FRUIT = ITEMS.register("j_fruit",
+            () -> new Item(new Item.Properties().food(ModFoods.J_FRUIT)));
+
+    public static final DeferredItem<Item> SOUL_BERRY = ITEMS.register("soul_berry",
+            () -> new Item(new Item.Properties().food(ModFoods.SOUL_BERRY)));
+
+    public static final DeferredItem<Item> BEEF_SANDWICH = ITEMS.register("beef_sandwich",
+            () -> new Item(new Item.Properties().food(ModFoods.SANDWICH)));
+
+    public static final DeferredItem<Item> CHICKEN_SANDWICH = ITEMS.register("chicken_sandwich",
+            () -> new Item(new Item.Properties().food(ModFoods.SANDWICH)));
+
+    public static final DeferredItem<Item> PORK_SANDWICH = ITEMS.register("pork_sandwich",
+            () -> new Item(new Item.Properties().food(ModFoods.SANDWICH)));
+
+    public static final DeferredItem<Item> LAMB_SANDWICH = ITEMS.register("lamb_sandwich",
+            () -> new Item(new Item.Properties().food(ModFoods.SANDWICH)));
+
+    public static final DeferredItem<Item> AMERICAN_SANDWICH = ITEMS.register("american_sandwich",
+            () -> new Item(new Item.Properties().food(ModFoods.HEAVY_SANDWICH)));
+
+    public static final DeferredItem<Item> SOUL_TENDRIL = ITEMS.register("soul_tendril",
+            () -> new FuelItem(new Item.Properties(), 200));
+
+    public static final DeferredItem<Item> COIN = ITEMS.register("coin",
+            () -> new Item(new Item.Properties().stacksTo(1)));
+
+//    public static final DeferredItem<Item> CLEAVER = ITEMS.register("cleaver",
+//            () -> new CleaverItem(Tiers.DIAMOND, 20, -3F, (new Item.Properties()).fireResistant().stacksTo(1)));
+
+//    public static final DeferredItem<Item> SPEAR = ITEMS.register("spear",
+//            () -> new TridentItem((new Item.Properties()).durability(250)));
+
+//    public static final DeferredItem<Item> LOSTSOUL_SPAWN_EGG = ITEMS.register("lostsoul_spawn_egg",
+//            () -> new ForgeSpawnEggItem(ModEntities.LOSTSOUL, 0x000000, 0xffffff,
+//                    new Item.Properties()));
+//
+//    public static final DeferredItem<Item> RAT_SPAWN_EGG = ITEMS.register("rat_spawn_egg",
+//            () -> new ForgeSpawnEggItem(ModEntities.RAT, 0xeeeeee, 0xffffff,
+//                    new Item.Properties()));
+
+    public static final DeferredItem<Item> SOULBERRY_SEEDS = ITEMS.register("soulberry_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.SOULBERRY_CROP.get(), new Item.Properties()));
+//    public static final DeferredItem<Item> ABYSS_WALKER_HELMET = ITEMS.register("abyss_walker_helmet",
+//            () -> new ModArmorItem(ModArmorMaterials.ABYSS, ArmorItem.Type.HELMET, new Item.Properties()));
+//    public static final DeferredItem<Item> ABYSS_WALKER_CHESTPLATE = ITEMS.register("abyss_walker_chestplate",
+//            () -> new ArmorItem(ModArmorMaterials.ABYSS, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+//    public static final DeferredItem<Item> ABYSS_WALKER_LEGGINGS = ITEMS.register("abyss_walker_leggings",
+//            () -> new ArmorItem(ModArmorMaterials.ABYSS, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+//    public static final DeferredItem<Item> ABYSS_WALKER_BOOTS = ITEMS.register("abyss_walker_boots",
+//            () -> new ArmorItem(ModArmorMaterials.ABYSS, ArmorItem.Type.BOOTS, new Item.Properties()));
+//
+//    public static final DeferredItem<Item> FARAAM_HELMET = ITEMS.register("faraam_helmet",
+//            () -> new ArmorItem(ModArmorMaterials.FARAAM, ArmorItem.Type.HELMET, new Item.Properties()));
+//    public static final DeferredItem<Item> FARAAM_CHESTPLATE = ITEMS.register("faraam_chestplate",
+//            () -> new ArmorItem(ModArmorMaterials.FARAAM, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+//    public static final DeferredItem<Item> FARAAM_LEGGINGS = ITEMS.register("faraam_leggings",
+//            () -> new ArmorItem(ModArmorMaterials.FARAAM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+//    public static final DeferredItem<Item> FARAAM_BOOTS = ITEMS.register("faraam_boots",
+//            () -> new ArmorItem(ModArmorMaterials.FARAAM, ArmorItem.Type.BOOTS, new Item.Properties()));
+//
+//    public static final DeferredItem<Item> DESTINY_HELMET = ITEMS.register("destiny_helmet",
+//            () -> new ArmorItem(ModArmorMaterials.DESTINY, ArmorItem.Type.HELMET, new Item.Properties()));
+//    public static final DeferredItem<Item> DESTINY_CHESTPLATE = ITEMS.register("destiny_chestplate",
+//            () -> new ArmorItem(ModArmorMaterials.DESTINY, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+//    public static final DeferredItem<Item> DESTINY_LEGGINGS = ITEMS.register("destiny_leggings",
+//            () -> new ArmorItem(ModArmorMaterials.DESTINY, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+//    public static final DeferredItem<Item> DESTINY_BOOTS = ITEMS.register("destiny_boots",
+//            () -> new ArmorItem(ModArmorMaterials.DESTINY, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

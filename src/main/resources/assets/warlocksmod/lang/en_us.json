@@ -1,3 +1,131 @@
 {
-  "item.warlocksmod.bismuth": "Bismuth"
+  "block.warlocksmod.abyss_grass": "Abyss grass",
+  "block.warlocksmod.abyss_dirt": "Abyss dirt",
+  "block.warlocksmod.abyss_stone": "Abyss stone",
+
+
+
+
+
+  "block.warlocksmod.soul_tree_log": "Soul tree log",
+  "block.warlocksmod.soul_tree_wood": "Soul tree wood",
+  "block.warlocksmod.stripped_soul_tree_log": "Stripped soul tree log",
+  "block.warlocksmod.stripped_soul_tree_wood": "Stripped soul tree wood",
+  "block.warlocksmod.soul_tree_planks": "Soul tree planks",
+  "block.warlocksmod.soul_tree_sapling": "Soul tree sapling",
+  "block.warlocksmod.soul_tree_leaves": "Soul tree leaves",
+
+
+
+
+
+  "block.warlocksmod.blue_plum_log": "Blue plum log",
+  "block.warlocksmod.blue_plum_wood": "Blue plum wood",
+  "block.warlocksmod.stripped_blue_plum_log": "Stripped blue plum log",
+  "block.warlocksmod.stripped_blue_plum_wood": "Stripped blue plum wood",
+  "block.warlocksmod.blue_plum_planks": "Blue plum planks",
+  "block.warlocksmod.blue_plum_sapling": "Blue plum sapling",
+  "block.warlocksmod.blue_plum_leaves": "Blue plum leaves",
+
+
+
+
+
+  "block.warlocksmod.sulfur_block": "Sulfur block",
+  "block.warlocksmod.sulfur_ore": "Sulfur ore",
+
+
+
+
+
+  "block.warlocksmod.salt_block": "Salt block",
+
+
+
+
+
+  "block.warlocksmod.crystal_block": "Crystal block",
+
+
+
+
+
+  "block.warlocksmod.abyss_glass": "Abyss glass",
+  "block.warlocksmod.abyss_lamp": "Abyss lamp",
+  "block.warlocksmod.soul_plant_blight": "Soul plant blight",
+
+
+
+
+
+  "block.warlocksmod.backroom_wall": "Old wall",
+
+
+
+
+
+  "block.warlocksmod.abyss_stone_bricks": "Abyss stone bricks",
+  "block.warlocksmod.everbright_bricks": "Everbright bricks",
+  "block.warlocksmod.blight_bricks": "Blight bricks",
+  "block.warlocksmod.reinforced_abyss_stone_bricks": "Reinforced abyss stone bricks",
+  "block.warlocksmod.reinforced_everbright_bricks": "Reinforced everbright bricks",
+  "block.warlocksmod.reinforced_blight_bricks": "Reinforced blight bricks",
+
+
+
+
+
+  "block.warlocksmod.abyss_chain": "Abyss chain",
+  "block.warlocksmod.base_pillar": "Pillar base",
+  "block.warlocksmod.pillar": "Pillar",
+  "block.warlocksmod.soul_plant": "Soul plant",
+  "block.warlocksmod.soul_plant_block": "Soul plant body",
+
+  "block.warlocksmod.dracaena": "Dracaena",
+  "block.warlocksmod.tall_dracaena": "Tall dracaena",
+
+  "item.warlocksmod.abyss_shard": "Abyss shard",
+
+  "item.warlocksmod.sulfur_powder": "Sulfur Powder",
+  "item.warlocksmod.salt_powder": "Salt",
+  "item.warlocksmod.cured_rotten_flesh": "Cured rotten flesh",
+  "item.warlocksmod.cooked_cured_rotten_flesh": "Cooked cured rotten flesh",
+  "item.warlocksmod.beef_sandwich": "Beef sandwich",
+  "item.warlocksmod.chicken_sandwich": "Chicken sandwich",
+  "item.warlocksmod.pork_sandwich": "Pork sandwich",
+  "item.warlocksmod.lamb_sandwich": "Lamb sandwich",
+  "item.warlocksmod.american_sandwich": "American sandwich",
+
+  "item.warlocksmod.cleaver": "Cleaver",
+  "item.warlocksmod.spear": "Spear",
+
+  "item.warlocksmod.coin": "Coin",
+  "item.warlocksmod.volcanic_dust": "Volcanic dust",
+  "item.warlocksmod.lostsoul_spawn_egg": "Lost soul spawn egg",
+  "item.warlocksmod.rat_spawn_egg": "Rat spawn egg",
+  "item.warlocksmod.soul_berry": "Soul berry",
+  "item.warlocksmod.soul_tendril": "Soul tendril",
+  "item.warlocksmod.soulberry_seeds": "Soul Berry seed",
+
+
+  "item.warlocksmod.j_fruit": "Blue plum",
+
+  "item.warlocksmod.abyss_walker_helmet": "Abyss walker helmet",
+  "item.warlocksmod.abyss_walker_chestplate": "Abyss walker chestplate",
+  "item.warlocksmod.abyss_walker_leggings": "Abyss walker leggings",
+  "item.warlocksmod.abyss_walker_boots": "Abyss walker greaves",
+
+  "item.warlocksmod.faraam_helmet": "Faraam's helm",
+  "item.warlocksmod.faraam_chestplate": "Faraam's chestplate",
+  "item.warlocksmod.faraam_leggings": "Farram's leggings",
+  "item.warlocksmod.faraam_boots": "Faraam's greaves",
+
+  "item.warlocksmod.destiny_helmet": "Warlock helmet",
+  "item.warlocksmod.destiny_chestplate": "Warlock chestplate",
+  "item.warlocksmod.destiny_leggings": "Warlock leggings",
+  "item.warlocksmod.destiny_boots": "Warlock greaves",
+
+  "tooltip.warlocksmod.metal_detector.tooltip": "Custom Item test",
+
+  "creativetab.tutorialmod.warlocks_dev": "Warlocks"
 }

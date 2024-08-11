@@ -1,5 +1,7 @@
 package net.hatedero.warlocksmod;
 
+import net.hatedero.warlocksmod.block.ModBlocks;
+import net.hatedero.warlocksmod.item.ModCreativeModeTabs;
 import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
@@ -33,7 +35,10 @@ public class WarlocksMod {
 
         NeoForge.EVENT_BUS.register(this);
 
+        ModCreativeModeTabs.register(modEventBus);
+
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
 
@@ -45,11 +50,8 @@ public class WarlocksMod {
 
     }
 
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
-        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.BISMUTH);
-        }
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+
     }
 
     @SubscribeEvent
