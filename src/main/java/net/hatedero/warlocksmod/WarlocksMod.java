@@ -1,5 +1,6 @@
 package net.hatedero.warlocksmod;
 
+import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -17,11 +18,13 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
+import net.hatedero.warlocksmod.item.ModItems;
+
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(WarlocksMod.MOD_ID)
 public class WarlocksMod {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "hatederowarlocks";
+    public static final String MOD_ID = "warlocksmod";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -29,6 +32,8 @@ public class WarlocksMod {
         modEventBus.addListener(this::commonSetup);
 
         NeoForge.EVENT_BUS.register(this);
+
+        ModItems.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
 
@@ -42,7 +47,9 @@ public class WarlocksMod {
 
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.BISMUTH);
+        }
     }
 
     @SubscribeEvent
