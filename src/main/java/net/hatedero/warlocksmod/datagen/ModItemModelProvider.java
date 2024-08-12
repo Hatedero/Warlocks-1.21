@@ -21,21 +21,21 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        simpleItem(ModItems.SULFUR_POWDER);
-        simpleItem(ModItems.SALT_POWDER);
-        simpleItem(ModItems.VOLCANIC_DUST);
-        simpleItem(ModItems.CURED_ROTTEN_FLESH);
-        simpleItem(ModItems.COOKED_CURED_ROTTEN_FLESH);
-        simpleItem(ModItems.J_FRUIT);
-        simpleItem(ModItems.BEEF_SANDWICH);
-        simpleItem(ModItems.CHICKEN_SANDWICH);
-        simpleItem(ModItems.PORK_SANDWICH);
-        simpleItem(ModItems.LAMB_SANDWICH);
-        simpleItem(ModItems.AMERICAN_SANDWICH);
-        simpleItem(ModItems.SOUL_BERRY);
-        simpleItem(ModItems.SOULBERRY_SEEDS);
-        simpleItem(ModItems.SOUL_TENDRIL);
-        simpleItem(ModItems.ABYSS_SHARD);
+        basicItem(ModItems.SULFUR_POWDER.get());
+        basicItem(ModItems.SALT_POWDER.get());
+        basicItem(ModItems.VOLCANIC_DUST.get());
+        basicItem(ModItems.CURED_ROTTEN_FLESH.get());
+        basicItem(ModItems.COOKED_CURED_ROTTEN_FLESH.get());
+        basicItem(ModItems.J_FRUIT.get());
+        basicItem(ModItems.BEEF_SANDWICH.get());
+        basicItem(ModItems.CHICKEN_SANDWICH.get());
+        basicItem(ModItems.PORK_SANDWICH.get());
+        basicItem(ModItems.LAMB_SANDWICH.get());
+        basicItem(ModItems.AMERICAN_SANDWICH.get());
+        basicItem(ModItems.SOUL_BERRY.get());
+        basicItem(ModItems.SOULBERRY_SEEDS.get());
+        basicItem(ModItems.SOUL_TENDRIL.get());
+        basicItem(ModItems.ABYSS_SHARD.get());
 //        simpleItem(ModItems.ABYSS_WALKER_HELMET);
 //        simpleItem(ModItems.ABYSS_WALKER_CHESTPLATE);
 //        simpleItem(ModItems.ABYSS_WALKER_LEGGINGS);
@@ -61,10 +61,12 @@ public class ModItemModelProvider extends ItemModelProvider {
 //                new ResourceLocation("item/generated")).texture("layer0",
 //                new ResourceLocation(WarlocksMod.MOD_ID,"block/" + item.getId().getPath()));
 //    }
+//
+//    private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
+//        return withExistingParent(item.getId().getPath(),
+//                new ResourceLocation("item/generated")).texture("layer0",
+//                new ResourceLocation(WarlocksMod.MOD_ID, "item/" + item.getId().getPath()));
+//    }
 
-    private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
-        return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(WarlocksMod.MOD_ID, "item/" + item.getId().getPath()));
-    }
+
 }

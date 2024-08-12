@@ -28,9 +28,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
 
-        blockItem(ModBlocks.ABYSS_GRASS);
-        blockWithItem(ModBlocks.ABYSS_DIRT);
-        blockWithItem(ModBlocks.ABYSS_STONE);
+        simpleBlockItem(ModBlocks.ABYSS_GRASS.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/abyss_grass")));
+        simpleBlockWithItem(ModBlocks.ABYSS_DIRT.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/abyss_dirt")));
+        simpleBlockWithItem(ModBlocks.ABYSS_STONE.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/abyss_stone")));
 
         logBlock(((RotatedPillarBlock) ModBlocks.SOUL_TREE_LOG.get()));
         axisBlock(((RotatedPillarBlock) ModBlocks.SOUL_TREE_WOOD.get()), blockTexture(ModBlocks.SOUL_TREE_LOG.get()), blockTexture(ModBlocks.SOUL_TREE_LOG.get()));
@@ -38,12 +41,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 new ResourceLocation(WarlocksMod.MOD_ID, "block/stripped_soul_tree_log_top"));
         axisBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_SOUL_TREE_WOOD.get()), blockTexture(ModBlocks.STRIPPED_SOUL_TREE_LOG.get()),
                 blockTexture(ModBlocks.STRIPPED_SOUL_TREE_LOG.get()));
-        blockItem(ModBlocks.SOUL_TREE_LOG);
-        blockItem(ModBlocks.SOUL_TREE_WOOD);
-        blockItem(ModBlocks.STRIPPED_SOUL_TREE_LOG);
-        blockItem(ModBlocks.STRIPPED_SOUL_TREE_WOOD);
-        blockWithItem(ModBlocks.SOUL_TREE_PLANKS);
-        leavesBlock(ModBlocks.SOUL_TREE_LEAVES);
+        simpleBlockItem(ModBlocks.SOUL_TREE_LOG.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/soul_tree_log")));
+        simpleBlockItem(ModBlocks.SOUL_TREE_WOOD.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/soul_tree_wood")));
+        simpleBlockItem(ModBlocks.STRIPPED_SOUL_TREE_LOG.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/stripped_soul_tree_log")));
+        simpleBlockItem(ModBlocks.STRIPPED_SOUL_TREE_WOOD.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/stripped_soul_tree_wood")));
+        simpleBlockWithItem(ModBlocks.SOUL_TREE_PLANKS.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/soul_tree_planks")));
+        //leavesBlock(ModBlocks.SOUL_TREE_LEAVES);
         //saplingBlock(ModBlocks.SOUL_TREE_SAPLING);
         makeSoulberryCrop((CropBlock)ModBlocks.SOULBERRY_CROP.get(), "soulberry_stage", "soulberry_stage");
 
@@ -53,53 +61,53 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 new ResourceLocation(WarlocksMod.MOD_ID, "block/stripped_blue_plum_log_top"));
         axisBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_BLUE_PLUM_WOOD.get()), blockTexture(ModBlocks.STRIPPED_BLUE_PLUM_LOG.get()),
                 blockTexture(ModBlocks.STRIPPED_BLUE_PLUM_LOG.get()));
-        blockItem(ModBlocks.BLUE_PLUM_LOG);
-        blockItem(ModBlocks.BLUE_PLUM_WOOD);
-        blockItem(ModBlocks.STRIPPED_BLUE_PLUM_LOG);
-        blockItem(ModBlocks.STRIPPED_BLUE_PLUM_WOOD);
-        blockWithItem(ModBlocks.BLUE_PLUM_PLANKS);
-        leavesBlock(ModBlocks.BLUE_PLUM_LEAVES);
+        simpleBlockItem(ModBlocks.BLUE_PLUM_LOG);
+        simpleBlockItem(ModBlocks.BLUE_PLUM_WOOD);
+        simpleBlockItem(ModBlocks.STRIPPED_BLUE_PLUM_LOG);
+        simpleBlockItem(ModBlocks.STRIPPED_BLUE_PLUM_WOOD);
+        simpleBlockWithItem(ModBlocks.BLUE_PLUM_PLANKS);
+        //leavesBlock(ModBlocks.BLUE_PLUM_LEAVES);
         //saplingBlock(ModBlocks.BLUE_PLUM_SAPLING);
 
-        blockItem(ModBlocks.ABYSS_CHAIN);
+        simpleBlockItem(ModBlocks.ABYSS_CHAIN);
 
-        blockWithItem(ModBlocks.SULFUR_BLOCK);
+        simpleBlockWithItem(ModBlocks.SULFUR_BLOCK);
         //blockWithItem(ModBlocks.SULFUR_ORE);
 
-        blockWithItem(ModBlocks.SALT_BLOCK);
+        simpleBlockWithItem(ModBlocks.SALT_BLOCK);
 
 
 
 
 
-        blockWithItem(ModBlocks.CRYSTAL_BLOCK);
+        simpleBlockWithItem(ModBlocks.CRYSTAL_BLOCK);
 
 
 
 
 
-        blockWithItem(ModBlocks.ABYSS_GLASS);
-        blockWithItem(ModBlocks.ABYSS_LAMP);
-        blockWithItem(ModBlocks.SOUL_PLANT_BLIGHT);
+        simpleBlockWithItem(ModBlocks.ABYSS_GLASS);
+        simpleBlockWithItem(ModBlocks.ABYSS_LAMP);
+        simpleBlockWithItem(ModBlocks.SOUL_PLANT_BLIGHT);
 
 
 
 
 
-        blockWithItem(ModBlocks.BLUE_TEST);
-        blockWithItem(ModBlocks.WHITE_TEST);
-        blockWithItem(ModBlocks.ABYSS_STONE_BRICKS);
-        blockWithItem(ModBlocks.EVERBRIGHT_BRICKS);
-        blockWithItem(ModBlocks.BLIGHT_BRICKS);
-        blockWithItem(ModBlocks.REINFORCED_ABYSS_STONE_BRICKS);
-        blockWithItem(ModBlocks.REINFORCED_EVERBRIGHT_BRICKS);
-        blockWithItem(ModBlocks.REINFORCED_BLIGHT_BRICKS);
+        simpleBlockWithItem(ModBlocks.BLUE_TEST);
+        simpleBlockWithItem(ModBlocks.WHITE_TEST);
+        simpleBlockWithItem(ModBlocks.ABYSS_STONE_BRICKS);
+        simpleBlockWithItem(ModBlocks.EVERBRIGHT_BRICKS);
+        simpleBlockWithItem(ModBlocks.BLIGHT_BRICKS);
+        simpleBlockWithItem(ModBlocks.REINFORCED_ABYSS_STONE_BRICKS);
+        simpleBlockWithItem(ModBlocks.REINFORCED_EVERBRIGHT_BRICKS);
+        simpleBlockWithItem(ModBlocks.REINFORCED_BLIGHT_BRICKS);
 
 
 
 
 
-        blockWithItem(ModBlocks.BACKROOM_WALL);
+        simpleBlockWithItem(ModBlocks.BACKROOM_WALL);
 
         simpleBlockWithItem(ModBlocks.BASE_PILLAR.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/base_pillar")));
@@ -122,23 +130,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
         return models;
     }
 
-    private void blockItem(RegistryObject<Block> blockRegistryObject) {
-        simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile(WarlocksMod.MOD_ID +
-                ":block/" + NeoForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath()));
-    }
-
-    private void leavesBlock(RegistryObject<Block> blockRegistryObject) {
-        simpleBlockWithItem(blockRegistryObject.get(),
-                models().singleTexture(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), new ResourceLocation("minecraft:block/leaves"),
-                        "all", blockTexture(blockRegistryObject.get())).renderType("cutout"));
-    }
-
-    private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
-        simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
-    }
-
-    private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
-        simpleBlock(blockRegistryObject.get(),
-                models().cross(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
-    }
+//    private void blockItem(RegistryObject<Block> blockRegistryObject) {
+//        simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile(WarlocksMod.MOD_ID +
+//                ":block/" + NeoForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath()));
+//    }
+//
+//    private void leavesBlock(RegistryObject<Block> blockRegistryObject) {
+//        simpleBlockWithItem(blockRegistryObject.get(),
+//                models().singleTexture(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), new ResourceLocation("minecraft:block/leaves"),
+//                        "all", blockTexture(blockRegistryObject.get())).renderType("cutout"));
+//    }
+//
+//    private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
+//        simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+//    }
+//
+//    private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
+//        simpleBlock(blockRegistryObject.get(),
+//                models().cross(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
+//    }
 }

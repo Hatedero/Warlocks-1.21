@@ -23,15 +23,15 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-//        this.tag(ItemTags.LOGS)
-//                .add(ModBlocks.SOUL_TREE_LOG.get().asItem())
-//                .add(ModBlocks.SOUL_TREE_WOOD.get().asItem())
-//                .add(ModBlocks.STRIPPED_SOUL_TREE_LOG.get().asItem())
-//                .add(ModBlocks.STRIPPED_SOUL_TREE_WOOD.get().asItem())
-//                .add(ModBlocks.BLUE_PLUM_LOG.get().asItem())
-//                .add(ModBlocks.BLUE_PLUM_WOOD.get().asItem())
-//                .add(ModBlocks.STRIPPED_BLUE_PLUM_LOG.get().asItem())
-//                .add(ModBlocks.STRIPPED_BLUE_PLUM_WOOD.get().asItem());
+        this.tag(ItemTags.LOGS)
+                .add(ModBlocks.SOUL_TREE_LOG.get().asItem())
+                .add(ModBlocks.SOUL_TREE_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_SOUL_TREE_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_SOUL_TREE_WOOD.get().asItem())
+                .add(ModBlocks.BLUE_PLUM_LOG.get().asItem())
+                .add(ModBlocks.BLUE_PLUM_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_BLUE_PLUM_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_BLUE_PLUM_WOOD.get().asItem());
 
         this.tag(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.SOUL_TREE_LOG.get().asItem())
