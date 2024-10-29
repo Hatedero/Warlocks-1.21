@@ -1,16 +1,8 @@
 package net.hatedero.warlocksmod.datagen;
 
 import net.hatedero.warlocksmod.WarlocksMod;
-import net.hatedero.warlocksmod.block.ModBlocks;
 import net.hatedero.warlocksmod.item.ModItems;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-
-//import net.minecraftforge.registries.RegistryObject;
-
-import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
@@ -36,37 +28,23 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.SOULBERRY_SEEDS.get());
         basicItem(ModItems.SOUL_TENDRIL.get());
         basicItem(ModItems.ABYSS_SHARD.get());
-//        simpleItem(ModItems.ABYSS_WALKER_HELMET);
-//        simpleItem(ModItems.ABYSS_WALKER_CHESTPLATE);
-//        simpleItem(ModItems.ABYSS_WALKER_LEGGINGS);
-//        simpleItem(ModItems.ABYSS_WALKER_BOOTS);
-//        simpleItem(ModItems.FARAAM_HELMET);
-//        simpleItem(ModItems.FARAAM_CHESTPLATE);
-//        simpleItem(ModItems.FARAAM_LEGGINGS);
-//        simpleItem(ModItems.FARAAM_BOOTS);
-//        simpleItem(ModItems.DESTINY_HELMET);
-//        simpleItem(ModItems.DESTINY_CHESTPLATE);
-//        simpleItem(ModItems.DESTINY_LEGGINGS);
-//        simpleItem(ModItems.DESTINY_BOOTS);
+        /*basicItem(ModItems.ABYSS_WALKER_HELMET);
+        basicItem(ModItems.ABYSS_WALKER_CHESTPLATE);
+        basicItem(ModItems.ABYSS_WALKER_LEGGINGS);
+        basicItem(ModItems.ABYSS_WALKER_BOOTS);
+        basicItem(ModItems.FARAAM_HELMET);
+        basicItem(ModItems.FARAAM_CHESTPLATE);
+        basicItem(ModItems.FARAAM_LEGGINGS);
+        basicItem(ModItems.FARAAM_BOOTS);
+        basicItem(ModItems.DESTINY_HELMET);
+        basicItem(ModItems.DESTINY_CHESTPLATE);
+        basicItem(ModItems.DESTINY_LEGGINGS);
+        basicItem(ModItems.DESTINY_BOOTS);*/
 
 //        withExistingParent(ModItems.RAT_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 //        withExistingParent(ModItems.LOSTSOUL_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
-//        saplingItem(ModBlocks.SOUL_TREE_SAPLING);
-//        saplingItem(ModBlocks.BLUE_PLUM_SAPLING);
+        /*saplingItem(ModBlocks.SOUL_TREE_SAPLING);
+        saplingItem(ModBlocks.BLUE_PLUM_SAPLING);*/
     }
-
-//    private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
-//        return withExistingParent(item.getId().getPath(),
-//                new ResourceLocation("item/generated")).texture("layer0",
-//                new ResourceLocation(WarlocksMod.MOD_ID,"block/" + item.getId().getPath()));
-//    }
-//
-//    private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
-//        return withExistingParent(item.getId().getPath(),
-//                new ResourceLocation("item/generated")).texture("layer0",
-//                new ResourceLocation(WarlocksMod.MOD_ID, "item/" + item.getId().getPath()));
-//    }
-
-
 }

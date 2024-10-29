@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "warlocksmod:block/soulberry_stage0"
+    },
+    "age=1": {
+      "model": "warlocksmod:block/soulberry_stage1"
+    },
+    "age=2": {
+      "model": "warlocksmod:block/soulberry_stage2"
+    },
+    "age=3": {
+      "model": "warlocksmod:block/soulberry_stage3"
+    },
+    "age=4": {
+      "model": "warlocksmod:block/soulberry_stage4"
+    },
+    "age=5": {
+      "model": "warlocksmod:block/soulberry_stage5"
+    }
+  }
+}

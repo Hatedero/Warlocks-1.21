@@ -1,0 +1,13 @@
+{
+  "values": {
+    "warlocksmod:soul_tendril": {
+      "burn_time": 600
+    },
+    "warlocksmod:sulfur_block": {
+      "burn_time": 12000
+    },
+    "warlocksmod:sulfur_powder": {
+      "burn_time": 1200
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "warlocksmod:block/abyss_dirt",
+    "up": "warlocksmod:block/abyss_grass_top",
+    "down": "warlocksmod:block/abyss_dirt",
+    "east": "warlocksmod:block/abyss_grass_side",
+    "north": "warlocksmod:block/abyss_grass_side",
+    "south": "warlocksmod:block/abyss_grass_side",
+    "west": "warlocksmod:block/abyss_grass_side"
+  }
+}

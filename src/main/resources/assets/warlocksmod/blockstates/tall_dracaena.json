@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "warlocksmod:block/tall_dracaena_bottom"
+    },
+    "half=upper": {
+      "model": "warlocksmod:block/tall_dracaena_top"
+    }
+  }
+}

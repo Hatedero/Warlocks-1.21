@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "salt",
+  "ingredient": {
+    "item": "warlocksmod:salt_powder"
+  },
+  "result": {
+    "count": 1,
+    "id": "warlocksmod:salt_powder"
+  }
+}

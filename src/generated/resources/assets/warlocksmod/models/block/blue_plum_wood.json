@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "warlocksmod:block/blue_plum_log",
+    "side": "warlocksmod:block/blue_plum_log"
+  }
+}

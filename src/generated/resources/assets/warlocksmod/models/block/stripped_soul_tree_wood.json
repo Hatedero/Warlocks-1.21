@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "warlocksmod:block/stripped_soul_tree_log",
+    "side": "warlocksmod:block/stripped_soul_tree_log"
+  }
+}

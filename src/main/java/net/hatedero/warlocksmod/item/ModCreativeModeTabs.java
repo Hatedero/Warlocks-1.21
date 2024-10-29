@@ -35,7 +35,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.STRIPPED_SOUL_TREE_LOG.get());
                         output.accept(ModBlocks.STRIPPED_SOUL_TREE_WOOD.get());
                         output.accept(ModBlocks.SOUL_TREE_PLANKS.get());
-                        output.accept(ModBlocks.SOUL_TREE_LEAVES.get());
+                        //output.accept(ModBlocks.SOUL_TREE_LEAVES.get());
                         //output.accept(ModBlocks.SOUL_TREE_SAPLING.get());
                         output.accept(ModBlocks.SOULBERRY_CROP.get());
 
@@ -48,7 +48,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.STRIPPED_BLUE_PLUM_LOG.get());
                         output.accept(ModBlocks.STRIPPED_BLUE_PLUM_WOOD.get());
                         output.accept(ModBlocks.BLUE_PLUM_PLANKS.get());
-                        output.accept(ModBlocks.BLUE_PLUM_LEAVES.get());
+                        //output.accept(ModBlocks.BLUE_PLUM_LEAVES.get());
                         //output.accept(ModBlocks.BLUE_PLUM_SAPLING.get());
 
 

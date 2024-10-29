@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "sulfur",
+  "ingredient": {
+    "item": "warlocksmod:sulfur_ore"
+  },
+  "result": {
+    "count": 1,
+    "id": "warlocksmod:sulfur_powder"
+  }
+}

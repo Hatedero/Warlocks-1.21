@@ -15,6 +15,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -63,7 +64,7 @@ public class ModBlocks {
                     return 5;
                 }
             });
-    public static final DeferredBlock<Block> SOUL_TREE_LEAVES = registerBlock("soul_tree_leaves",
+    /*public static final DeferredBlock<Block> SOUL_TREE_LEAVES = registerBlock("soul_tree_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).lightLevel((litBlockEmission) -> { return 7; })) {
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
@@ -79,7 +80,7 @@ public class ModBlocks {
                 public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return 30;
                 }
-            });
+            });*/
 
 //    public static final DeferredBlock<Block> SOUL_TREE_SAPLING = registerBlock("soul_tree_sapling",
 //            () -> new SaplingBlock(new SoultreeTreeGrower(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).strength(3f).lightLevel((litBlockEmission) -> { return 7; })){
@@ -121,7 +122,7 @@ public class ModBlocks {
                     return 5;
                 }
             });
-    public static final DeferredBlock<Block> BLUE_PLUM_LEAVES = registerBlock("blue_plum_leaves",
+    /*public static final DeferredBlock<Block> BLUE_PLUM_LEAVES = registerBlock("blue_plum_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
@@ -137,7 +138,7 @@ public class ModBlocks {
                 public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return 30;
                 }
-            });
+            });*/
 
 //    public static final DeferredBlock<Block> BLUE_PLUM_SAPLING = registerBlock("blue_plum_sapling",
 //            () -> new SaplingBlock(new BlueplumTreeGrower(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).strength(3f)){
@@ -154,9 +155,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> SULFUR_BLOCK = registerBlock("sulfur_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.STONE)));
 
-//    public static final DeferredBlock<Block> SULFUR_ORE = registerBlock("sulfur_ore",
-//            () -> new DropExperienceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noLootTable()
-//                    .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3,6)));
+    public static final DeferredBlock<Block> SULFUR_ORE = registerBlock("sulfur_ore",
+            () -> new DropExperienceBlock(UniformInt.of(3, 6),
+                    BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
 
 
@@ -170,7 +171,7 @@ public class ModBlocks {
 
 
     public static final DeferredBlock<Block> CRYSTAL_BLOCK = registerBlock("crystal_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).sound(SoundType.AMETHYST)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).mapColor(MapColor.GRASS).sound(SoundType.AMETHYST)));
 
 
 

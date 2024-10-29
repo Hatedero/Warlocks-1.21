@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "warlocksmod:block/stripped_blue_plum_wood_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "warlocksmod:block/stripped_blue_plum_wood"
+    },
+    "axis=z": {
+      "model": "warlocksmod:block/stripped_blue_plum_wood_horizontal",
+      "x": 90
+    }
+  }
+}
