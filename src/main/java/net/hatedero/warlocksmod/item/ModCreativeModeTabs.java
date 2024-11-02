@@ -25,6 +25,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ABYSS_GRASS.get());
                         output.accept(ModBlocks.ABYSS_DIRT.get());
                         output.accept(ModBlocks.ABYSS_STONE.get());
+                        output.accept(ModBlocks.ABYSS_CORE.get());
 
 
 
@@ -35,8 +36,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.STRIPPED_SOUL_TREE_LOG.get());
                         output.accept(ModBlocks.STRIPPED_SOUL_TREE_WOOD.get());
                         output.accept(ModBlocks.SOUL_TREE_PLANKS.get());
-                        //output.accept(ModBlocks.SOUL_TREE_LEAVES.get());
-                        //output.accept(ModBlocks.SOUL_TREE_SAPLING.get());
+                        output.accept(ModBlocks.SOUL_TREE_LEAVES.get());
+                        output.accept(ModBlocks.SOUL_TREE_SAPLING.get());
                         output.accept(ModBlocks.SOULBERRY_CROP.get());
 
 
@@ -88,8 +89,8 @@ public class ModCreativeModeTabs {
 
 
 
-                        output.accept(ModBlocks.BLUE_TEST.get());
-                        output.accept(ModBlocks.WHITE_TEST.get());
+//                        output.accept(ModBlocks.BLUE_TEST.get());
+//                        output.accept(ModBlocks.WHITE_TEST.get());
                         output.accept(ModBlocks.ABYSS_STONE_BRICKS.get());
                         output.accept(ModBlocks.EVERBRIGHT_BRICKS.get());
                         output.accept(ModBlocks.BLIGHT_BRICKS.get());
@@ -119,6 +120,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.PILLAR.get());
 
                         output.accept(ModItems.ABYSS_SHARD.get());
+                        output.accept(ModItems.ABYSS_SHARD_HAMMER.get());
                         output.accept(ModItems.SULFUR_POWDER.get());
 
 //                        pOutput.accept(ModItems.RAT_SPAWN_EGG.get());
@@ -145,10 +147,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.LAMB_SANDWICH.get());
                         output.accept(ModItems.AMERICAN_SANDWICH.get());
 
-//                        output.accept(ModItems.ABYSS_WALKER_HELMET.get());
-//                        output.accept(ModItems.ABYSS_WALKER_CHESTPLATE.get());
-//                        output.accept(ModItems.ABYSS_WALKER_LEGGINGS.get());
-//                        output.accept(ModItems.ABYSS_WALKER_BOOTS.get());
+                        output.accept(ModItems.ABYSS_SHARD_HELMET.get());
+                        output.accept(ModItems.ABYSS_SHARD_CHESTPLATE.get());
+                        output.accept(ModItems.ABYSS_SHARD_LEGGINGS.get());
+                        output.accept(ModItems.ABYSS_SHARD_BOOTS.get());
 //
 //                        output.accept(ModItems.DESTINY_HELMET.get());
 //                        output.accept(ModItems.DESTINY_CHESTPLATE.get());

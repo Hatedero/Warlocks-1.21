@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_soul_tree_log": {
+    "has_soul_sand": {
       "conditions": {
         "items": [
           {
-            "items": "warlocksmod:soul_tree_log"
+            "items": "minecraft:soul_sand"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_soul_tree_log"
+      "has_soul_sand"
     ]
   ],
   "rewards": {

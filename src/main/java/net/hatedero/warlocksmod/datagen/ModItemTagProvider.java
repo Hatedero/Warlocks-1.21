@@ -59,5 +59,22 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         this.tag(ItemTags.COALS)
                 .add(ModItems.SULFUR_POWDER.get().asItem());
+
+        this.tag(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.ABYSS_SHARD_HELMET.get())
+                .add(ModItems.ABYSS_SHARD_CHESTPLATE.get())
+                .add(ModItems.ABYSS_SHARD_LEGGINGS.get())
+                .add(ModItems.ABYSS_SHARD_BOOTS.get());
+
+        this.tag(ItemTags.ARMOR_ENCHANTABLE)
+                .add(ModItems.ABYSS_SHARD_HELMET.get())
+                .add(ModItems.ABYSS_SHARD_CHESTPLATE.get())
+                .add(ModItems.ABYSS_SHARD_LEGGINGS.get())
+                .add(ModItems.ABYSS_SHARD_BOOTS.get());
+
+        this.tag(ModTags.Items.TRANSFORMABLE_ITEMS)
+                .add(Items.OBSIDIAN)
+                .add(Items.SCULK)
+                .add(Items.NETHERITE_INGOT);
     }
 }

@@ -34,6 +34,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.ABYSS_GRASS.get());
         dropSelf(ModBlocks.ABYSS_DIRT.get());
         dropSelf(ModBlocks.ABYSS_STONE.get());
+        dropSelf(ModBlocks.ABYSS_CORE.get());
 
 
 
@@ -44,9 +45,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.STRIPPED_SOUL_TREE_LOG.get());
         dropSelf(ModBlocks.STRIPPED_SOUL_TREE_WOOD.get());
         dropSelf(ModBlocks.SOUL_TREE_PLANKS.get());
-       // dropSelf(ModBlocks.SOUL_TREE_SAPLING.get());
-        //add(ModBlocks.tutorialmod.get(), block ->
-               // createLeavesDrops(block, ModBlocks.SOUL_TREE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        dropSelf(ModBlocks.SOUL_TREE_SAPLING.get());
+        add(ModBlocks.SOUL_TREE_LEAVES.get(), block ->
+                createLeavesDrops(block, ModBlocks.SOUL_TREE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
 //        LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
 //                .hasBlockStateProperties(ModBlocks.SOULBERRY_CROP.get())
 //                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SoulberryCropBlock.AGE, 5));
@@ -62,9 +64,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.STRIPPED_BLUE_PLUM_LOG.get());
         dropSelf(ModBlocks.STRIPPED_BLUE_PLUM_WOOD.get());
         dropSelf(ModBlocks.BLUE_PLUM_PLANKS.get());
-        //dropSelf(ModBlocks.BLUE_PLUM_SAPLING.get());
-        //add(ModBlocks.BLUE_PLUM_LEAVES.get(), block ->
-          //      createLeavesDrops(block, ModBlocks.BLUE_PLUM_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        dropSelf(ModBlocks.BLUE_PLUM_SAPLING.get());
+        add(ModBlocks.BLUE_PLUM_LEAVES.get(), block ->
+                createLeavesDrops(block, ModBlocks.BLUE_PLUM_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
 
 

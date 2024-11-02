@@ -3,6 +3,8 @@ package net.hatedero.warlocksmod.item;
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.block.ModBlocks;
 import net.hatedero.warlocksmod.item.custom.FuelItem;
+import net.hatedero.warlocksmod.item.custom.HammerItem;
+import net.hatedero.warlocksmod.item.custom.ModArmorItem;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -10,6 +12,11 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(WarlocksMod.MOD_ID);
+
+    public static final DeferredItem<HammerItem> ABYSS_SHARD_HAMMER = ITEMS.register("abyss_shard_hammer",
+            () -> new HammerItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.ABYSS_SHARD, 1F, -3.5f)), 2));
+
 
     public static final DeferredItem<Item> ABYSS_SHARD = ITEMS.register("abyss_shard",
             () -> new Item(new Item.Properties()));
@@ -72,14 +79,19 @@ public class ModItems {
 
     public static final DeferredItem<Item> SOULBERRY_SEEDS = ITEMS.register("soulberry_seeds",
             () -> new ItemNameBlockItem(ModBlocks.SOULBERRY_CROP.get(), new Item.Properties()));
-//    public static final DeferredItem<Item> ABYSS_WALKER_HELMET = ITEMS.register("abyss_walker_helmet",
-//            () -> new ModArmorItem(ModArmorMaterials.ABYSS, ArmorItem.Type.HELMET, new Item.Properties()));
-//    public static final DeferredItem<Item> ABYSS_WALKER_CHESTPLATE = ITEMS.register("abyss_walker_chestplate",
-//            () -> new ArmorItem(ModArmorMaterials.ABYSS, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
-//    public static final DeferredItem<Item> ABYSS_WALKER_LEGGINGS = ITEMS.register("abyss_walker_leggings",
-//            () -> new ArmorItem(ModArmorMaterials.ABYSS, ArmorItem.Type.LEGGINGS, new Item.Properties()));
-//    public static final DeferredItem<Item> ABYSS_WALKER_BOOTS = ITEMS.register("abyss_walker_boots",
-//            () -> new ArmorItem(ModArmorMaterials.ABYSS, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final DeferredItem<ArmorItem> ABYSS_SHARD_HELMET = ITEMS.register("abyss_shard_helmet",
+            () -> new ModArmorItem(ModArmorMaterials.ABYSS_SHARD_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(40))));
+    public static final DeferredItem<ArmorItem> ABYSS_SHARD_CHESTPLATE = ITEMS.register("abyss_shard_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.ABYSS_SHARD_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(40))));
+    public static final DeferredItem<ArmorItem> ABYSS_SHARD_LEGGINGS = ITEMS.register("abyss_shard_leggings",
+            () -> new ArmorItem(ModArmorMaterials.ABYSS_SHARD_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(40))));
+    public static final DeferredItem<ArmorItem> ABYSS_SHARD_BOOTS = ITEMS.register("abyss_shard_boots",
+            () -> new ArmorItem(ModArmorMaterials.ABYSS_SHARD_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(40))));
 //
 //    public static final DeferredItem<Item> FARAAM_HELMET = ITEMS.register("faraam_helmet",
 //            () -> new ArmorItem(ModArmorMaterials.FARAAM, ArmorItem.Type.HELMET, new Item.Properties()));

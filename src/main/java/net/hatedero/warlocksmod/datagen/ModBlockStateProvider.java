@@ -23,6 +23,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         //blockItem(ModBlocks.ABYSS_GRASS);
         blockWithItem(ModBlocks.ABYSS_DIRT);
         blockWithItem(ModBlocks.ABYSS_STONE);
+        //blockWithItem(ModBlocks.ABYSS_CORE);
 
         logBlock(((RotatedPillarBlock) ModBlocks.SOUL_TREE_LOG.get()));
         axisBlock(((RotatedPillarBlock) ModBlocks.SOUL_TREE_WOOD.get()), blockTexture(ModBlocks.SOUL_TREE_LOG.get()), blockTexture(ModBlocks.SOUL_TREE_LOG.get()));
@@ -70,7 +71,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 
 
-        blockWithItem(ModBlocks.ABYSS_GLASS);
+        //blockWithItem(ModBlocks.ABYSS_GLASS);
         blockWithItem(ModBlocks.ABYSS_LAMP);
         blockWithItem(ModBlocks.SOUL_PLANT_BLIGHT);
 

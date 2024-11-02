@@ -3,13 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:obsidian"
+      "item": "minecraft:sculk"
     },
     {
-      "item": "minecraft:quartz"
-    },
-    {
-      "item": "warlocksmod:soul_tree_log"
+      "item": "minecraft:soul_sand"
     }
   ],
   "result": {

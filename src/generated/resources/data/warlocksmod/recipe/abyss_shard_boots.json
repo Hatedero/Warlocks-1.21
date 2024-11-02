@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond_boots"
+    },
+    {
+      "item": "warlocksmod:abyss_shard"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "warlocksmod:abyss_shard_boots"
+  }
+}

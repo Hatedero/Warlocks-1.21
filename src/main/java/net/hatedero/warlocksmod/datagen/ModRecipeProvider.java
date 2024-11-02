@@ -10,6 +10,8 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
 import java.util.List;
@@ -22,15 +24,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
-        List<ItemLike> SULFUR_SMELTABLE = List.of(ModItems.SULFUR_POWDER.get(),
+        List<ItemLike> SULFUR_SMELTABLE = List.of(
                 ModBlocks.SULFUR_ORE.get());
 
-        List<ItemLike> CURED_ROTTEN_FLESH_COOKABLE = List.of(ModItems.COOKED_CURED_ROTTEN_FLESH.get(),
+        List<ItemLike> CURED_ROTTEN_FLESH_COOKABLE = List.of(
                 ModItems.CURED_ROTTEN_FLESH.get());
 
-        List<ItemLike> SALT_COOKABLE = List.of(ModItems.SALT_POWDER.get(),
+        List<ItemLike> SALT_COOKABLE = List.of(
                 Items.WATER_BUCKET);
-
 
         itemSmelting(recipeOutput, SALT_COOKABLE, RecipeCategory.MISC, ModItems.SALT_POWDER.get(), 0.25f, 200, "salt");
 
@@ -42,45 +43,64 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         fullGeneral(ModBlocks.SULFUR_BLOCK.get(), ModItems.SULFUR_POWDER.get(), "sulfur", recipeOutput);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CURED_ROTTEN_FLESH.get(), 1)
+                .requires(ModItems.SALT_POWDER)
+                .requires(Items.ROTTEN_FLESH)
+                .unlockedBy("has_salt", has(ModItems.SALT_POWDER)).save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.ABYSS_GLASS.get(), 1)
+                .requires(ModItems.ABYSS_SHARD)
+                .requires(Blocks.GLASS)
+                .unlockedBy("has_abyss_shard", has(ModItems.ABYSS_SHARD)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ABYSS_CORE.get())
+                .pattern("GPG")
+                .pattern("PSP")
+                .pattern("GPG")
+                .define('S', Blocks.SCULK_SHRIEKER)
+                .define('G', ModBlocks.ABYSS_GLASS)
+                .define('P', Blocks.PISTON)
+                .unlockedBy("has_abyss_shard", has(ModItems.ABYSS_SHARD)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ABYSS_SHARD_HAMMER.get())
+                .pattern("SSS")
+                .pattern("STS")
+                .pattern(" T ")
+                .define('S', ModItems.ABYSS_SHARD)
+                .define('T', Items.STICK)
+                .unlockedBy("has_abyss_shard", has(ModItems.ABYSS_SHARD)).save(recipeOutput);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ABYSS_SHARD.get(), 1)
-                .requires(Items.OBSIDIAN)
-                .requires(Items.QUARTZ)
-                .requires(ModBlocks.SOUL_TREE_LOG)
-                .unlockedBy("has_soul_tree_log", has(ModBlocks.SOUL_TREE_LOG)).save(recipeOutput);
+                .requires(Items.SCULK)
+                .requires(Items.SOUL_SAND)
+                .unlockedBy("has_soul_sand", has(Blocks.SOUL_SAND)).save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.ABYSS_CHAIN.get(), 1)
                 .requires(Items.CHAIN)
                 .requires(ModItems.ABYSS_SHARD)
                 .unlockedBy("has_abyss_shard", has(ModItems.ABYSS_SHARD)).save(recipeOutput);
 
-        /*ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ABYSS_WALKER_HELMET.get())
-                .requires(ModItems.ABYSS_SHARD.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ABYSS_SHARD_HELMET.get(), 1)
                 .requires(Items.DIAMOND_HELMET)
+                .requires(ModItems.ABYSS_SHARD)
+                .unlockedBy("has_abyss_shard", has(ModItems.ABYSS_SHARD)).save(recipeOutput);
 
-                .unlockedBy(getHasName(Items.DIAMOND_HELMET), has(Items.DIAMOND_HELMET));
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ABYSS_WALKER_CHESTPLATE.get())
-                .requires(ModItems.ABYSS_SHARD.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ABYSS_SHARD_CHESTPLATE.get(), 1)
                 .requires(Items.DIAMOND_CHESTPLATE)
+                .requires(ModItems.ABYSS_SHARD)
+                .unlockedBy("has_abyss_shard", has(ModItems.ABYSS_SHARD)).save(recipeOutput);
 
-                .unlockedBy(getHasName(Items.DIAMOND_CHESTPLATE), has(Items.DIAMOND_CHESTPLATE));
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ABYSS_WALKER_LEGGINGS.get())
-                .requires(ModItems.ABYSS_SHARD.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ABYSS_SHARD_LEGGINGS.get(), 1)
                 .requires(Items.DIAMOND_LEGGINGS)
+                .requires(ModItems.ABYSS_SHARD)
+                .unlockedBy("has_abyss_shard", has(ModItems.ABYSS_SHARD)).save(recipeOutput);
 
-                .unlockedBy(getHasName(Items.DIAMOND_LEGGINGS), has(Items.DIAMOND_LEGGINGS));
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ABYSS_WALKER_BOOTS.get())
-                .requires(ModItems.ABYSS_SHARD.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ABYSS_SHARD_BOOTS.get(), 1)
                 .requires(Items.DIAMOND_BOOTS)
+                .requires(ModItems.ABYSS_SHARD)
+                .unlockedBy("has_abyss_shard", has(ModItems.ABYSS_SHARD)).save(recipeOutput);
 
-                .unlockedBy(getHasName(Items.DIAMOND_BOOTS), has(Items.DIAMOND_BOOTS));
-
-
-
-
-
+        /*
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.FARAAM_HELMET.get())
                 .requires(Items.LEATHER)
                 .requires(Items.IRON_HELMET)

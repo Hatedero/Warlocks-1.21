@@ -1,18 +1,21 @@
 package net.hatedero.warlocksmod.block;
 
 import net.hatedero.warlocksmod.WarlocksMod;
+import net.hatedero.warlocksmod.block.custom.AbyssCoreBlock;
 import net.hatedero.warlocksmod.block.custom.ModFlammableRotatedPillarBlock;
 import net.hatedero.warlocksmod.block.custom.PillarBlock;
 import net.hatedero.warlocksmod.block.custom.SoulberryCropBlock;
 import net.hatedero.warlocksmod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
@@ -20,7 +23,10 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.Optional;
 import java.util.function.Supplier;
+
+import static net.minecraft.world.level.block.grower.TreeGrower.*;
 
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
@@ -34,6 +40,9 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> ABYSS_STONE = registerBlock("abyss_stone",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.SCULK)));
+
+    public static final DeferredBlock<Block> ABYSS_CORE = registerBlock("abyss_core",
+            () -> new AbyssCoreBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.SCULK_SHRIEKER)));
 
 
 
@@ -64,7 +73,7 @@ public class ModBlocks {
                     return 5;
                 }
             });
-    /*public static final DeferredBlock<Block> SOUL_TREE_LEAVES = registerBlock("soul_tree_leaves",
+    public static final DeferredBlock<Block> SOUL_TREE_LEAVES = registerBlock("soul_tree_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).lightLevel((litBlockEmission) -> { return 7; })) {
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
@@ -80,15 +89,17 @@ public class ModBlocks {
                 public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return 30;
                 }
-            });*/
+            });
 
-//    public static final DeferredBlock<Block> SOUL_TREE_SAPLING = registerBlock("soul_tree_sapling",
-//            () -> new SaplingBlock(new SoultreeTreeGrower(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).strength(3f).lightLevel((litBlockEmission) -> { return 7; })){
-//                @Override
-//                protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-//                    return pState.is(Blocks.FARMLAND) || pState.is(BlockTags.DIRT);
-//                }
-//            });
+    public static final DeferredBlock<Block> SOUL_TREE_SAPLING = registerBlock("soul_tree_sapling",
+
+            () -> new SaplingBlock(DARK_OAK
+                    , BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).strength(3f).lightLevel((litBlockEmission) -> { return 7; })){
+                @Override
+                protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+                    return pState.is(Blocks.FARMLAND) || pState.is(BlockTags.DIRT);
+                }
+            });
 
     public static final DeferredBlock<Block> SOULBERRY_CROP = BLOCKS.register("soulberry_crop",
             () -> new SoulberryCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT).noLootTable().noCollission().lightLevel((litBlockEmission) -> { return 7; })));
@@ -122,7 +133,7 @@ public class ModBlocks {
                     return 5;
                 }
             });
-    /*public static final DeferredBlock<Block> BLUE_PLUM_LEAVES = registerBlock("blue_plum_leaves",
+    public static final DeferredBlock<Block> BLUE_PLUM_LEAVES = registerBlock("blue_plum_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
@@ -138,15 +149,15 @@ public class ModBlocks {
                 public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return 30;
                 }
-            });*/
+            });
 
-//    public static final DeferredBlock<Block> BLUE_PLUM_SAPLING = registerBlock("blue_plum_sapling",
-//            () -> new SaplingBlock(new BlueplumTreeGrower(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).strength(3f)){
-//                @Override
-//                protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-//                    return pState.is(Blocks.FARMLAND) || pState.is(BlockTags.DIRT);
-//                }
-//            });
+    public static final DeferredBlock<Block> BLUE_PLUM_SAPLING = registerBlock("blue_plum_sapling",
+            () -> new SaplingBlock(JUNGLE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).strength(3f)){
+                @Override
+                protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+                    return pState.is(Blocks.FARMLAND) || pState.is(BlockTags.DIRT);
+                }
+            });
 
 
 
@@ -255,7 +266,7 @@ public class ModBlocks {
             });
 
     public static final DeferredBlock<Block> SOUL_PLANT = registerBlock("soul_plant",
-            () -> new TwistingVinesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK).sound(SoundType.SCULK).noOcclusion().lightLevel((litBlockEmission) -> { return 7; })){
+            () -> new TwistingVinesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK).sound(SoundType.SCULK).noOcclusion().noCollission().lightLevel((litBlockEmission) -> { return 7; })){
                 @Override
                 protected Block getBodyBlock() {
                     return ModBlocks.SOUL_PLANT_BLOCK.get();

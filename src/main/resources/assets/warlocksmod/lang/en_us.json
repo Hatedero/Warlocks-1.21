@@ -2,6 +2,7 @@
   "block.warlocksmod.abyss_grass": "Abyss grass",
   "block.warlocksmod.abyss_dirt": "Abyss dirt",
   "block.warlocksmod.abyss_stone": "Abyss stone",
+  "block.warlocksmod.abyss_core": "Abyss core",
 
 
 
@@ -98,6 +99,7 @@
 
   "item.warlocksmod.cleaver": "Cleaver",
   "item.warlocksmod.spear": "Spear",
+  "item.warlocksmod.abyss_shard_hammer": "Abyss shard's Hammer",
 
   "item.warlocksmod.coin": "Coin",
   "item.warlocksmod.volcanic_dust": "Volcanic dust",
@@ -110,10 +112,10 @@
 
   "item.warlocksmod.j_fruit": "Blue plum",
 
-  "item.warlocksmod.abyss_walker_helmet": "Abyss walker helmet",
-  "item.warlocksmod.abyss_walker_chestplate": "Abyss walker chestplate",
-  "item.warlocksmod.abyss_walker_leggings": "Abyss walker leggings",
-  "item.warlocksmod.abyss_walker_boots": "Abyss walker greaves",
+  "item.warlocksmod.abyss_shard_helmet": "Abyss walker helmet",
+  "item.warlocksmod.abyss_shard_chestplate": "Abyss walker chestplate",
+  "item.warlocksmod.abyss_shard_leggings": "Abyss walker leggings",
+  "item.warlocksmod.abyss_shard_boots": "Abyss walker greaves",
 
   "item.warlocksmod.faraam_helmet": "Faraam's helm",
   "item.warlocksmod.faraam_chestplate": "Faraam's chestplate",

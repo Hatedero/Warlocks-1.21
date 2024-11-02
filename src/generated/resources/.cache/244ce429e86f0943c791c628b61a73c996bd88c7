@@ -1,7 +1,10 @@
-// 1.21	2024-10-29T14:54:17.100696	Tags for minecraft:item mod id warlocksmod
+// 1.21	2024-11-02T12:07:39.5426701	Tags for minecraft:item mod id warlocksmod
 b7a50562c5cc052715a7fcccc8d87969a714ae49 data/minecraft/tags/item/coals.json
+afb1ce78a8cbad3f8046eef6d7fa676640beb3ff data/minecraft/tags/item/enchantable/armor.json
 dbf4f8e1c166f82eb697f23b3e876561c7e5111d data/minecraft/tags/item/logs.json
 dbf4f8e1c166f82eb697f23b3e876561c7e5111d data/minecraft/tags/item/logs_that_burn.json
 e9c1408201376332533cd61e2ca69430a51f8eb3 data/minecraft/tags/item/planks.json
 577c260d547c433545fb77d979433412d280ffc1 data/minecraft/tags/item/stone_crafting_materials.json
 577c260d547c433545fb77d979433412d280ffc1 data/minecraft/tags/item/stone_tool_materials.json
+afb1ce78a8cbad3f8046eef6d7fa676640beb3ff data/minecraft/tags/item/trimmable_armor.json
+1210714b8bd5527de13764a40e6a4a025a3f42c1 data/warlocksmod/tags/item/transformable_items.json

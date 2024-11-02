@@ -1,6 +1,5 @@
-// 1.21	2024-10-29T14:54:17.1041077	Block States: warlocksmod
+// 1.21	2024-11-01T20:16:53.8862918	Block States: warlocksmod
 8b1db2c1eeef3ad93f9bf5627aaca2374753d6b3 assets/warlocksmod/blockstates/abyss_dirt.json
-b6570b42ac7ee4e19a4287ae66836090b33f21b9 assets/warlocksmod/blockstates/abyss_glass.json
 9ae865e9da425a991f1bd8d47ba35ff98de50884 assets/warlocksmod/blockstates/abyss_lamp.json
 eac795d8d23c2e1e09e1beb40bdca062ca128cf9 assets/warlocksmod/blockstates/abyss_stone.json
 0a526066600a1d48e1c4189e17a3f952bf50a382 assets/warlocksmod/blockstates/abyss_stone_bricks.json
@@ -28,7 +27,6 @@ f1eb9238ca98a7ec026bfb88ff17c7082ed5d7c6 assets/warlocksmod/blockstates/stripped
 8f360ec0553f60fc8d7e5ddaa3b2b24378ed213e assets/warlocksmod/blockstates/sulfur_ore.json
 475985001ffe5b446ead7406e997368d1d65bdc5 assets/warlocksmod/blockstates/white_test.json
 5913aa209f433bfee2d566611f02b734fa3db091 assets/warlocksmod/models/block/abyss_dirt.json
-4e176f595c2de5d1a3f944747afb35f937378435 assets/warlocksmod/models/block/abyss_glass.json
 775a338409c451bc4d30e4064e0da83633f28688 assets/warlocksmod/models/block/abyss_lamp.json
 002f692d23717227bb075a15e31cc5f385acd916 assets/warlocksmod/models/block/abyss_stone.json
 dba22dec857af100d68f3f0b304c783f2522bb9e assets/warlocksmod/models/block/abyss_stone_bricks.json
@@ -64,7 +62,6 @@ c61500c543e84b30ec610629f4cecdbfd37fb0a6 assets/warlocksmod/models/block/strippe
 58eea48b9d34923f330616c6cfbf7079a2560d84 assets/warlocksmod/models/block/sulfur_ore.json
 85d40ffa8ffb6acd44ae50c57fb1717d1956530d assets/warlocksmod/models/block/white_test.json
 a934267d765321bf4f6620c70d8cbf679b052147 assets/warlocksmod/models/item/abyss_dirt.json
-e59691249bddfbd56a2fb9b6b046aa92e4389719 assets/warlocksmod/models/item/abyss_glass.json
 239ba83211a7f45f736cb03535c6a7721f5e8941 assets/warlocksmod/models/item/abyss_lamp.json
 e011d27bb70a0bde304e42e0d28cafa255e8a21d assets/warlocksmod/models/item/abyss_stone.json
 45ad8270b8102c38e0fa4cb820376f2ca22a972b assets/warlocksmod/models/item/abyss_stone_bricks.json
