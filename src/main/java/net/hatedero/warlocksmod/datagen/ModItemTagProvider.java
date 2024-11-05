@@ -72,6 +72,18 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.ABYSS_SHARD_LEGGINGS.get())
                 .add(ModItems.ABYSS_SHARD_BOOTS.get());
 
+        this.tag(ItemTags.MINING_LOOT_ENCHANTABLE)
+                .add(ModItems.ABYSS_SHARD_HAMMER.get());
+
+        this.tag(ItemTags.MINING_ENCHANTABLE)
+                .add(ModItems.ABYSS_SHARD_HAMMER.get());
+
+        this.tag(ItemTags.WEAPON_ENCHANTABLE)
+                .add(ModItems.CLEAVER.get());
+
+        this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE)
+                .add(ModItems.CLEAVER.get());
+
         this.tag(ModTags.Items.TRANSFORMABLE_ITEMS)
                 .add(Items.OBSIDIAN)
                 .add(Items.SCULK)

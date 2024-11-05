@@ -2,6 +2,7 @@ package net.hatedero.warlocksmod.item;
 
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.block.ModBlocks;
+import net.hatedero.warlocksmod.item.custom.CleaverItem;
 import net.hatedero.warlocksmod.item.custom.FuelItem;
 import net.hatedero.warlocksmod.item.custom.HammerItem;
 import net.hatedero.warlocksmod.item.custom.ModArmorItem;
@@ -62,6 +63,14 @@ public class ModItems {
 
     public static final DeferredItem<Item> COIN = ITEMS.register("coin",
             () -> new Item(new Item.Properties().stacksTo(1)));
+
+//    public static final DeferredItem<Item> CLEAVER = ITEMS.register("cleaver",
+//            () -> new CleaverItem(Tiers.DIAMOND, new Item.Properties().fireResistant().stacksTo(1)));
+
+    public static final DeferredItem<CleaverItem> CLEAVER = ITEMS.register("cleaver",
+            () -> new CleaverItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
+                    .attributes(AxeItem.createAttributes(ModToolTiers.ABYSS_SHARD, 17F, -3.2f)).fireResistant(), 5));
+
 
 //    public static final DeferredItem<Item> CLEAVER = ITEMS.register("cleaver",
 //            () -> new CleaverItem(Tiers.DIAMOND, 20, -3F, (new Item.Properties()).fireResistant().stacksTo(1)));

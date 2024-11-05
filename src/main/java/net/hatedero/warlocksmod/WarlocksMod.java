@@ -1,6 +1,7 @@
 package net.hatedero.warlocksmod;
 
 import net.hatedero.warlocksmod.block.ModBlocks;
+import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.item.ModCreativeModeTabs;
 import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
@@ -39,6 +40,8 @@ public class WarlocksMod {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModEffects.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
 

@@ -131,7 +131,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SOUL_TENDRIL.get());
                         output.accept(ModItems.SOULBERRY_SEEDS.get());
 
-                        //output.accept(ModItems.CLEAVER.get());
+                        output.accept(ModItems.CLEAVER.get());
                         //output.accept(ModItems.SPEAR.get());
 
                         output.accept(ModItems.SALT_POWDER.get());

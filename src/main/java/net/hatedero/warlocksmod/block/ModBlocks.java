@@ -1,10 +1,7 @@
 package net.hatedero.warlocksmod.block;
 
 import net.hatedero.warlocksmod.WarlocksMod;
-import net.hatedero.warlocksmod.block.custom.AbyssCoreBlock;
-import net.hatedero.warlocksmod.block.custom.ModFlammableRotatedPillarBlock;
-import net.hatedero.warlocksmod.block.custom.PillarBlock;
-import net.hatedero.warlocksmod.block.custom.SoulberryCropBlock;
+import net.hatedero.warlocksmod.block.custom.*;
 import net.hatedero.warlocksmod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -43,6 +40,9 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> ABYSS_CORE = registerBlock("abyss_core",
             () -> new AbyssCoreBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.SCULK_SHRIEKER)));
+
+//    public static final DeferredBlock<Block> ABYSS_REACTOR_BLOCK = registerBlock("abyss_reactor_block",
+//            () -> new AbyssReactorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.SCULK_SHRIEKER)));
 
 
 

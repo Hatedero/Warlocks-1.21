@@ -70,6 +70,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('T', Items.STICK)
                 .unlockedBy("has_abyss_shard", has(ModItems.ABYSS_SHARD)).save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CLEAVER.get())
+                .pattern(" SS")
+                .pattern(" SS")
+                .pattern("TS ")
+                .define('S', ModItems.ABYSS_SHARD)
+                .define('T', Items.STICK)
+                .unlockedBy("has_abyss_shard", has(ModItems.ABYSS_SHARD)).save(recipeOutput);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ABYSS_SHARD.get(), 1)
                 .requires(Items.SCULK)
                 .requires(Items.SOUL_SAND)

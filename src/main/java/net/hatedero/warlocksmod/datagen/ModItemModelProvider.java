@@ -55,6 +55,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.ABYSS_SHARD.get());
 
         handheldItem(ModItems.ABYSS_SHARD_HAMMER);
+        //handheldItem(ModItems.CLEAVER);
 
         trimmedArmorItem(ModItems.ABYSS_SHARD_HELMET);
         trimmedArmorItem(ModItems.ABYSS_SHARD_CHESTPLATE);

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "warlocksmod:abyss_shard"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " SS",
+    " SS",
+    "TS "
+  ],
+  "result": {
+    "count": 1,
+    "id": "warlocksmod:cleaver"
+  }
+}
