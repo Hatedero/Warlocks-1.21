@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_abyss_shard": {
+    "has_abyssean_dust": {
       "conditions": {
         "items": [
           {
-            "items": "warlocksmod:abyss_shard"
+            "items": "warlocksmod:abyssean_dust"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_abyss_shard"
+      "has_abyssean_dust"
     ]
   ],
   "rewards": {

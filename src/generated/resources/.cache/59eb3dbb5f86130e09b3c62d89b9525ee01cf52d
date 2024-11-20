@@ -1,4 +1,4 @@
-// 1.21	2024-11-02T20:06:53.8755662	Loot Tables
+// 1.21	2024-11-19T19:50:41.5567233	Loot Tables
 c484b37a47dd42ca1e18127619ed6d64ca7cdd7e data/warlocksmod/loot_table/blocks/abyss_chain.json
 237f12e1bcbd0ea43718d5ae0b2024ac03671eee data/warlocksmod/loot_table/blocks/abyss_core.json
 e7743ccf1d705fad183588c34e09bf02d04aa702 data/warlocksmod/loot_table/blocks/abyss_dirt.json
@@ -16,6 +16,7 @@ ed2cb8f30fcb9d116ee54119bda33bab98d2196c data/warlocksmod/loot_table/blocks/blue
 870a3c971d512c54c170fe2a1698d62a6eed87e5 data/warlocksmod/loot_table/blocks/blue_plum_sapling.json
 ef9f72853e286c77b4d9137ad3681a90ead46e29 data/warlocksmod/loot_table/blocks/blue_plum_wood.json
 92e3f5f2cf7effdf2f439c83f839da088c3ffc2d data/warlocksmod/loot_table/blocks/blue_test.json
+b90ec5272e1b0185b3aa435a63eeca39d3a7d6a1 data/warlocksmod/loot_table/blocks/crusher.json
 9bd8e3354e3835d9d41e03367f8339ad0ba72a53 data/warlocksmod/loot_table/blocks/crystal_block.json
 6b2b65a8f097c3f313b3c1da5843f284fc79fefa data/warlocksmod/loot_table/blocks/dracaena.json
 ef8ab855bd0ac50a576cd55a459450b1b953f2c7 data/warlocksmod/loot_table/blocks/everbright_bricks.json
@@ -24,6 +25,7 @@ cec0e6168732d89342471d1da02fe0feb3bbd0de data/warlocksmod/loot_table/blocks/pill
 6d328d9290941165fc989c89cb8f68011515657e data/warlocksmod/loot_table/blocks/reinforced_blight_bricks.json
 78eb118a47b3747cd124f833d14ff7e26630cbd0 data/warlocksmod/loot_table/blocks/reinforced_everbright_bricks.json
 0969baa6739d9a9e44dbc9288683c0b0e2082a3e data/warlocksmod/loot_table/blocks/salt_block.json
+a61df6f4a4ee8d634f5524021c398f2a588fb866 data/warlocksmod/loot_table/blocks/soulberry_crop.json
 91b43dfe64b8513edf49c74538c86f91c7ec109e data/warlocksmod/loot_table/blocks/soul_plant.json
 bdc08dbfae2fe3de8966dea7c47bd323c8cfaa03 data/warlocksmod/loot_table/blocks/soul_plant_blight.json
 191a19cf4349cfc668a9e475e4cd3445d162096a data/warlocksmod/loot_table/blocks/soul_tree_leaves.json

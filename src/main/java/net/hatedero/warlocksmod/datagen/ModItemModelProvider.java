@@ -49,12 +49,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.PORK_SANDWICH.get());
         basicItem(ModItems.LAMB_SANDWICH.get());
         basicItem(ModItems.AMERICAN_SANDWICH.get());
-        basicItem(ModItems.SOUL_BERRY.get());
+        basicItem(ModItems.SOULBERRY.get());
         basicItem(ModItems.SOULBERRY_SEEDS.get());
         basicItem(ModItems.SOUL_TENDRIL.get());
         basicItem(ModItems.ABYSS_SHARD.get());
+        basicItem(ModItems.DAWNBREAKER_HILT.get());
+        basicItem(ModItems.DAWNBREAKER_BLADE.get());
+        basicItem(ModItems.DAWNBREAKER_TIP.get());
+        basicItem(ModItems.IMPERIAL_GOLD.get());
+        //basicItem(ModItems.ABYSSEAN_DUST.get());
 
         handheldItem(ModItems.ABYSS_SHARD_HAMMER);
+        //handheldItem(ModItems.DAWNBREAKER);
         //handheldItem(ModItems.CLEAVER);
 
         trimmedArmorItem(ModItems.ABYSS_SHARD_HELMET);

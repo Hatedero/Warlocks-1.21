@@ -7,6 +7,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.jar.Attributes;
+
 public class FreeFlightEffect extends MobEffect {
     public FreeFlightEffect(MobEffectCategory category, int color) {
         super(category, color);
@@ -14,10 +16,6 @@ public class FreeFlightEffect extends MobEffect {
 
     @Override
     public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
-        if(livingEntity instanceof Player player) {
-            player.getAbilities().mayfly = true;
-            player.onUpdateAbilities();
-        }
 
         return super.applyEffectTick(livingEntity, amplifier);
     }

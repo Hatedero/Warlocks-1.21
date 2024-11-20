@@ -17,14 +17,7 @@ import java.util.List;
 
 public class CleaverItem extends AxeItem {
 
-    public CleaverItem(Tier tier, Properties properties, int R) {
+    public CleaverItem(Tier tier, Properties properties) {
         super(tier, properties);
-        Range = R;
-    }
-
-    private static int Range = 0;
-
-    public static int getRange(){
-        return Range;
     }
 }

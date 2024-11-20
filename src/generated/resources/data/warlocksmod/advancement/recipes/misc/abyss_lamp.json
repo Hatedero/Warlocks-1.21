@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_abyssean_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": "warlocksmod:abyssean_dust"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "warlocksmod:abyss_lamp"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_abyssean_dust"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "warlocksmod:abyss_lamp"
+    ]
+  }
+}

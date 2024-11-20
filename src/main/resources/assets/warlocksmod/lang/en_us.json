@@ -3,6 +3,7 @@
   "block.warlocksmod.abyss_dirt": "Abyss dirt",
   "block.warlocksmod.abyss_stone": "Abyss stone",
   "block.warlocksmod.abyss_core": "Abyss core",
+  "block.warlocksmod.crusher": "Crusher",
 
 
 
@@ -86,6 +87,13 @@
   "block.warlocksmod.tall_dracaena": "Tall dracaena",
 
   "item.warlocksmod.abyss_shard": "Abyss shard",
+  "item.warlocksmod.abyssean_dust": "Abyssean dust",
+
+  "effect.warlocksmod.free_flight": "Free flight",
+  "effect.warlocksmod.phoenix": "Phoenix force",
+  "effect.warlocksmod.consumed": "Consumed",
+
+  "enchantment.warlocksmod.lightning_striker": "Lightning Striker",
 
   "item.warlocksmod.sulfur_powder": "Sulfur Powder",
   "item.warlocksmod.salt_powder": "Salt",
@@ -98,6 +106,11 @@
   "item.warlocksmod.american_sandwich": "American sandwich",
 
   "item.warlocksmod.cleaver": "Cleaver",
+  "item.warlocksmod.imperial_gold": "Imperial gold",
+  "item.warlocksmod.dawnbreaker": "Dawn Breaker",
+  "item.warlocksmod.dawnbreaker_hilt": "Hilt of the sun god's sword",
+  "item.warlocksmod.dawnbreaker_blade": "Broad blade of the sun god's sword",
+  "item.warlocksmod.dawnbreaker_tip": "Firmament of the sun god's sword",
   "item.warlocksmod.spear": "Spear",
   "item.warlocksmod.abyss_shard_hammer": "Abyss shard's Hammer",
 
@@ -129,5 +142,5 @@
 
   "tooltip.warlocksmod.metal_detector.tooltip": "Custom Item test",
 
-  "creativetab.tutorialmod.warlocks_dev": "Warlocks"
+  "creativetab.tutorialmod.warlocks_dev": "Warlock's"
 }

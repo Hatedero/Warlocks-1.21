@@ -1,0 +1,10 @@
+{
+  "values": {
+    "warlocksmod:soulberry": {
+      "chance": 0.45
+    },
+    "warlocksmod:soulberry_seeds": {
+      "chance": 0.25
+    }
+  }
+}

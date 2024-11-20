@@ -35,6 +35,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.ABYSS_DIRT.get());
         dropSelf(ModBlocks.ABYSS_STONE.get());
         dropSelf(ModBlocks.ABYSS_CORE.get());
+        dropSelf(ModBlocks.CRUSHER.get());
+//        dropSelf(ModBlocks.BASIC_CRUSHER.get());
 
 
 
@@ -55,7 +57,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 //        add(ModBlocks.SOULBERRY_CROP.get(), createCropDrops(ModBlocks.SOULBERRY_CROP.get(), ModItems.SOUL_BERRY.get(),
 //                ModItems.SOULBERRY_SEEDS.get(), lootitemcondition$builder));
 
+        LootItemCondition.Builder lootItemConditionBuilder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.SOULBERRY_CROP.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SoulberryCropBlock.AGE, 5));
 
+        this.add(ModBlocks.SOULBERRY_CROP.get(), this.createCropDrops(ModBlocks.SOULBERRY_CROP.get(),
+                ModItems.SOULBERRY.get(), ModItems.SOULBERRY_SEEDS.get(), lootItemConditionBuilder));
 
 
 

@@ -72,6 +72,15 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.ABYSS_SHARD_LEGGINGS.get())
                 .add(ModItems.ABYSS_SHARD_BOOTS.get());
 
+        this.tag(ItemTags.DURABILITY_ENCHANTABLE)
+                .add(ModItems.ABYSS_SHARD_HELMET.get())
+                .add(ModItems.ABYSS_SHARD_CHESTPLATE.get())
+                .add(ModItems.ABYSS_SHARD_LEGGINGS.get())
+                .add(ModItems.ABYSS_SHARD_BOOTS.get())
+                .add(ModItems.ABYSS_SHARD_HAMMER.get())
+                .add(ModItems.CLEAVER.get())
+                .add(ModItems.DAWNBREAKER.get());
+
         this.tag(ItemTags.MINING_LOOT_ENCHANTABLE)
                 .add(ModItems.ABYSS_SHARD_HAMMER.get());
 
@@ -79,10 +88,15 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.ABYSS_SHARD_HAMMER.get());
 
         this.tag(ItemTags.WEAPON_ENCHANTABLE)
-                .add(ModItems.CLEAVER.get());
+                .add(ModItems.CLEAVER.get())
+                .add(ModItems.DAWNBREAKER.get());
 
         this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE)
-                .add(ModItems.CLEAVER.get());
+                .add(ModItems.CLEAVER.get())
+                .add(ModItems.DAWNBREAKER.get());
+
+        this.tag(ModTags.Items.CRUSHABLE_ITEMS)
+                .add(ModItems.ABYSS_SHARD.get());
 
         this.tag(ModTags.Items.TRANSFORMABLE_ITEMS)
                 .add(Items.OBSIDIAN)

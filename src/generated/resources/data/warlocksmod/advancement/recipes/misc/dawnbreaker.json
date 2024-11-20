@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dawnbreaker_tip": {
+      "conditions": {
+        "items": [
+          {
+            "items": "warlocksmod:dawnbreaker_tip"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "warlocksmod:dawnbreaker"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dawnbreaker_tip"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "warlocksmod:dawnbreaker"
+    ]
+  }
+}

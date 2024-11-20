@@ -1,11 +1,9 @@
 package net.hatedero.warlocksmod.item;
 
 import net.hatedero.warlocksmod.WarlocksMod;
-import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
@@ -26,6 +24,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ABYSS_DIRT.get());
                         output.accept(ModBlocks.ABYSS_STONE.get());
                         output.accept(ModBlocks.ABYSS_CORE.get());
+                        output.accept(ModBlocks.CRUSHER.get());
 
 
 
@@ -120,6 +119,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.PILLAR.get());
 
                         output.accept(ModItems.ABYSS_SHARD.get());
+                        output.accept(ModItems.ABYSSEAN_DUST.get());
                         output.accept(ModItems.ABYSS_SHARD_HAMMER.get());
                         output.accept(ModItems.SULFUR_POWDER.get());
 
@@ -127,11 +127,16 @@ public class ModCreativeModeTabs {
 //                        pOutput.accept(ModItems.LOSTSOUL_SPAWN_EGG.get());
 
 //                        pOutput.accept(ModItems.COIN.get());
-                        output.accept(ModItems.SOUL_BERRY.get());
+                        output.accept(ModItems.SOULBERRY.get());
                         output.accept(ModItems.SOUL_TENDRIL.get());
                         output.accept(ModItems.SOULBERRY_SEEDS.get());
 
                         output.accept(ModItems.CLEAVER.get());
+                        output.accept(ModItems.DAWNBREAKER.get());
+                        output.accept(ModItems.DAWNBREAKER_HILT.get());
+                        output.accept(ModItems.DAWNBREAKER_BLADE.get());
+                        output.accept(ModItems.DAWNBREAKER_TIP.get());
+                        output.accept(ModItems.IMPERIAL_GOLD.get());
                         //output.accept(ModItems.SPEAR.get());
 
                         output.accept(ModItems.SALT_POWDER.get());

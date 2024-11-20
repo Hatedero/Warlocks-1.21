@@ -23,6 +23,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.ABYSS_CORE.get())
+                //.add(ModBlocks.BASIC_CRUSHER.get())
                 .add(ModBlocks.SULFUR_ORE.get(), ModBlocks.SULFUR_BLOCK.get());
 
         this.tag(BlockTags.LOGS_THAT_BURN)
@@ -53,6 +54,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.ABYSS_CORE.get());
+                //.add(ModBlocks.BASIC_CRUSHER.get());
 
     }
 }

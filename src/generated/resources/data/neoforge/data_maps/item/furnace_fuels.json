@@ -1,5 +1,14 @@
 {
   "values": {
+    "warlocksmod:dawnbreaker_blade": {
+      "burn_time": 100000
+    },
+    "warlocksmod:dawnbreaker_hilt": {
+      "burn_time": 90000
+    },
+    "warlocksmod:dawnbreaker_tip": {
+      "burn_time": 90000
+    },
     "warlocksmod:soul_tendril": {
       "burn_time": 600
     },

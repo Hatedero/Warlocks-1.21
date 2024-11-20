@@ -13,10 +13,20 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class SoulberryCropBlock extends CropBlock {
     public static final int MAX_AGE = 5;
-    public static final IntegerProperty AGE = BlockStateProperties.AGE_5;
+    public static final IntegerProperty AGE =  IntegerProperty.create("age", 0, 5);
+    private static final VoxelShape[] SHAPE_BY_AGE =
+            new VoxelShape[]{
+                    Block.box(0.0, 0.0, 0.0, 16.0, 5.0, 16.0),
+                    Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
+                    Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
+                    Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
+                    Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
+                    Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0)};
 
     public SoulberryCropBlock(Properties pProperties) {
         super(pProperties);
@@ -25,6 +35,11 @@ public class SoulberryCropBlock extends CropBlock {
     @Override
     protected ItemLike getBaseSeedId() {
         return ModItems.SOULBERRY_SEEDS.get();
+    }
+
+    @Override
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return SHAPE_BY_AGE[state.getValue(AGE)];
     }
 
     @Override

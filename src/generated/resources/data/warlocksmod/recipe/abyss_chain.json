@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:chain"
+      "item": "warlocksmod:abyssean_dust"
     },
     {
-      "item": "warlocksmod:abyss_shard"
+      "item": "minecraft:chain"
     }
   ],
   "result": {
