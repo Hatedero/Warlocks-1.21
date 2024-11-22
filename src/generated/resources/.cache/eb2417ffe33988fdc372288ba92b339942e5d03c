@@ -1,6 +1,7 @@
-// 1.21	2024-11-19T19:44:50.4141817	Block States: warlocksmod
+// 1.21	2024-11-22T17:38:46.1931245	Block States: warlocksmod
 8b1db2c1eeef3ad93f9bf5627aaca2374753d6b3 assets/warlocksmod/blockstates/abyss_dirt.json
 9ae865e9da425a991f1bd8d47ba35ff98de50884 assets/warlocksmod/blockstates/abyss_lamp.json
+00a7def01863c1ce896ffd10856baae3e9cd6220 assets/warlocksmod/blockstates/abyss_reactor_block.json
 eac795d8d23c2e1e09e1beb40bdca062ca128cf9 assets/warlocksmod/blockstates/abyss_stone.json
 0a526066600a1d48e1c4189e17a3f952bf50a382 assets/warlocksmod/blockstates/abyss_stone_bricks.json
 d0635c300cf002e14fa2dc404abbfa94aa77e7f6 assets/warlocksmod/blockstates/backroom_wall.json
@@ -29,6 +30,7 @@ f1eb9238ca98a7ec026bfb88ff17c7082ed5d7c6 assets/warlocksmod/blockstates/stripped
 475985001ffe5b446ead7406e997368d1d65bdc5 assets/warlocksmod/blockstates/white_test.json
 5913aa209f433bfee2d566611f02b734fa3db091 assets/warlocksmod/models/block/abyss_dirt.json
 775a338409c451bc4d30e4064e0da83633f28688 assets/warlocksmod/models/block/abyss_lamp.json
+b628c226004332ab523a21e5f2e8691f6be8f953 assets/warlocksmod/models/block/abyss_reactor_block.json
 002f692d23717227bb075a15e31cc5f385acd916 assets/warlocksmod/models/block/abyss_stone.json
 dba22dec857af100d68f3f0b304c783f2522bb9e assets/warlocksmod/models/block/abyss_stone_bricks.json
 e684732844d5b29866f7d358a262e074ab8308c7 assets/warlocksmod/models/block/backroom_wall.json
@@ -70,6 +72,7 @@ c61500c543e84b30ec610629f4cecdbfd37fb0a6 assets/warlocksmod/models/block/strippe
 85d40ffa8ffb6acd44ae50c57fb1717d1956530d assets/warlocksmod/models/block/white_test.json
 a934267d765321bf4f6620c70d8cbf679b052147 assets/warlocksmod/models/item/abyss_dirt.json
 239ba83211a7f45f736cb03535c6a7721f5e8941 assets/warlocksmod/models/item/abyss_lamp.json
+ed883046b35bb63e36be243da2374e181219a449 assets/warlocksmod/models/item/abyss_reactor_block.json
 e011d27bb70a0bde304e42e0d28cafa255e8a21d assets/warlocksmod/models/item/abyss_stone.json
 45ad8270b8102c38e0fa4cb820376f2ca22a972b assets/warlocksmod/models/item/abyss_stone_bricks.json
 374c0677a25840d49dcb08a9786fe5e668e606e5 assets/warlocksmod/models/item/backroom_wall.json

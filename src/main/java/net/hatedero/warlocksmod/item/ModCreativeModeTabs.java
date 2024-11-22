@@ -25,6 +25,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ABYSS_STONE.get());
                         output.accept(ModBlocks.ABYSS_CORE.get());
                         output.accept(ModBlocks.CRUSHER.get());
+                        output.accept(ModBlocks.ABYSS_REACTOR_BLOCK.get());
 
 
 

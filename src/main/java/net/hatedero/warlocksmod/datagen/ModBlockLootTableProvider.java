@@ -36,6 +36,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.ABYSS_STONE.get());
         dropSelf(ModBlocks.ABYSS_CORE.get());
         dropSelf(ModBlocks.CRUSHER.get());
+        dropSelf(ModBlocks.ABYSS_REACTOR_BLOCK.get());
 //        dropSelf(ModBlocks.BASIC_CRUSHER.get());
 
 

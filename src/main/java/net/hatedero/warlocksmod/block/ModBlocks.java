@@ -44,8 +44,8 @@ public class ModBlocks {
     public static final DeferredBlock<Block> CRUSHER = registerBlock("crusher",
             () -> new CrusherBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.SCULK_SHRIEKER)));
 
-//    public static final DeferredBlock<Block> ABYSS_REACTOR_BLOCK = registerBlock("abyss_reactor_block",
-//            () -> new AbyssReactorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.SCULK_SHRIEKER)));
+    public static final DeferredBlock<Block> ABYSS_REACTOR_BLOCK = registerBlock("abyss_reactor_block",
+            () -> new AbyssReactorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.SCULK_SHRIEKER)));
 
 
 

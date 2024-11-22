@@ -103,12 +103,5 @@ public class ModEvents {
             }
     }
 
-    private static float getFrictionInfluencedSpeed(float friction, LivingEntity entity) {
-        return entity.onGround() ? entity.getSpeed() * (0.21600002F / (friction * friction * friction)) : getFlyingSpeed(entity);
-    }
-
-    protected static float getFlyingSpeed(LivingEntity entity) {
-        return entity.getControllingPassenger() instanceof Player ? entity.getSpeed() * 0.1F : 0.02F;
-    }
 
 }

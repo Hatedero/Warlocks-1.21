@@ -30,6 +30,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.ABYSS_STONE);
         //blockItem(ModBlocks.BASIC_CRUSHER);
         //blockWithItem(ModBlocks.ABYSS_CORE);
+        blockWithItem(ModBlocks.ABYSS_REACTOR_BLOCK);
 
         logBlock(((RotatedPillarBlock) ModBlocks.SOUL_TREE_LOG.get()));
         axisBlock(((RotatedPillarBlock) ModBlocks.SOUL_TREE_WOOD.get()), blockTexture(ModBlocks.SOUL_TREE_LOG.get()), blockTexture(ModBlocks.SOUL_TREE_LOG.get()));

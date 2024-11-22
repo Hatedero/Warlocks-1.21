@@ -1,10 +1,11 @@
-// 1.21	2024-11-19T19:50:41.5567233	Loot Tables
+// 1.21	2024-11-22T17:38:46.1850853	Loot Tables
 c484b37a47dd42ca1e18127619ed6d64ca7cdd7e data/warlocksmod/loot_table/blocks/abyss_chain.json
 237f12e1bcbd0ea43718d5ae0b2024ac03671eee data/warlocksmod/loot_table/blocks/abyss_core.json
 e7743ccf1d705fad183588c34e09bf02d04aa702 data/warlocksmod/loot_table/blocks/abyss_dirt.json
 3770470224f69e02d9e271e67f6f8a68932a2b3f data/warlocksmod/loot_table/blocks/abyss_glass.json
 4f7d64cc5ff0731ec279cbde0b619ca0b6837f68 data/warlocksmod/loot_table/blocks/abyss_grass.json
 c6566c3577240efab9c970307edc39682d1eb8ac data/warlocksmod/loot_table/blocks/abyss_lamp.json
+f1826bf4aa9eab848f9c610b4df6a59c49ea3167 data/warlocksmod/loot_table/blocks/abyss_reactor_block.json
 83c97b20730878bd525dce7b00d64409d68ead6d data/warlocksmod/loot_table/blocks/abyss_stone.json
 d9f3c094d3c00b23df08e5e4258310465178716a data/warlocksmod/loot_table/blocks/abyss_stone_bricks.json
 00a236cb0f0fb4c02ad26203891883ecc68d8cec data/warlocksmod/loot_table/blocks/backroom_wall.json
