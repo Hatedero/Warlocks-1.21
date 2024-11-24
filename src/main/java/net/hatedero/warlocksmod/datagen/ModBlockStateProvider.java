@@ -28,6 +28,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         //blockItem(ModBlocks.ABYSS_GRASS);
         blockWithItem(ModBlocks.ABYSS_DIRT);
         blockWithItem(ModBlocks.ABYSS_STONE);
+        blockWithItem(ModBlocks.BOUNCE_UP);
         //blockItem(ModBlocks.BASIC_CRUSHER);
         //blockWithItem(ModBlocks.ABYSS_CORE);
         blockWithItem(ModBlocks.ABYSS_REACTOR_BLOCK);

@@ -20,23 +20,11 @@ public record FrostStrikerEnchantmentEffect() implements EnchantmentEntityEffect
 
     @Override
     public void apply(ServerLevel serverLevel, int enchantmentLevel, EnchantedItemInUse enchantedItemInUse, Entity entity, Vec3 vec3) {
-        BlockPos temp;
-        for(int i = 0; i < enchantmentLevel ; i++){
-            entity.setTicksFrozen(20*enchantmentLevel);
 
-                entity.setSharedFlagOnFire(false);
-        }
-//        for(int i = -1; i < 2; i++) {
-//            for(int j = -1; j < 2; j++) {
-//                temp = entity.getOnPos();
-//                temp.offset(i,0,j);
-//                float randomNum = (float) Math.random();
-//                for(int i = 0; i > enchantmentLevel; i++) {
-//                    if (randomNum <= (1 - (1 / (2 * enchantmentLevel))))
-//                        EntityType.LIGHTNING_BOLT.spawn(serverLevel, entity.getOnPos(), MobSpawnType.TRIGGERED);
-//                }
-//            }
-//        }
+        if(entity.getTicksFrozen() < 140)
+            entity.setTicksFrozen(entity.getTicksFrozen() + 140);
+        entity.setTicksFrozen(entity.getTicksFrozen() + (40*enchantmentLevel));
+        entity.setIsInPowderSnow(true);
     }
 
     @Override

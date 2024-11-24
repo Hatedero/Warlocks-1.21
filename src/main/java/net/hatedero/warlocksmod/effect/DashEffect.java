@@ -1,29 +1,28 @@
 package net.hatedero.warlocksmod.effect;
 
 
-import net.minecraft.network.chat.Component;
+import net.hatedero.warlocksmod.item.ModItems;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 
-import java.awt.*;
+public class DashEffect extends MobEffect {
 
-public class ConsumedEffect extends MobEffect {
-    public ConsumedEffect(MobEffectCategory category, int color) {
+    public DashEffect(MobEffectCategory category, int color) {
         super(category, color);
     }
 
     @Override
     public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
-        if(livingEntity.horizontalCollision) {
-            Vec3 initialVec = livingEntity.getDeltaMovement();
-            Vec3 climbVec = new Vec3(initialVec.x, 0.3D, initialVec.z);
-            livingEntity.setDeltaMovement(climbVec.scale(0.96D));
-
-            return true;
-        }
+//        if(livingEntity.getMainHandItem() == ModItems.DAWNBREAKER.toStack() && livingEntity instanceof Player player) {
+//            Vec3 playerSightLigne = player.getViewVector(1).normalize().multiply(1.5,1.5,1.5);
+//            player.setDeltaMovement(playerSightLigne);
+//            player.removeEffect(ModEffects.DASH_EFFECT);
+//
+//            return true;
+//        }
 
 
 

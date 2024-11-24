@@ -19,12 +19,18 @@ public class ModEffects {
     public static final Holder<MobEffect> FREE_FLIGHT_EFFECT = MOB_EFFECTS.register("free_flight",
             () -> new FreeFlightEffect(MobEffectCategory.BENEFICIAL, 0x36ebab));
 
+    public static final Holder<MobEffect> DASH_EFFECT = MOB_EFFECTS.register("dash",
+            () -> new DashEffect(MobEffectCategory.BENEFICIAL, 0x36ebab));
+
+    public static final Holder<MobEffect> DOUBLE_JUMP_EFFECT = MOB_EFFECTS.register("doublejump",
+            () -> new DoubleJumpEffect(MobEffectCategory.BENEFICIAL, 0x36ebab));
+
     public static final Holder<MobEffect> CONSUMED_EFFECT = MOB_EFFECTS.register("consumed",
             () -> new ConsumedEffect(MobEffectCategory.BENEFICIAL, 0x113048));
 
     public static final Holder<MobEffect> PHOENIX_EFFECT = MOB_EFFECTS.register("phoenix",
             () -> new PhoenixEffect(MobEffectCategory.BENEFICIAL, 0xDAA520)
-                    .addAttributeModifier(Attributes.MAX_HEALTH, ResourceLocation.fromNamespaceAndPath("warlocksmod", "effect.health"), 20.0, AttributeModifier.Operation.ADD_VALUE));
+                    .addAttributeModifier(Attributes.MAX_HEALTH, ResourceLocation.fromNamespaceAndPath(WarlocksMod.MOD_ID, "effect.health"), 20.0, AttributeModifier.Operation.ADD_VALUE));
 
 
     public static void register(IEventBus eventBus) {

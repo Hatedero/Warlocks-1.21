@@ -1,4 +1,4 @@
-// 1.21	2024-11-22T17:38:46.1931245	Block States: warlocksmod
+// 1.21	2024-11-24T19:17:59.0580894	Block States: warlocksmod
 8b1db2c1eeef3ad93f9bf5627aaca2374753d6b3 assets/warlocksmod/blockstates/abyss_dirt.json
 9ae865e9da425a991f1bd8d47ba35ff98de50884 assets/warlocksmod/blockstates/abyss_lamp.json
 00a7def01863c1ce896ffd10856baae3e9cd6220 assets/warlocksmod/blockstates/abyss_reactor_block.json
@@ -10,6 +10,7 @@ de5fa54528257c98770254910ac06cf967e2ef85 assets/warlocksmod/blockstates/blight_b
 d7bc8b8ed4a420f71a2d5d18b7d1430ce02f9f62 assets/warlocksmod/blockstates/blue_plum_planks.json
 95eb720cfb7ce411a5da2de0264419fe02647a55 assets/warlocksmod/blockstates/blue_plum_wood.json
 2e29dbed1e7b9932af461080a37bcfad9d43d499 assets/warlocksmod/blockstates/blue_test.json
+118886f8979c0f32ad473c985d5cffc363de9182 assets/warlocksmod/blockstates/bounce_up.json
 a717f0518988492450d6f7cb2893131b372f7e3e assets/warlocksmod/blockstates/crystal_block.json
 58823e39b8c124b7c9660a22460c005c09e38a43 assets/warlocksmod/blockstates/everbright_bricks.json
 daaeaf4d53936a9a7fd2f2c309ef89ccefb3980a assets/warlocksmod/blockstates/reinforced_abyss_stone_bricks.json
@@ -41,6 +42,7 @@ e73fccb77d77162bd168e452e93f01d0e476eddc assets/warlocksmod/models/block/blue_pl
 fdeef576643aeec37d70b762f521327ed317e2a6 assets/warlocksmod/models/block/blue_plum_wood.json
 0daf9c8d8987c41b07da396253012cacb3a87962 assets/warlocksmod/models/block/blue_plum_wood_horizontal.json
 f0201586db4dc9d015c0ec5a777153b0d0b5e9e6 assets/warlocksmod/models/block/blue_test.json
+8c73d1ea5051b34ebd34c1ea17b3e81a621db4b5 assets/warlocksmod/models/block/bounce_up.json
 83952dd3f6be43081818248ee0dff68317b9b970 assets/warlocksmod/models/block/crystal_block.json
 b0cef0f088b732e86754690982a4264d81f5f019 assets/warlocksmod/models/block/everbright_bricks.json
 8efd18dce6064c97a7867b04dde06d612e45d60c assets/warlocksmod/models/block/reinforced_abyss_stone_bricks.json
@@ -81,6 +83,7 @@ b096dab4ddf75d6cfeb2a0d65f2068c14d6dd7a1 assets/warlocksmod/models/item/blue_plu
 3e47b1c6b59894e37fec704cea509701c1c6a7fe assets/warlocksmod/models/item/blue_plum_planks.json
 ee6f5a8be24517b3c22780e244f11ac472c87d4e assets/warlocksmod/models/item/blue_plum_wood.json
 bfbd498208c35231d283abfbc1d689a016951f65 assets/warlocksmod/models/item/blue_test.json
+e92b73231e96a3ab49e1c71cd5ed26d327b85b3b assets/warlocksmod/models/item/bounce_up.json
 f8a66afa949d58c77ce107f2e0ed5faaf97bd9b4 assets/warlocksmod/models/item/crystal_block.json
 e24daa501f7940541c3930b7395cc6010e71445f assets/warlocksmod/models/item/everbright_bricks.json
 0ea37b10527fc1501fe702a9045dda3c9da9bfbd assets/warlocksmod/models/item/reinforced_abyss_stone_bricks.json

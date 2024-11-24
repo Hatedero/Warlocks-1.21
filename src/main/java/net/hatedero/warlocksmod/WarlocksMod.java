@@ -2,10 +2,14 @@ package net.hatedero.warlocksmod;
 
 import net.hatedero.warlocksmod.block.ModBlocks;
 //import net.hatedero.warlocksmod.capabilities.ModCapabilities;
+import net.hatedero.warlocksmod.dataattachments.DataAttachments;
 import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.enchantment.ModEnchantmentEffects;
 import net.hatedero.warlocksmod.item.ModCreativeModeTabs;
+import net.hatedero.warlocksmod.util.KeyBinding;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -24,6 +28,8 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 import net.hatedero.warlocksmod.item.ModItems;
+
+import static net.hatedero.warlocksmod.capability.ModAttachment.ATTACHMENT_TYPES;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(WarlocksMod.MOD_ID)
@@ -45,9 +51,10 @@ public class WarlocksMod {
 
         ModEffects.register(modEventBus);
 
-        //ModCapabilities.register(modEventBus);
+        DataAttachments.register(modEventBus);
 
         ModEnchantmentEffects.register(modEventBus);
+        ATTACHMENT_TYPES.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
 
@@ -76,5 +83,15 @@ public class WarlocksMod {
         public static void onClientSetup(FMLClientSetupEvent event) {
 
         }
+
+        @SubscribeEvent
+        public static void onKeyRegister(RegisterKeyMappingsEvent event){
+            event.register(KeyBinding.DASH_KEY);
+            event.register(KeyBinding.DOUBLE_JUMP_KEY);
+        }
+    }
+
+    public static ResourceLocation asResource(String path) {
+        return ResourceLocation.fromNamespaceAndPath(WarlocksMod.MOD_ID, path);
     }
 }

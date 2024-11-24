@@ -38,6 +38,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ABYSS_STONE = registerBlock("abyss_stone",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.SCULK)));
 
+    public static final DeferredBlock<Block> BOUNCE_UP = registerBlock("bounce_up",
+            () -> new BouncePadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.SCULK), 1));
+
     public static final DeferredBlock<Block> ABYSS_CORE = registerBlock("abyss_core",
             () -> new AbyssCoreBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.SCULK_SHRIEKER)));
 
@@ -45,7 +48,7 @@ public class ModBlocks {
             () -> new CrusherBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.SCULK_SHRIEKER)));
 
     public static final DeferredBlock<Block> ABYSS_REACTOR_BLOCK = registerBlock("abyss_reactor_block",
-            () -> new AbyssReactorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.SCULK_SHRIEKER)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.SCULK_SHRIEKER)));
 
 
 

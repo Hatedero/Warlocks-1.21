@@ -1,4 +1,4 @@
-// 1.21	2024-11-22T17:38:46.1850853	Loot Tables
+// 1.21	2024-11-24T19:17:59.0557178	Loot Tables
 c484b37a47dd42ca1e18127619ed6d64ca7cdd7e data/warlocksmod/loot_table/blocks/abyss_chain.json
 237f12e1bcbd0ea43718d5ae0b2024ac03671eee data/warlocksmod/loot_table/blocks/abyss_core.json
 e7743ccf1d705fad183588c34e09bf02d04aa702 data/warlocksmod/loot_table/blocks/abyss_dirt.json
@@ -17,6 +17,7 @@ ed2cb8f30fcb9d116ee54119bda33bab98d2196c data/warlocksmod/loot_table/blocks/blue
 870a3c971d512c54c170fe2a1698d62a6eed87e5 data/warlocksmod/loot_table/blocks/blue_plum_sapling.json
 ef9f72853e286c77b4d9137ad3681a90ead46e29 data/warlocksmod/loot_table/blocks/blue_plum_wood.json
 92e3f5f2cf7effdf2f439c83f839da088c3ffc2d data/warlocksmod/loot_table/blocks/blue_test.json
+2f98b4590a3dd9beac430a6d6f5933f2746cb4fe data/warlocksmod/loot_table/blocks/bounce_up.json
 b90ec5272e1b0185b3aa435a63eeca39d3a7d6a1 data/warlocksmod/loot_table/blocks/crusher.json
 9bd8e3354e3835d9d41e03367f8339ad0ba72a53 data/warlocksmod/loot_table/blocks/crystal_block.json
 6b2b65a8f097c3f313b3c1da5843f284fc79fefa data/warlocksmod/loot_table/blocks/dracaena.json

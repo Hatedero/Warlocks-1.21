@@ -1,8 +1,13 @@
 {
+  "key.warlocksmod.dash": "Dash",
+
+  "key.category.warlocksmod.warlocksmod": "Warlock's",
+
   "block.warlocksmod.abyss_grass": "Abyss grass",
   "block.warlocksmod.abyss_dirt": "Abyss dirt",
   "block.warlocksmod.abyss_stone": "Abyss stone",
   "block.warlocksmod.abyss_core": "Abyss core",
+  "block.warlocksmod.abyss_reactor_block": "Abyss reactor",
   "block.warlocksmod.crusher": "Crusher",
 
 
@@ -91,9 +96,11 @@
 
   "effect.warlocksmod.free_flight": "Free flight",
   "effect.warlocksmod.phoenix": "Phoenix force",
+  "effect.warlocksmod.dash": "Dash",
   "effect.warlocksmod.consumed": "Consumed",
 
-  "enchantment.warlocksmod.lightning_striker": "Lightning Striker",
+  "enchantment.warlocksmod.lightning_striker_bow": "Lightning Striker",
+  "enchantment.warlocksmod.lightning_striker_sword": "Lightning Striker",
 
   "item.warlocksmod.sulfur_powder": "Sulfur Powder",
   "item.warlocksmod.salt_powder": "Salt",
