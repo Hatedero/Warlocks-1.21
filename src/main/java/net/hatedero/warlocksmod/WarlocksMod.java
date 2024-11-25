@@ -84,6 +84,7 @@ public class WarlocksMod {
         public static void onKeyRegister(RegisterKeyMappingsEvent event){
             event.register(KeyBinding.DASH_KEY);
             event.register(KeyBinding.DOUBLE_JUMP_KEY);
+            event.register(KeyBinding.MELEE_ABILITY_KEE);
         }
     }
 

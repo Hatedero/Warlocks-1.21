@@ -1,4 +1,4 @@
-package net.hatedero.warlocksmod.doublejump;
+package net.hatedero.warlocksmod.capability.abilities.doublejump;
 
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.capability.ModAttachment;

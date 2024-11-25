@@ -17,30 +17,23 @@ public record LightningStrikerEnchantmentEffect() implements EnchantmentEntityEf
 
     @Override
     public void apply(ServerLevel serverLevel, int enchantmentLevel, EnchantedItemInUse enchantedItemInUse, Entity entity, Vec3 vec3) {
-        BlockPos zone = entity.getOnPos();
         BlockPos trail = entity.getOnPos();
+        BlockPos origin = enchantedItemInUse.owner().getOnPos();
         int rangeTrail = 10;
 
-        Vec3 playerSightLigne = enchantedItemInUse.owner().getViewVector(1).normalize().multiply(rangeTrail,rangeTrail,rangeTrail);
+        //Vec3 playerSightLigne = enchantedItemInUse.owner().getViewVector(1).normalize().multiply(rangeTrail,rangeTrail,rangeTrail);
 
-//        for(int i = -1; i < 2; i++) {
-//            for(int j = -1; j < 2; j++) {
-                //temp = entity.getOnPos();
-//                zone.offset(i*3,0,j*3);
-//                float randomNum = (float) Math.random();
-//                for(int i = 0; i > enchantmentLevel; i++) {
-//                    if (randomNum <= (1 - (1 / (2 * enchantmentLevel))))
-                        EntityType.LIGHTNING_BOLT.spawn(serverLevel, zone, MobSpawnType.TRIGGERED).setDamage(5.0f + (2 *enchantmentLevel));
-//                }
-//            }
-//        }
+        EntityType.LIGHTNING_BOLT.spawn(serverLevel, entity.getOnPos(), MobSpawnType.TRIGGERED).setDamage(5.0f + (2 *enchantmentLevel));
 
-        //if(enchantmentLevel > 2){
+
             for(int i = 0; i < rangeTrail; i++){
+                float x = ((trail.getX() + origin.getX())/i)+origin.getX();
+                float z = ((trail.getZ() + origin.getZ())/i)+origin.getZ();
+                BlockPos newCo = new BlockPos((int) x, trail.getY(), (int) z);
 
-                EntityType.LIGHTNING_BOLT.spawn(serverLevel, trail.offset(0, 0, i*3), MobSpawnType.TRIGGERED).setDamage(i);
+                EntityType.LIGHTNING_BOLT.spawn(serverLevel, newCo, MobSpawnType.TRIGGERED).setDamage(i);
             }
-        //}
+
     }
 
     @Override

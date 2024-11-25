@@ -2,37 +2,26 @@ package net.hatedero.warlocksmod.event;
 
 
 import net.hatedero.warlocksmod.WarlocksMod;
-import net.hatedero.warlocksmod.capability.ModAttachment;
-import net.hatedero.warlocksmod.dash.PlayerDash;
 import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.item.ModItems;
 import net.hatedero.warlocksmod.item.custom.HammerItem;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
-import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
-import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import java.util.HashSet;
 import java.util.Set;
 
-//import static net.hatedero.warlocksmod.dash.PlayerDashProvider.PLAYER_COOLDOWN;
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DASH;
-import static net.hatedero.warlocksmod.util.KeyBinding.DASH_KEY;
-import static net.hatedero.warlocksmod.util.KeyBinding.DOUBLE_JUMP_KEY;
+//import static net.hatedero.warlocksmod.capability.abilities.dash.PlayerDashProvider.PLAYER_COOLDOWN;
+
 
 @EventBusSubscriber(modid = WarlocksMod.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class ModEvents {

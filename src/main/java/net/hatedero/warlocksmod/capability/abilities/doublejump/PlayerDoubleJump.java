@@ -1,6 +1,6 @@
-package net.hatedero.warlocksmod.doublejump;
+package net.hatedero.warlocksmod.capability.abilities.doublejump;
 
-import net.hatedero.warlocksmod.capability.IDoubleJump;
+import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IDoubleJump;
 import net.hatedero.warlocksmod.network.message.PlayerDoubleJumpSyncMessage;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;

@@ -39,7 +39,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.SCULK)));
 
     public static final DeferredBlock<Block> BOUNCE_UP = registerBlock("bounce_up",
-            () -> new BouncePadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.SCULK), 3));
+            () -> new BouncePadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.SCULK), 1));
 
     public static final DeferredBlock<Block> ABYSS_CORE = registerBlock("abyss_core",
             () -> new AbyssCoreBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.SCULK_SHRIEKER)));

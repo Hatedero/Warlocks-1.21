@@ -1,12 +1,15 @@
-package net.hatedero.warlocksmod.dash;
+package net.hatedero.warlocksmod.capability.abilities.dash;
 
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.capability.ModAttachment;
-import net.hatedero.warlocksmod.effect.ModEffects;
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -25,11 +28,9 @@ public class PlayerDashManager {
     public static void onDash(InputEvent.Key event){
         if (Minecraft.getInstance().player instanceof Player player && DASH_KEY.getKey().getValue() == event.getKey() && !player.onGround() && player.getData(PLAYER_DASH).getNbDash() > 0) {
 
-
             Vec3 playerSightLigne = player.getViewVector(1).normalize().multiply(1.5, 1.5, 1.5);
             player.setDeltaMovement(playerSightLigne);
             player.getData(PLAYER_DASH).setNbDash(player.getData(PLAYER_DASH).getNbDash()-1);
-
         }
 
     }

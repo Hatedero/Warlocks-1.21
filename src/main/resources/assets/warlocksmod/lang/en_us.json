@@ -1,8 +1,9 @@
 {
   "key.warlocksmod.dash": "Dash",
   "key.warlocksmod.doublejump": "Double Jump",
+  "key.warlocksmod.meleeability": "Melee Attack",
 
-  "key.category.warlocksmod.warlocksmod": "Warlock's",
+  "key.categories.warlocksmod.warlocksmod": "Warlock's",
 
   "block.warlocksmod.abyss_grass": "Abyss grass",
   "block.warlocksmod.abyss_dirt": "Abyss dirt",

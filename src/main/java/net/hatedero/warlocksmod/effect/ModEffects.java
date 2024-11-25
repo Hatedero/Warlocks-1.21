@@ -19,12 +19,6 @@ public class ModEffects {
     public static final Holder<MobEffect> FREE_FLIGHT_EFFECT = MOB_EFFECTS.register("free_flight",
             () -> new FreeFlightEffect(MobEffectCategory.BENEFICIAL, 0x36ebab));
 
-    public static final Holder<MobEffect> DASH_EFFECT = MOB_EFFECTS.register("dash",
-            () -> new DashEffect(MobEffectCategory.BENEFICIAL, 0x36ebab));
-
-    public static final Holder<MobEffect> DOUBLE_JUMP_EFFECT = MOB_EFFECTS.register("doublejump",
-            () -> new DoubleJumpEffect(MobEffectCategory.BENEFICIAL, 0x36ebab));
-
     public static final Holder<MobEffect> CONSUMED_EFFECT = MOB_EFFECTS.register("consumed",
             () -> new ConsumedEffect(MobEffectCategory.BENEFICIAL, 0x113048));
 

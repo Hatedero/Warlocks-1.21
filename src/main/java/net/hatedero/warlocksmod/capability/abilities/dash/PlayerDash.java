@@ -1,10 +1,9 @@
-package net.hatedero.warlocksmod.dash;
+package net.hatedero.warlocksmod.capability.abilities.dash;
 
-import net.hatedero.warlocksmod.capability.IDash;
+import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IDash;
 import net.hatedero.warlocksmod.network.message.PlayerDashSyncMessage;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;

@@ -1,4 +1,4 @@
-package net.hatedero.warlocksmod.capability;
+package net.hatedero.warlocksmod.capability.abilitiesinterfaces;
 
 import net.minecraft.world.entity.player.Player;
 

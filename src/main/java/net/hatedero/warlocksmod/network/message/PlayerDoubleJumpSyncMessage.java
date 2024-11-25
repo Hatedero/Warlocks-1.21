@@ -2,7 +2,7 @@ package net.hatedero.warlocksmod.network.message;
 
 import io.netty.buffer.ByteBuf;
 import net.hatedero.warlocksmod.WarlocksMod;
-import net.hatedero.warlocksmod.capability.IDoubleJump;
+import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IDoubleJump;
 import net.hatedero.warlocksmod.capability.ModAttachment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.codec.ByteBufCodecs;

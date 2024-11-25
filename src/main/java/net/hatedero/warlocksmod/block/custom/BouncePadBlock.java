@@ -26,6 +26,7 @@ public class BouncePadBlock extends Block {
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         //if(entity instanceof Player player) {
             //entity.getDeltaMovement();
+        entity.resetFallDistance();
             entity.setDeltaMovement(entity.getDeltaMovement().add(0,this.strength,0));
         //}
 
