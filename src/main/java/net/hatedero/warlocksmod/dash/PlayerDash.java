@@ -54,38 +54,4 @@ public class PlayerDash implements IDash, INBTSerializable<CompoundTag> {
     public void deserializeNBT(HolderLookup.Provider provider, CompoundTag nbt) {
         this.nbDash = nbt.getInt("nb_dash");
     }
-
-
-//    private int nbDash;
-//    private final int MIN_COOLDOWN = 0;
-//    private final int MAX_COOLDOWN = 20;
-//
-//    public int getCooldown(){return nbDash;}
-//
-//    public void addCooldown(int add){Math.min(nbDash + add, MAX_COOLDOWN);}
-//    public void subCooldown(int add){Math.max(nbDash - add, MIN_COOLDOWN);}
-//
-//    public void copyFrom(PlayerDash source){
-//        this.nbDash = source.nbDash;
-//    }
-//
-//    public void saveNBTData(CompoundTag nbt){
-//        nbt.putInt("nbDash", nbDash);
-//    }
-//
-//    public void loadNBTData(CompoundTag nbt){
-//        nbDash = nbt.getInt("nbDash");
-//    }
-//
-//    @Override
-//    public @UnknownNullability CompoundTag serializeNBT(HolderLookup.Provider provider) {
-//        CompoundTag nbt = new CompoundTag();
-//        createPlayerDash().saveNBTData(nbt);
-//        return nbt;
-//    }
-//
-//    @Override
-//    public void deserializeNBT(HolderLookup.Provider provider, CompoundTag compoundTag) {
-//        createPlayerDash().loadNBTData(compoundTag);
-//    }
 }

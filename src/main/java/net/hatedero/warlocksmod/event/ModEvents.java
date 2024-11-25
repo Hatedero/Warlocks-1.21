@@ -63,59 +63,38 @@ public class ModEvents {
         }
     }
 
-    @SubscribeEvent
-    public static void onRightClickWithDawnbreaker(PlayerInteractEvent.RightClickItem rc){
-//        if (rc.getEntity() instanceof Player player && player.getMainHandItem().is(ModItems.DAWNBREAKER)) {
-//            Vec3 playerSightLigne = player.getViewVector(1).normalize().multiply(1.5,1.5,1.5);
+//    @SubscribeEvent
+//    public static void onDash(InputEvent.Key event){
+//        if (Minecraft.getInstance().player instanceof Player player && DASH_KEY.getKey().getValue() == event.getKey() && !player.onGround() && player.getData(PLAYER_DASH).getNbDash() > 0) {
+//            //
+//
+//            Vec3 playerSightLigne = player.getViewVector(1).normalize().multiply(1.5, 1.5, 1.5);
 //            player.setDeltaMovement(playerSightLigne);
+//            player.getData(PLAYER_DASH).setNbDash(player.getData(PLAYER_DASH).getNbDash()-1);
+//            //player.sendSystemMessage(Component.literal(String.valueOf(player.getData(PLAYER_DASH).getNbDash() )));
+//            //player.getActiveEffects().remove(ModEffects.DASH_EFFECT);
 //        }
-    }
+//    }
 
-    @SubscribeEvent
-    public static void onDash(InputEvent.Key event){
-        if (Minecraft.getInstance().player instanceof Player player && DASH_KEY.getKey().getValue() == event.getKey() && !player.onGround() && player.getData(PLAYER_DASH).getNbDash() > 0) {
-            //
+//    @SubscribeEvent
+//    public static void onPlayerTick(PlayerTickEvent.Pre event){
+//        Player player = event.getEntity();
+//        if(player instanceof ServerPlayer serverPlayer){
+//            ((PlayerDash)serverPlayer.getData(ModAttachment.PLAYER_DASH)).tick(serverPlayer);
+//        }
+//    }
 
-            Vec3 playerSightLigne = player.getViewVector(1).normalize().multiply(1.5, 1.5, 1.5);
-            player.setDeltaMovement(playerSightLigne);
-            player.getData(PLAYER_DASH).setNbDash(player.getData(PLAYER_DASH).getNbDash()-1);
-            //player.sendSystemMessage(Component.literal(String.valueOf(player.getData(PLAYER_DASH).getNbDash() )));
-            //player.getActiveEffects().remove(ModEffects.DASH_EFFECT);
-        }
-    }
-
-    @SubscribeEvent
-    public static void onPlayerTick(PlayerTickEvent.Pre event){
-        Player player = event.getEntity();
-        if(player instanceof ServerPlayer serverPlayer){
-            ((PlayerDash)serverPlayer.getData(ModAttachment.PLAYER_DASH)).tick(serverPlayer);
-        }
-    }
-
-    @SubscribeEvent
-    public static void onDoubleJump(InputEvent.Key event){
-        if (Minecraft.getInstance().player instanceof Player player && DOUBLE_JUMP_KEY.getKey().getValue() == event.getKey() && !player.onGround() && player.hasEffect(ModEffects.DOUBLE_JUMP_EFFECT) && player.fallDistance >= 0.1) {
-            //
-
-            player.setDeltaMovement(player.getDeltaMovement().x, 0, player.getDeltaMovement().z);
-            player.setDeltaMovement(player.getDeltaMovement().add(0,0.5,0));
-            player.getActiveEffects().remove(ModEffects.DOUBLE_JUMP_EFFECT);
-        }
-
-    }
-
-    @SubscribeEvent
-    public static void onSpaceClickWithDawnbreaker(InputEvent.Key event){
-        if (Minecraft.getInstance().player instanceof Player player && player.getMainHandItem().is(ModItems.DAWNBREAKER) && !player.onGround() && Minecraft.getInstance().options.keyJump.getKey().getValue() == event.getKey())
-        {
-//            Vec3 playerSightLigne = player.getViewVector(1).normalize().multiply(2,2,2);
-//            player.setDeltaMovement(playerSightLigne);
+//    @SubscribeEvent
+//    public static void onDoubleJump(InputEvent.Key event){
+//        if (Minecraft.getInstance().player instanceof Player player && DOUBLE_JUMP_KEY.getKey().getValue() == event.getKey() && !player.onGround() && player.hasEffect(ModEffects.DOUBLE_JUMP_EFFECT) && player.fallDistance >= 0.1) {
+//            //
+//
 //            player.setDeltaMovement(player.getDeltaMovement().x, 0, player.getDeltaMovement().z);
 //            player.setDeltaMovement(player.getDeltaMovement().add(0,0.5,0));
-
-
-        }
-    }
+//            player.getActiveEffects().remove(ModEffects.DOUBLE_JUMP_EFFECT);
+//        }
+//
+//    }
 
     @SubscribeEvent
     public static void equipmentChange(LivingEquipmentChangeEvent event) {
@@ -147,12 +126,5 @@ public class ModEvents {
                 player.getAbilities().mayfly = player.isCreative();
                 player.onUpdateAbilities();
             }
-    }
-
-    public static void registerCapabilities(RegisterCapabilitiesEvent event ){
-//        event.registerEntity(Capabilities.EnergyStorage.ENTITY,
-//                LivingEntity -> <Player>,
-//                PLAYER_COOLDOWN
-//        );
     }
 }

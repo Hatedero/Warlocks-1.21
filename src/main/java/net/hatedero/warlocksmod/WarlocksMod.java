@@ -1,8 +1,6 @@
 package net.hatedero.warlocksmod;
 
 import net.hatedero.warlocksmod.block.ModBlocks;
-//import net.hatedero.warlocksmod.capabilities.ModCapabilities;
-import net.hatedero.warlocksmod.dataattachments.DataAttachments;
 import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.enchantment.ModEnchantmentEffects;
 import net.hatedero.warlocksmod.item.ModCreativeModeTabs;
@@ -50,8 +48,6 @@ public class WarlocksMod {
         ModBlocks.register(modEventBus);
 
         ModEffects.register(modEventBus);
-
-        DataAttachments.register(modEventBus);
 
         ModEnchantmentEffects.register(modEventBus);
         ATTACHMENT_TYPES.register(modEventBus);

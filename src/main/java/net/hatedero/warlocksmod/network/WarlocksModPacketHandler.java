@@ -2,6 +2,7 @@ package net.hatedero.warlocksmod.network;
 
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.network.message.PlayerDashSyncMessage;
+import net.hatedero.warlocksmod.network.message.PlayerDoubleJumpSyncMessage;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
@@ -19,7 +20,7 @@ public class WarlocksModPacketHandler {
     @SubscribeEvent
     public static void register (RegisterPayloadHandlersEvent event){
         PayloadRegistrar registrar = event.registrar("0.1.3");
-        //registrar.playBidirectional(DrinkByHandMessage.TYPE, DrinkByHandMessage.STREAM_CODEC, new DirectionalPayloadHandler(DrinkByHandMessage::clientHandle, DrinkByHandMessage::serverHandle));
         registrar.playBidirectional(PlayerDashSyncMessage.TYPE, PlayerDashSyncMessage.STREAM_CODEC, new DirectionalPayloadHandler(PlayerDashSyncMessage::clientHandle, PlayerDashSyncMessage::serverHandle));
+        registrar.playBidirectional(PlayerDoubleJumpSyncMessage.TYPE, PlayerDoubleJumpSyncMessage.STREAM_CODEC, new DirectionalPayloadHandler(PlayerDoubleJumpSyncMessage::clientHandle, PlayerDoubleJumpSyncMessage::serverHandle));
     }
 }
