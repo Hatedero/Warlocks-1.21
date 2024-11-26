@@ -1,11 +1,10 @@
 package net.hatedero.warlocksmod.capability.abilities.thundersnap;
 
-import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IDoubleJump;
 import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IThunderSnap;
-import net.hatedero.warlocksmod.network.message.PlayerDoubleJumpSyncMessage;
 import net.hatedero.warlocksmod.network.message.PlayerThunderSnapSyncMessage;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -13,7 +12,6 @@ import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.UnknownNullability;
 
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DOUBLE_JUMP;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
 
 public class PlayerThunderSnap implements IThunderSnap, INBTSerializable<CompoundTag> {
@@ -26,7 +24,7 @@ public class PlayerThunderSnap implements IThunderSnap, INBTSerializable<Compoun
 
     @Override
     public int getStrength() {
-        return 0;
+        return this.strength;
     }
 
     @Override
@@ -68,7 +66,9 @@ public class PlayerThunderSnap implements IThunderSnap, INBTSerializable<Compoun
     public void tick(Player player) {
         if(player.getData(PLAYER_THUNDER_SNAP).getCooldown() > player.getData(PLAYER_THUNDER_SNAP).getCooldownMin()){
             player.getData(PLAYER_THUNDER_SNAP).setCooldown(player.getData(PLAYER_THUNDER_SNAP).getCooldown() - 1);
+            player.sendSystemMessage(Component.literal(String.valueOf( player.getData(PLAYER_THUNDER_SNAP).getCooldown())));
         }
+        updateThunderSnapData(player);
     }
 
     @Override

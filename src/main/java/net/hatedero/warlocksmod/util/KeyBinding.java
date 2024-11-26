@@ -16,7 +16,7 @@ public class KeyBinding {
     public static KeyMapping DOUBLE_JUMP_KEY = new KeyMapping(KEY_DOUBLE_JUMP, KeyConflictContext.IN_GAME,
             InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_SPACE, KEY_CATEGORIES_WARLOCKS);
 
-    public static KeyMapping MELEE_ABILITY_KEE = new KeyMapping(KEY_MELEE_ABILITY, KeyConflictContext.IN_GAME,
+    public static KeyMapping MELEE_ABILITY_KEY = new KeyMapping(KEY_MELEE_ABILITY, KeyConflictContext.IN_GAME,
             InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_E, KEY_CATEGORIES_WARLOCKS);
 
 

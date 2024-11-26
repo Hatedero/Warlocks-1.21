@@ -6,7 +6,6 @@ import net.hatedero.warlocksmod.enchantment.ModEnchantmentEffects;
 import net.hatedero.warlocksmod.item.ModCreativeModeTabs;
 import net.hatedero.warlocksmod.util.KeyBinding;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import org.slf4j.Logger;
 
@@ -84,7 +83,7 @@ public class WarlocksMod {
         public static void onKeyRegister(RegisterKeyMappingsEvent event){
             event.register(KeyBinding.DASH_KEY);
             event.register(KeyBinding.DOUBLE_JUMP_KEY);
-            event.register(KeyBinding.MELEE_ABILITY_KEE);
+            event.register(KeyBinding.MELEE_ABILITY_KEY);
         }
     }
 

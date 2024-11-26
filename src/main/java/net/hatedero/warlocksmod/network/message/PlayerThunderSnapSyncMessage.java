@@ -25,6 +25,7 @@ public record PlayerThunderSnapSyncMessage(int cooldown, int strength) implement
     }
 
     public static void clientHandle(PlayerThunderSnapSyncMessage message, IPayloadContext context) {
+
         context.enqueueWork(() -> {
             Player player = Minecraft.getInstance().player;
             if (player != null) {
@@ -32,7 +33,6 @@ public record PlayerThunderSnapSyncMessage(int cooldown, int strength) implement
                 cap.setCooldown(message.cooldown);
                 cap.setStrength(message.strength);
             }
-
         });
     }
     @NotNull
@@ -52,7 +52,7 @@ public record PlayerThunderSnapSyncMessage(int cooldown, int strength) implement
         STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.INT, PlayerThunderSnapSyncMessage::cooldown, ByteBufCodecs.INT, PlayerThunderSnapSyncMessage::strength, PlayerThunderSnapSyncMessage::new);
     }
 
-    public static void clientHandle(CustomPacketPayload customPacketPayload, IPayloadContext iPayloadContext) {
+    public static void clientHandle(CustomPacketPayload message, IPayloadContext iPayloadContext) {
         iPayloadContext.enqueueWork(() -> {
             Player player = Minecraft.getInstance().player;
             if (player != null) {

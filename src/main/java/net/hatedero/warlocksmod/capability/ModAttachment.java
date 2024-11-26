@@ -5,6 +5,7 @@ import net.hatedero.warlocksmod.capability.abilities.dash.PlayerDash;
 import net.hatedero.warlocksmod.capability.abilities.doublejump.PlayerDoubleJump;
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnap;
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnapManager;
+import net.hatedero.warlocksmod.capability.classes.dawnblade.PlayerDawnBlade;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
@@ -16,6 +17,7 @@ public class ModAttachment {
     public static final Supplier<AttachmentType<PlayerDash>> PLAYER_DASH;
     public static final Supplier<AttachmentType<PlayerDoubleJump>> PLAYER_DOUBLE_JUMP;
     public static final Supplier<AttachmentType<PlayerThunderSnap>> PLAYER_THUNDER_SNAP;
+//    public static final Supplier<AttachmentType<PlayerDawnBlade>> PLAYER_DAWN_BLADE;
 
     public ModAttachment() {
     }
@@ -31,5 +33,8 @@ public class ModAttachment {
         PLAYER_THUNDER_SNAP = ATTACHMENT_TYPES.register("player_thunder_snap", () -> {
             return AttachmentType.serializable(PlayerThunderSnap::new).copyOnDeath().build();
         });
+//        PLAYER_DAWN_BLADE = ATTACHMENT_TYPES.register("player_dawn_blade", () -> {
+//            return AttachmentType.serializable(PlayerDawnBlade::new).copyOnDeath().build();
+//        });
     }
 }

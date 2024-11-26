@@ -26,7 +26,7 @@ public record LightningStrikerEnchantmentEffect() implements EnchantmentEntityEf
         EntityType.LIGHTNING_BOLT.spawn(serverLevel, entity.getOnPos(), MobSpawnType.TRIGGERED).setDamage(5.0f + (2 *enchantmentLevel));
 
 
-            for(int i = 0; i < rangeTrail; i++){
+            for(int i = 1; i < rangeTrail; i++){
                 float x = ((trail.getX() + origin.getX())/i)+origin.getX();
                 float z = ((trail.getZ() + origin.getZ())/i)+origin.getZ();
                 BlockPos newCo = new BlockPos((int) x, trail.getY(), (int) z);
