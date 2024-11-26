@@ -1,6 +1,7 @@
 package net.hatedero.warlocksmod.capability;
 
 import net.hatedero.warlocksmod.WarlocksMod;
+import net.hatedero.warlocksmod.capability.abilities.blink.PlayerBlink;
 import net.hatedero.warlocksmod.capability.abilities.dash.PlayerDash;
 import net.hatedero.warlocksmod.capability.abilities.doublejump.PlayerDoubleJump;
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnap;
@@ -17,13 +18,14 @@ public class ModAttachment {
     public static final Supplier<AttachmentType<PlayerDash>> PLAYER_DASH;
     public static final Supplier<AttachmentType<PlayerDoubleJump>> PLAYER_DOUBLE_JUMP;
     public static final Supplier<AttachmentType<PlayerThunderSnap>> PLAYER_THUNDER_SNAP;
-//    public static final Supplier<AttachmentType<PlayerDawnBlade>> PLAYER_DAWN_BLADE;
+    public static final Supplier<AttachmentType<PlayerBlink>> PLAYER_BLINK;
 
     public ModAttachment() {
     }
 
     static {
         ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, WarlocksMod.MOD_ID);
+
         PLAYER_DASH = ATTACHMENT_TYPES.register("player_dash", () -> {
             return AttachmentType.serializable(PlayerDash::new).copyOnDeath().build();
         });
@@ -33,8 +35,8 @@ public class ModAttachment {
         PLAYER_THUNDER_SNAP = ATTACHMENT_TYPES.register("player_thunder_snap", () -> {
             return AttachmentType.serializable(PlayerThunderSnap::new).copyOnDeath().build();
         });
-//        PLAYER_DAWN_BLADE = ATTACHMENT_TYPES.register("player_dawn_blade", () -> {
-//            return AttachmentType.serializable(PlayerDawnBlade::new).copyOnDeath().build();
-//        });
+        PLAYER_BLINK = ATTACHMENT_TYPES.register("player_blink", () -> {
+            return AttachmentType.serializable(PlayerBlink::new).copyOnDeath().build();
+        });
     }
 }

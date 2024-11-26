@@ -15,8 +15,8 @@ import org.jetbrains.annotations.UnknownNullability;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
 
 public class PlayerThunderSnap implements IThunderSnap, INBTSerializable<CompoundTag> {
-    int strength = 5;
-    int cooldownMax = 20;
+    int strength = 10;
+    int cooldownMax = 200;
     int cooldownMin = 0;
     int cooldown = cooldownMax;
 
@@ -66,7 +66,6 @@ public class PlayerThunderSnap implements IThunderSnap, INBTSerializable<Compoun
     public void tick(Player player) {
         if(player.getData(PLAYER_THUNDER_SNAP).getCooldown() > player.getData(PLAYER_THUNDER_SNAP).getCooldownMin()){
             player.getData(PLAYER_THUNDER_SNAP).setCooldown(player.getData(PLAYER_THUNDER_SNAP).getCooldown() - 1);
-            player.sendSystemMessage(Component.literal(String.valueOf( player.getData(PLAYER_THUNDER_SNAP).getCooldown())));
         }
         updateThunderSnapData(player);
     }

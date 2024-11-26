@@ -2,6 +2,7 @@ package net.hatedero.warlocksmod.capability.abilities.dash;
 
 import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IDash;
 import net.hatedero.warlocksmod.network.message.PlayerDashSyncMessage;
+import net.hatedero.warlocksmod.network.message.PlayerThunderSnapSyncMessage;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -12,9 +13,16 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.UnknownNullability;
 
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DASH;
+import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
 
 public class PlayerDash implements IDash, INBTSerializable<CompoundTag> {
-    int nbDash = 0;
+    int nbDashMax = 2;
+    int nbDashMin = 0;
+    int nbDash = nbDashMin;
+
+    int cooldownMax = 10;
+    int cooldownMin = 0;
+    int cooldown = cooldownMax;
 
     public PlayerDash(){}
 
@@ -27,30 +35,88 @@ public class PlayerDash implements IDash, INBTSerializable<CompoundTag> {
     public void setNbDash(int n) {
         this.nbDash = n;
     }
+    @Override
+    public int getNbDashMax() {
+        return nbDashMax;
+    }
+
+    @Override
+    public void setNbDashMax(int n) {
+        this.nbDashMax = n;
+    }
+
+    @Override
+    public int getNbDashMin() {
+        return nbDashMin;
+    }
+
+    @Override
+    public void setNbDashMin(int n) {
+        this.nbDashMin = n;
+    }
+
+    @Override
+    public int getCooldown() {
+        return cooldown;
+    }
+
+    @Override
+    public void setCooldown(int n) {
+        this.cooldown = n;
+    }
+
+    @Override
+    public int getCooldownMax() {
+        return cooldownMax;
+    }
+
+    @Override
+    public void setCooldownMax(int n) {
+        this.cooldownMax = n;
+    }
+
+    @Override
+    public int getCooldownMin() {
+        return cooldownMin;
+    }
+
+    @Override
+    public void setCooldownMin(int n) {
+        this.cooldownMin = n;
+    }
 
     @Override
     public void tick(Player player) {
         if(player.onGround()) {
-            player.getData(PLAYER_DASH).setNbDash(1);
-            PacketDistributor.sendToPlayer((ServerPlayer)player, new PlayerDashSyncMessage(this.nbDash), new CustomPacketPayload[0]);
-            //player.sendSystemMessage(Component.literal(String.valueOf(player.getData(PLAYER_DASH).getNbDash() )));
+            player.getData(PLAYER_DASH).setNbDash(player.getData(PLAYER_DASH).getNbDashMax());
+            player.getData(PLAYER_DASH).setCooldown(player.getData(PLAYER_DASH).getCooldownMin());
         }
+        if(player.getData(PLAYER_DASH).getCooldown() > player.getData(PLAYER_DASH).getCooldownMin()){
+            player.getData(PLAYER_DASH).setCooldown(player.getData(PLAYER_DASH).getCooldown() - 1);
+        }
+        updateDashData(player);
     }
 
     @Override
     public void updateDashData(Player player) {
-        //PacketDistributor.sendToPlayer((ServerPlayer) player, new PlayerDash);
+        PacketDistributor.sendToPlayer((ServerPlayer) player, new PlayerDashSyncMessage(this.cooldown, this.nbDash), new CustomPacketPayload[0]);
     }
 
     @Override
     public @UnknownNullability CompoundTag serializeNBT(HolderLookup.Provider provider) {
         CompoundTag nbt = new CompoundTag();
-        nbt.putInt("nb_dash", this.nbDash);
+        nbt.putInt("dash_nb_dash", this.nbDash);
+        nbt.putInt("dash_cooldown", this.cooldown);
+        nbt.putInt("dash_cooldown_max", this.cooldownMax);
+        nbt.putInt("dash_cooldown_min", this.cooldownMin);
         return nbt;
     }
 
     @Override
     public void deserializeNBT(HolderLookup.Provider provider, CompoundTag nbt) {
-        this.nbDash = nbt.getInt("nb_dash");
+        this.nbDash = nbt.getInt("dash_nb_dash");
+        this.cooldown = nbt.getInt("dash_cooldown");
+        this.cooldownMax = nbt.getInt("dash_cooldown_max");
+        this.cooldownMin = nbt.getInt("dash_cooldown_min");
     }
 }

@@ -2,14 +2,14 @@ package net.hatedero.warlocksmod.capability.abilitiesinterfaces;
 
 import net.minecraft.world.entity.player.Player;
 
-public interface IDash {
-    int getNbDash();
-    void setNbDash(int n);
-    int getNbDashMax();
-    void setNbDashMax(int n);
+public interface IBlink {
+    int getNbBlink();
+    void setNbBlink(int n);
+    int getNbBlinkMax();
+    void setNbBlinkMax(int n);
 
-    int getNbDashMin();
-    void setNbDashMin(int n);
+    int getNbBlinkMin();
+    void setNbBlinkMin(int n);
 
     int getCooldown();
     void setCooldown(int n);
@@ -20,5 +20,5 @@ public interface IDash {
     int getCooldownMin();
     void setCooldownMin(int n);
     void tick(Player player);
-    void updateDashData(Player player);
+    void updateBlinkData(Player player);
 }

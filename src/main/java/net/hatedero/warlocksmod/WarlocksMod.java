@@ -84,6 +84,7 @@ public class WarlocksMod {
             event.register(KeyBinding.DASH_KEY);
             event.register(KeyBinding.DOUBLE_JUMP_KEY);
             event.register(KeyBinding.MELEE_ABILITY_KEY);
+            event.register(KeyBinding.BLINK_KEY);
         }
     }
 

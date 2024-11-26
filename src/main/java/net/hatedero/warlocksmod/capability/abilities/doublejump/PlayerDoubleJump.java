@@ -2,6 +2,7 @@ package net.hatedero.warlocksmod.capability.abilities.doublejump;
 
 import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IDoubleJump;
 import net.hatedero.warlocksmod.network.message.PlayerDoubleJumpSyncMessage;
+import net.hatedero.warlocksmod.network.message.PlayerThunderSnapSyncMessage;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -11,13 +12,14 @@ import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.UnknownNullability;
 
+import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DASH;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DOUBLE_JUMP;
 
 public class PlayerDoubleJump implements IDoubleJump, INBTSerializable<CompoundTag> {
-    int nbDoubleJump = 0;
     int nbDoubleJumpMax = 2;
     int nbDoubleJumpMin = 0;
-    int cooldownMax = 20;
+    int nbDoubleJump = nbDoubleJumpMin;
+    int cooldownMax = 10;
     int cooldownMin = 0;
     int cooldown = cooldownMax;
 
@@ -88,27 +90,33 @@ public class PlayerDoubleJump implements IDoubleJump, INBTSerializable<CompoundT
         if(player.onGround()) {
             player.getData(PLAYER_DOUBLE_JUMP).setNbDoubleJump(nbDoubleJumpMax);
             player.getData(PLAYER_DOUBLE_JUMP).setCooldown(cooldownMin);
-            PacketDistributor.sendToPlayer((ServerPlayer)player, new PlayerDoubleJumpSyncMessage(this.nbDoubleJump), new CustomPacketPayload[0]);
         }
         if(player.getData(PLAYER_DOUBLE_JUMP).getCooldown() > player.getData(PLAYER_DOUBLE_JUMP).getCooldownMin()){
             player.getData(PLAYER_DOUBLE_JUMP).setCooldown(player.getData(PLAYER_DOUBLE_JUMP).getCooldown() - 1);
         }
+        updateDoubleJumpData(player);
     }
 
     @Override
     public void updateDoubleJumpData(Player player) {
-        //PacketDistributor.sendToPlayer((ServerPlayer) player, new PlayerDoubleJump());
+        PacketDistributor.sendToPlayer((ServerPlayer) player, new PlayerDoubleJumpSyncMessage(this.cooldown, this.nbDoubleJump), new CustomPacketPayload[0]);
     }
 
     @Override
     public @UnknownNullability CompoundTag serializeNBT(HolderLookup.Provider provider) {
         CompoundTag nbt = new CompoundTag();
-        nbt.putInt("nb_double_jump", this.nbDoubleJump);
+        nbt.putInt("double_jump_nb_double_jump", this.nbDoubleJump);
+        nbt.putInt("double_jump_cooldown", this.cooldown);
+        nbt.putInt("double_jump_cooldown_max", this.cooldownMax);
+        nbt.putInt("double_jump_cooldown_min", this.cooldownMin);
         return nbt;
     }
 
     @Override
     public void deserializeNBT(HolderLookup.Provider provider, CompoundTag nbt) {
-        this.nbDoubleJump = nbt.getInt("nb_double_jump");
+        this.nbDoubleJump = nbt.getInt("double_jump_nb_double_jump");
+        this.cooldown = nbt.getInt("double_jump_cooldown");
+        this.cooldownMax = nbt.getInt("double_jump_cooldown_max");
+        this.cooldownMin = nbt.getInt("double_jump_cooldown_min");
     }
 }

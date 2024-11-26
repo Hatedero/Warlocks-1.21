@@ -2,62 +2,55 @@ package net.hatedero.warlocksmod.network.message;
 
 import io.netty.buffer.ByteBuf;
 import net.hatedero.warlocksmod.WarlocksMod;
+import net.hatedero.warlocksmod.capability.abilities.doublejump.PlayerDoubleJump;
+import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnap;
 import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IDoubleJump;
 import net.hatedero.warlocksmod.capability.ModAttachment;
+import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IThunderSnap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import org.jetbrains.annotations.NotNull;
 
-public record PlayerDoubleJumpSyncMessage(int nbDoubleJump) implements CustomPacketPayload {
-    public static final Type<PlayerDoubleJumpSyncMessage> TYPE = new Type(WarlocksMod.asResource("doublejumpsync"));
-    public static final StreamCodec<ByteBuf, PlayerDoubleJumpSyncMessage> STREAM_CODEC;
-    public PlayerDoubleJumpSyncMessage(int nbDoubleJump ) {
-        this.nbDoubleJump = nbDoubleJump;
-    }
+public record PlayerDoubleJumpSyncMessage(int cooldown, int nbDoubleJump) implements CustomPacketPayload {
+    public static final CustomPacketPayload.Type<PlayerDoubleJumpSyncMessage> TYPE = new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath(WarlocksMod.MOD_ID, "double_jump_sync"));
+    public static final StreamCodec<ByteBuf, PlayerDoubleJumpSyncMessage> STREAM_CODEC = StreamCodec.composite(
+            ByteBufCodecs.VAR_INT,
+            PlayerDoubleJumpSyncMessage::cooldown,
+            ByteBufCodecs.VAR_INT,
+            PlayerDoubleJumpSyncMessage::nbDoubleJump,
+            PlayerDoubleJumpSyncMessage::new
+    );
 
-    public static void serverHandle(PlayerDoubleJumpSyncMessage message, IPayloadContext context) {
-    }
-
-    public static void clientHandle(PlayerDoubleJumpSyncMessage message, IPayloadContext context) {
-        context.enqueueWork(() -> {
-            Player player = Minecraft.getInstance().player;
-            if (player != null) {
-                IDoubleJump cap = (IDoubleJump)player.getData(ModAttachment.PLAYER_DOUBLE_JUMP);
-                cap.setNbDoubleJump(message.nbDoubleJump);
-            }
-
-        });
-    }
-    @NotNull
-    public CustomPacketPayload.@NotNull Type<? extends CustomPacketPayload> type() {
+    @Override
+    public CustomPacketPayload.Type<? extends CustomPacketPayload> type() {
         return TYPE;
     }
 
-    public int WarlocksMod() {
-        return this.nbDoubleJump;
+    public class ClientPayloadHandler {
+        public static void handleDataOnMain(final PlayerDoubleJumpSyncMessage message, final IPayloadContext context) {
+            context.enqueueWork(() -> {
+                Player player = Minecraft.getInstance().player;
+                if (player != null) {
+                    IDoubleJump cap = (IDoubleJump) player.getData(ModAttachment.PLAYER_DOUBLE_JUMP);
+                    cap.setCooldown(message.cooldown);
+                    cap.setNbDoubleJump(message.nbDoubleJump);
+                }
+            });
+        }
     }
 
-    static {
-        STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.INT, PlayerDoubleJumpSyncMessage::nbDoubleJump, PlayerDoubleJumpSyncMessage::new);
-    }
-
-    public static void clientHandle(CustomPacketPayload customPacketPayload, IPayloadContext iPayloadContext) {
-        iPayloadContext.enqueueWork(() -> {
-            Player player = Minecraft.getInstance().player;
-            if (player != null) {
-                IDoubleJump cap = (IDoubleJump)player.getData(ModAttachment.PLAYER_DOUBLE_JUMP);
-                cap.setNbDoubleJump(2);
-                cap.setCooldown(0);
-            }
-
-        });
-    }
-
-    public static void serverHandle(CustomPacketPayload customPacketPayload, IPayloadContext iPayloadContext) {
-
+    public class ServerPayloadHandler {
+        public static void handleDataOnMain(final PlayerDoubleJumpSyncMessage data, final IPayloadContext context) {
+            context.enqueueWork(() -> {
+                Player player = context.player();
+                ((PlayerDoubleJump) player.getData(ModAttachment.PLAYER_DOUBLE_JUMP)).setCooldown(data.cooldown);
+                ((PlayerDoubleJump) player.getData(ModAttachment.PLAYER_DOUBLE_JUMP)).setNbDoubleJump(data.nbDoubleJump);
+            });
+        }
     }
 }
