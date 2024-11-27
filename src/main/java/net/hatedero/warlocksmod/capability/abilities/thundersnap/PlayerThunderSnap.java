@@ -16,7 +16,7 @@ import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_S
 
 public class PlayerThunderSnap implements IThunderSnap, INBTSerializable<CompoundTag> {
     int strength = 10;
-    int cooldownMax = 200;
+    int cooldownMax = 40;
     int cooldownMin = 0;
     int cooldown = cooldownMax;
 
