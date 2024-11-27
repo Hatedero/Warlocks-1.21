@@ -89,7 +89,6 @@ public class PlayerDash implements IDash, INBTSerializable<CompoundTag> {
     public void tick(Player player) {
         if(player.onGround()) {
             player.getData(PLAYER_DASH).setNbDash(player.getData(PLAYER_DASH).getNbDashMax());
-            player.getData(PLAYER_DASH).setCooldown(player.getData(PLAYER_DASH).getCooldownMin());
         }
         if(player.getData(PLAYER_DASH).getCooldown() > player.getData(PLAYER_DASH).getCooldownMin()){
             player.getData(PLAYER_DASH).setCooldown(player.getData(PLAYER_DASH).getCooldown() - 1);

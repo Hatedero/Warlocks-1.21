@@ -27,17 +27,19 @@ public class PlayerBlinkManager {
     @SubscribeEvent
     public static void onBlink(InputEvent.Key event){
         if (Minecraft.getInstance().player instanceof Player player && BLINK_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_BLINK).getCooldown() <= player.getData(PLAYER_BLINK).getCooldownMin() && player.getData(PLAYER_BLINK).getNbBlink() > player.getData(PLAYER_BLINK).getNbBlinkMin()) {
-            boolean groundedLaunch = player.onGround();
-            final Minecraft minecraft = Minecraft.getInstance();
-            Entity camera = minecraft.getCameraEntity();
-            HitResult block = camera.pick(20.0, 0.0F, false);
-            player.setPos(block.getLocation());
-            if(!groundedLaunch)
-                player.setDeltaMovement(player.getViewVector(1).multiply(1.1, 1.1, 1.1));
-            player.getData(PLAYER_BLINK).setNbBlink(player.getData(PLAYER_BLINK).getNbBlink()-1);
-            player.getData(PLAYER_BLINK).setCooldown(player.getData(PLAYER_BLINK).getCooldownMax());
-            PacketDistributor.sendToServer(new PlayerBlinkSyncMessage(player.getData(PLAYER_BLINK).getCooldown(),  player.getData(PLAYER_BLINK).getNbBlink()));
-            player.resetFallDistance();
+            if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
+                boolean groundedLaunch = player.onGround();
+                final Minecraft minecraft = Minecraft.getInstance();
+                Entity camera = minecraft.getCameraEntity();
+                HitResult block = camera.pick(20.0, 0.0F, false);
+                player.setPos(block.getLocation());
+                if (!groundedLaunch)
+                    player.setDeltaMovement(player.getViewVector(1).multiply(1.1, 1.1, 1.1));
+                player.getData(PLAYER_BLINK).setNbBlink(player.getData(PLAYER_BLINK).getNbBlink() - 1);
+                player.getData(PLAYER_BLINK).setCooldown(player.getData(PLAYER_BLINK).getCooldownMax());
+                PacketDistributor.sendToServer(new PlayerBlinkSyncMessage(player.getData(PLAYER_BLINK).getCooldown(), player.getData(PLAYER_BLINK).getNbBlink()));
+                player.resetFallDistance();
+            }
         }
     }
 

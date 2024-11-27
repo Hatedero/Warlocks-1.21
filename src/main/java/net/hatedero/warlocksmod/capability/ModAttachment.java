@@ -7,6 +7,7 @@ import net.hatedero.warlocksmod.capability.abilities.doublejump.PlayerDoubleJump
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnap;
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnapManager;
 import net.hatedero.warlocksmod.capability.classes.dawnblade.PlayerDawnBlade;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
@@ -38,5 +39,9 @@ public class ModAttachment {
         PLAYER_BLINK = ATTACHMENT_TYPES.register("player_blink", () -> {
             return AttachmentType.serializable(PlayerBlink::new).copyOnDeath().build();
         });
+    }
+
+    public static void register(IEventBus eventBus) {
+        ATTACHMENT_TYPES.register(eventBus);
     }
 }

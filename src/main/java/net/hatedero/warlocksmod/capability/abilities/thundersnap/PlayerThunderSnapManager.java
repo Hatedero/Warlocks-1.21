@@ -34,7 +34,7 @@ public class PlayerThunderSnapManager {
     @SubscribeEvent
     public static void onCast(InputEvent.Key event){
         if (Minecraft.getInstance().player instanceof Player player && MELEE_ABILITY_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_THUNDER_SNAP).getCooldown() <= player.getData(PLAYER_THUNDER_SNAP).getCooldownMin()) {
-
+            if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
             final Minecraft minecraft = Minecraft.getInstance();
             Entity camera = minecraft.getCameraEntity();
             HitResult block = camera.pick(30.0, 0.0F, true);
@@ -50,6 +50,7 @@ public class PlayerThunderSnapManager {
             player.getData(PLAYER_THUNDER_SNAP).setCooldown(player.getData(PLAYER_THUNDER_SNAP).getCooldownMax());
             PacketDistributor.sendToServer(new PlayerThunderSnapSyncMessage( player.getData(PLAYER_THUNDER_SNAP).getCooldown(),  player.getData(PLAYER_THUNDER_SNAP).getStrength()));
         }
+            }
     }
 
     @SubscribeEvent

@@ -33,18 +33,20 @@ public class PlayerDashManager {
     @SubscribeEvent
     public static void onDash(InputEvent.Key event){
         if (Minecraft.getInstance().player instanceof Player player && DASH_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_DASH).getCooldown() <= player.getData(PLAYER_DASH).getCooldownMin() && player.getData(PLAYER_DASH).getNbDash() > player.getData(PLAYER_DASH).getNbDashMin()) {
-            boolean groundedLaunch = player.onGround();
-            float factor = 1.4F;
-            if(!groundedLaunch)
-                factor+=0.1F;
-            if(player.hasEffect(ModEffects.PHOENIX_EFFECT))
-                factor+=0.2F;
-            Vec3 playerSightLigne = player.getViewVector(1).normalize().multiply(factor, factor, factor);
-            player.setDeltaMovement(playerSightLigne);
-            player.getData(PLAYER_DASH).setNbDash(player.getData(PLAYER_DASH).getNbDash()-1);
-            player.getData(PLAYER_DASH).setCooldown(player.getData(PLAYER_DASH).getCooldownMax());
-            PacketDistributor.sendToServer(new PlayerDashSyncMessage(player.getData(PLAYER_DASH).getCooldown(),  player.getData(PLAYER_DASH).getNbDash()));
-            player.resetFallDistance();
+            if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
+                boolean groundedLaunch = player.onGround();
+                float factor = 1.4F;
+                if (!groundedLaunch)
+                    factor += 0.1F;
+                if (player.hasEffect(ModEffects.PHOENIX_EFFECT))
+                    factor += 0.2F;
+                Vec3 playerSightLigne = player.getViewVector(1).normalize().multiply(factor, factor, factor);
+                player.setDeltaMovement(playerSightLigne);
+                player.getData(PLAYER_DASH).setNbDash(player.getData(PLAYER_DASH).getNbDash() - 1);
+                player.getData(PLAYER_DASH).setCooldown(player.getData(PLAYER_DASH).getCooldownMax());
+                PacketDistributor.sendToServer(new PlayerDashSyncMessage(player.getData(PLAYER_DASH).getCooldown(), player.getData(PLAYER_DASH).getNbDash()));
+                player.resetFallDistance();
+            }
         }
     }
 

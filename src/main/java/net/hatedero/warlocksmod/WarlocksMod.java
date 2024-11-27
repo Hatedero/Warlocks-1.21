@@ -1,10 +1,14 @@
 package net.hatedero.warlocksmod;
 
 import net.hatedero.warlocksmod.block.ModBlocks;
+import net.hatedero.warlocksmod.capability.ModAttachment;
 import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.enchantment.ModEnchantmentEffects;
+import net.hatedero.warlocksmod.entity.ModEntities;
+import net.hatedero.warlocksmod.entity.client.BlackHoleRenderer;
 import net.hatedero.warlocksmod.item.ModCreativeModeTabs;
 import net.hatedero.warlocksmod.util.KeyBinding;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import org.slf4j.Logger;
@@ -46,10 +50,13 @@ public class WarlocksMod {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        ModEntities.register(modEventBus);
+
         ModEffects.register(modEventBus);
 
         ModEnchantmentEffects.register(modEventBus);
-        ATTACHMENT_TYPES.register(modEventBus);
+
+        ModAttachment.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
 
@@ -76,7 +83,7 @@ public class WarlocksMod {
     {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            EntityRenderers.register(ModEntities.BLACK_HOLE.get(), BlackHoleRenderer::new);
         }
 
         @SubscribeEvent

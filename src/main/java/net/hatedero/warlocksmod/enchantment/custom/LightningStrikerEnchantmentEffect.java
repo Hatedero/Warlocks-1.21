@@ -3,6 +3,7 @@ package net.hatedero.warlocksmod.enchantment.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -17,23 +18,22 @@ public record LightningStrikerEnchantmentEffect() implements EnchantmentEntityEf
 
     @Override
     public void apply(ServerLevel serverLevel, int enchantmentLevel, EnchantedItemInUse enchantedItemInUse, Entity entity, Vec3 vec3) {
-        BlockPos trail = entity.getOnPos();
-        BlockPos origin = enchantedItemInUse.owner().getOnPos();
-        int rangeTrail = 10;
+        if(enchantedItemInUse.owner() instanceof Player player) {
 
-        //Vec3 playerSightLigne = enchantedItemInUse.owner().getViewVector(1).normalize().multiply(rangeTrail,rangeTrail,rangeTrail);
+            Vec3 dist = player.position().subtract(entity.position());
+            BlockPos trail = entity.getOnPos();
 
-        EntityType.LIGHTNING_BOLT.spawn(serverLevel, entity.getOnPos(), MobSpawnType.TRIGGERED).setDamage(5.0f + (2 *enchantmentLevel));
+            Vec3 U = dist.normalize().scale(1);
 
+            int rangeTrail = 10;
+            int factor = 5;
 
-            for(int i = 1; i < rangeTrail; i++){
-                float x = ((trail.getX() + origin.getX())/i)+origin.getX();
-                float z = ((trail.getZ() + origin.getZ())/i)+origin.getZ();
-                BlockPos newCo = new BlockPos((int) x, trail.getY(), (int) z);
-
-                EntityType.LIGHTNING_BOLT.spawn(serverLevel, newCo, MobSpawnType.TRIGGERED).setDamage(i);
-            }
-
+            EntityType.LIGHTNING_BOLT.spawn(serverLevel, entity.getOnPos(), MobSpawnType.TRIGGERED).setDamage(5.0f + (2 *enchantmentLevel));
+                for(int i = 0; i < rangeTrail; i++){
+                    BlockPos newCo = BlockPos.containing(U.multiply(i*-factor,1,i*-factor).add(trail.getX(), trail.getY(), trail.getZ()));
+                    EntityType.LIGHTNING_BOLT.spawn(serverLevel, newCo, MobSpawnType.TRIGGERED).setDamage(rangeTrail-i);
+                }
+        }
     }
 
     @Override

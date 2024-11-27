@@ -27,13 +27,14 @@ public class PlayerDoubleJumpManager {
     @SubscribeEvent
     public static void onDoubleJump(InputEvent.Key event){
         if (Minecraft.getInstance().player instanceof Player player && DOUBLE_JUMP_KEY.getKey().getValue() == event.getKey() && !player.onGround()  && player.getData(PLAYER_DOUBLE_JUMP).getCooldown() <= player.getData(PLAYER_DOUBLE_JUMP).getCooldownMin() && player.getData(PLAYER_DOUBLE_JUMP).getNbDoubleJump() > player.getData(PLAYER_DOUBLE_JUMP).getNbDoubleJumpMin() && player.fallDistance >= 0.1) {
-
+            if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
             player.setDeltaMovement(player.getDeltaMovement().x, 0, player.getDeltaMovement().z);
             player.setDeltaMovement(player.getDeltaMovement().add(0,0.5,0));
             player.getData(PLAYER_DOUBLE_JUMP).setNbDoubleJump(player.getData(PLAYER_DOUBLE_JUMP).getNbDoubleJump()-1);
             player.getData(PLAYER_DOUBLE_JUMP).setCooldown(player.getData(PLAYER_DOUBLE_JUMP).getCooldownMax());
             PacketDistributor.sendToServer(new PlayerDoubleJumpSyncMessage( player.getData(PLAYER_DOUBLE_JUMP).getCooldown(),  player.getData(PLAYER_DOUBLE_JUMP).getNbDoubleJump()));
             player.resetFallDistance();
+            }
         }
 
     }

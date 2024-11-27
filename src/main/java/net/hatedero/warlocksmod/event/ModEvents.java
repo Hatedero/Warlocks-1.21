@@ -3,6 +3,9 @@ package net.hatedero.warlocksmod.event;
 
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.effect.ModEffects;
+import net.hatedero.warlocksmod.entity.ModEntities;
+import net.hatedero.warlocksmod.entity.client.ModModelLayers;
+import net.hatedero.warlocksmod.entity.custom.BlackHoleEntity;
 import net.hatedero.warlocksmod.item.ModItems;
 import net.hatedero.warlocksmod.item.custom.HammerItem;
 import net.minecraft.core.BlockPos;
@@ -13,6 +16,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
@@ -53,36 +59,13 @@ public class ModEvents {
     }
 
 //    @SubscribeEvent
-//    public static void onDash(InputEvent.Key event){
-//        if (Minecraft.getInstance().player instanceof Player player && DASH_KEY.getKey().getValue() == event.getKey() && !player.onGround() && player.getData(PLAYER_DASH).getNbDash() > 0) {
-//            //
-//
-//            Vec3 playerSightLigne = player.getViewVector(1).normalize().multiply(1.5, 1.5, 1.5);
-//            player.setDeltaMovement(playerSightLigne);
-//            player.getData(PLAYER_DASH).setNbDash(player.getData(PLAYER_DASH).getNbDash()-1);
-//            //player.sendSystemMessage(Component.literal(String.valueOf(player.getData(PLAYER_DASH).getNbDash() )));
-//            //player.getActiveEffects().remove(ModEffects.DASH_EFFECT);
-//        }
+//    public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+//        event.registerLayerDefinition(ModModelLayers.BLACK_HOLE, PenguinModel::createBodyLayer);
 //    }
 
 //    @SubscribeEvent
-//    public static void onPlayerTick(PlayerTickEvent.Pre event){
-//        Player player = event.getEntity();
-//        if(player instanceof ServerPlayer serverPlayer){
-//            ((PlayerDash)serverPlayer.getData(ModAttachment.PLAYER_DASH)).tick(serverPlayer);
-//        }
-//    }
-
-//    @SubscribeEvent
-//    public static void onDoubleJump(InputEvent.Key event){
-//        if (Minecraft.getInstance().player instanceof Player player && DOUBLE_JUMP_KEY.getKey().getValue() == event.getKey() && !player.onGround() && player.hasEffect(ModEffects.DOUBLE_JUMP_EFFECT) && player.fallDistance >= 0.1) {
-//            //
-//
-//            player.setDeltaMovement(player.getDeltaMovement().x, 0, player.getDeltaMovement().z);
-//            player.setDeltaMovement(player.getDeltaMovement().add(0,0.5,0));
-//            player.getActiveEffects().remove(ModEffects.DOUBLE_JUMP_EFFECT);
-//        }
-//
+//    public static void registerAttributes(EntityAttributeCreationEvent event) {
+//        event.put(ModEntities.BLACK_HOLE.get(), BlackHoleEntity.createAttributes().build());
 //    }
 
     @SubscribeEvent
