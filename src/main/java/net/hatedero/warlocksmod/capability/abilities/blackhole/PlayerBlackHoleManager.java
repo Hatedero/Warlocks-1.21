@@ -3,10 +3,14 @@ package net.hatedero.warlocksmod.capability.abilities.blackhole;
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.capability.ModAttachment;
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnap;
+import net.hatedero.warlocksmod.entity.ModEntities;
+import net.hatedero.warlocksmod.entity.custom.BlackHoleEntity;
+import net.hatedero.warlocksmod.network.message.PlayerBlackHoleSyncMessage;
 import net.hatedero.warlocksmod.network.message.PlayerThunderSnapSyncMessage;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -18,6 +22,7 @@ import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -25,6 +30,8 @@ import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
+
+import java.util.List;
 
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_BLACK_HOLE;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
@@ -39,31 +46,35 @@ public class PlayerBlackHoleManager {
     public static void onCast(InputEvent.Key event){
         if (Minecraft.getInstance().player instanceof Player player && BLACK_HOLE_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_BLACK_HOLE).getCooldown() <= player.getData(PLAYER_BLACK_HOLE).getCooldownMin()) {
             if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
-                player.sendSystemMessage(Component.literal("spawn a black hole"));
+                //player.sendSystemMessage(Component.literal("spawn a black hole"));
                 final Minecraft minecraft = Minecraft.getInstance();
                 Entity camera = minecraft.getCameraEntity();
                 HitResult block = camera.pick(5.0, 0.0F, true);
 
-//                Level level = this.level();
-//
+                Level level = Minecraft.getInstance().getSingleplayerServer().overworld();
+
+                AABB minMax = new AABB(player.getX()-10, player.getY()-10, player.getZ()-10, player.getX()+10, player.getY()+10, player.getZ()+10);
+                List<Entity> ent = level.getEntities(player, minMax);
+                for (Entity entko : ent) {
+                    if(entko != player) {
+                        entko.moveTo(player.getOnPos().above(3).getCenter());
+                        player.sendSystemMessage(entko.getName());
+                    }
+                }
+
 //                //if (!level.isClientSide) {
-//                    PrimedTnt primedtnt = new PrimedTnt(level, (double)player.getX() + (double)0.5F, (double)player.getY(), (double)player.getZ() + (double)0.5F, player);
-//                    level.addFreshEntity(primedtnt);
-//                    level.playSound((Player)null, primedtnt.getX(), primedtnt.getY(), primedtnt.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0F, 1.0F);
-//                    level.gameEvent(player, GameEvent.PRIME_FUSE, player.getOnPos());
+//                BlackHoleEntity blue = new BlackHoleEntity(ModEntities.BLACK_HOLE.get(), level, player.getData(PLAYER_BLACK_HOLE).getLifeMax());
+//                level.addFreshEntity(blue);
+//                blue.moveTo(player.getOnPos().getCenter().add(0, 2, 0));
+//                blue.addDeltaMovement(player.getViewVector(1).normalize().multiply(1.5, 1.5, 1.5));
+
+                    //player.getX(), player.getY(), player.getZ(), player.getViewVector(1).normalize().multiply(1.5, 1.5, 1.5),
+                //level.playSound((Player)null, blue.getX(), blue.getY(), blue.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    //level.gameEvent(player, GameEvent.PRIME_FUSE, player.getOnPos());
 //                //}
 
-//            Entity entity = minecraft.crosshairPickEntity;
-//            if (entity != null) {
-//                EntityType.LIGHTNING_BOLT.spawn(Minecraft.getInstance().getSingleplayerServer().overworld(), entity.getOnPos(), MobSpawnType.TRIGGERED).setDamage(player.getData(PLAYER_THUNDER_SNAP).getStrength());
-//            }
-//            else {
-//                BlockPos temp = BlockPos.containing(block.getLocation());
-//                EntityType.LIGHTNING_BOLT.spawn(Minecraft.getInstance().getSingleplayerServer().overworld(), temp, MobSpawnType.TRIGGERED).setDamage(player.getData(PLAYER_THUNDER_SNAP).getStrength());
-//            }
-//
-//            player.getData(PLAYER_THUNDER_SNAP).setCooldown(player.getData(PLAYER_THUNDER_SNAP).getCooldownMax());
-//            PacketDistributor.sendToServer(new PlayerThunderSnapSyncMessage( player.getData(PLAYER_THUNDER_SNAP).getCooldown(),  player.getData(PLAYER_THUNDER_SNAP).getStrength()));
+            player.getData(PLAYER_BLACK_HOLE).setCooldown(player.getData(PLAYER_BLACK_HOLE).getCooldownMax());
+            PacketDistributor.sendToServer(new PlayerBlackHoleSyncMessage( player.getData(PLAYER_BLACK_HOLE).getCooldown(),  player.getData(PLAYER_BLACK_HOLE).getStrength(),  player.getData(PLAYER_BLACK_HOLE).getLife()));
             }
         }
     }

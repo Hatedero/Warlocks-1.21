@@ -4,14 +4,20 @@ import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IBlackHole;
 import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IThunderSnap;
 import net.hatedero.warlocksmod.network.message.PlayerBlackHoleSyncMessage;
 import net.hatedero.warlocksmod.network.message.PlayerThunderSnapSyncMessage;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.UnknownNullability;
+
+import java.util.List;
 
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_BLACK_HOLE;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
@@ -21,7 +27,7 @@ public class PlayerBlackHole implements IBlackHole, INBTSerializable<CompoundTag
     int lifeMin = 0;
     int lifeMax = 200;
     int life = lifeMax;
-    int cooldownMax = 10;
+    int cooldownMax = 20;
     int cooldownMin = 0;
     int cooldown = cooldownMax;
 
@@ -101,6 +107,19 @@ public class PlayerBlackHole implements IBlackHole, INBTSerializable<CompoundTag
     public void tick(Player player) {
         if(player.getData(PLAYER_BLACK_HOLE).getCooldown() > player.getData(PLAYER_BLACK_HOLE).getCooldownMin()){
             player.getData(PLAYER_BLACK_HOLE).setCooldown(player.getData(PLAYER_BLACK_HOLE).getCooldown() - 1);
+        }
+        Level level = Minecraft.getInstance().getSingleplayerServer().overworld();
+
+        int range = 3;
+        AABB minMax = new AABB(player.getX()-range, player.getY()-range, player.getZ()-range, player.getX()+range, player.getY()+range, player.getZ()+range);
+        List<Entity> ent = level.getEntities(player, minMax);
+        for (Entity entko : ent) {
+            if(entko != player) {
+                //entko.moveTo(player.getOnPos().above(3).getCenter());
+                entko.setNoGravity(true);
+                entko.setDeltaMovement(0, 0, 0);
+                player.sendSystemMessage(entko.getName());
+            }
         }
         updateBlackHoleData(player);
     }

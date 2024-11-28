@@ -24,7 +24,7 @@ public class ModEntities {
 //                    .sized(0.75f, 0.95f).build("blue_projectile"));
 
     public static final Supplier<EntityType<BlackHoleEntity>> BLACK_HOLE =
-            ENTITY_TYPES.register("black_hole", () -> EntityType.Builder.of(BlackHoleEntity::new, MobCategory.AMBIENT)
+            ENTITY_TYPES.register("black_hole", () -> EntityType.Builder.<BlackHoleEntity>of(BlackHoleEntity::new, MobCategory.AMBIENT)
                     .sized(0.5f, 0.5f).build("black_hole"));
 
 
