@@ -22,7 +22,7 @@ public class BlackHoleEntity extends AbstractHurtingProjectile {
 //        super(entityType, level);
 //    }
 
-    private int explosionPower = 1;
+    //private int explosionPower = 1;
 
     public BlackHoleEntity(EntityType<? extends BlackHoleEntity> entityType, Level level) {
         super(entityType, level);
@@ -49,10 +49,10 @@ public class BlackHoleEntity extends AbstractHurtingProjectile {
 //        if (var3 instanceof ServerLevel serverlevel) {
 //            Entity entity1 = result.getEntity();
 //            Entity $$4 = this.getOwner();
-//            DamageSource $$5 = this.damageSources().fireball(this, $$4);
-//            entity1.hurt($$5, 6.0F);
-//            EnchantmentHelper.doPostAttackEffects(serverlevel, entity1, $$5);
-//        }
+            //DamageSource $$5 = this.damageSources().fireball(this, $$4);
+            //entity1.hurt($$5, 6.0F);
+            //EnchantmentHelper.doPostAttackEffects(serverlevel, entity1, $$5);
+        //}
 
     }
 

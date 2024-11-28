@@ -1,6 +1,7 @@
 package net.hatedero.warlocksmod.capability;
 
 import net.hatedero.warlocksmod.WarlocksMod;
+import net.hatedero.warlocksmod.capability.abilities.blackhole.PlayerBlackHole;
 import net.hatedero.warlocksmod.capability.abilities.blink.PlayerBlink;
 import net.hatedero.warlocksmod.capability.abilities.dash.PlayerDash;
 import net.hatedero.warlocksmod.capability.abilities.doublejump.PlayerDoubleJump;
@@ -19,6 +20,7 @@ public class ModAttachment {
     public static final Supplier<AttachmentType<PlayerDash>> PLAYER_DASH;
     public static final Supplier<AttachmentType<PlayerDoubleJump>> PLAYER_DOUBLE_JUMP;
     public static final Supplier<AttachmentType<PlayerThunderSnap>> PLAYER_THUNDER_SNAP;
+    public static final Supplier<AttachmentType<PlayerBlackHole>> PLAYER_BLACK_HOLE;
     public static final Supplier<AttachmentType<PlayerBlink>> PLAYER_BLINK;
 
     public ModAttachment() {
@@ -38,6 +40,9 @@ public class ModAttachment {
         });
         PLAYER_BLINK = ATTACHMENT_TYPES.register("player_blink", () -> {
             return AttachmentType.serializable(PlayerBlink::new).copyOnDeath().build();
+        });
+        PLAYER_BLACK_HOLE = ATTACHMENT_TYPES.register("player_black_hole", () -> {
+            return AttachmentType.serializable(PlayerBlackHole::new).copyOnDeath().build();
         });
     }
 

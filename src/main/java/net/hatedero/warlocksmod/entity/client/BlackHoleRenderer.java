@@ -2,6 +2,7 @@ package net.hatedero.warlocksmod.entity.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.entity.custom.BlackHoleEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -17,7 +18,7 @@ import net.neoforged.api.distmarker.OnlyIn;
 public class BlackHoleRenderer extends EntityRenderer<BlackHoleEntity>{
 
 //    @OnlyIn(Dist.CLIENT)
-        private static final ResourceLocation TEXTURE_LOCATION = ResourceLocation.withDefaultNamespace("textures/entity/enderdragon/dragon_fireball.png");
+        private static final ResourceLocation TEXTURE_LOCATION = ResourceLocation.fromNamespaceAndPath(WarlocksMod.MOD_ID, "textures/entity/black_hole.png");
         private static final RenderType RENDER_TYPE;
 
     public BlackHoleRenderer(EntityRendererProvider.Context context) {
@@ -26,7 +27,7 @@ public class BlackHoleRenderer extends EntityRenderer<BlackHoleEntity>{
 
     @Override
     public ResourceLocation getTextureLocation(BlackHoleEntity blackHoleEntity) {
-        return null;
+        return TEXTURE_LOCATION;
     }
 
     protected int getBlockLightLevel(BlackHoleEntity entity, BlockPos pos) {
@@ -35,7 +36,7 @@ public class BlackHoleRenderer extends EntityRenderer<BlackHoleEntity>{
 
         public void render(BlackHoleEntity entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
             poseStack.pushPose();
-            poseStack.scale(2.0F, 2.0F, 2.0F);
+            poseStack.scale(1.0F, 1.0F, 1.0F);
             poseStack.mulPose(this.entityRenderDispatcher.cameraOrientation());
             PoseStack.Pose posestack$pose = poseStack.last();
             VertexConsumer vertexconsumer = buffer.getBuffer(RENDER_TYPE);
@@ -48,11 +49,7 @@ public class BlackHoleRenderer extends EntityRenderer<BlackHoleEntity>{
         }
 
         private static void vertex(VertexConsumer consumer, PoseStack.Pose pose, int packedLight, float x, int y, int u, int v) {
-            consumer.addVertex(pose, x - 0.5F, (float)y - 0.25F, 0.0F).setColor(-1).setUv((float)u, (float)v).setOverlay(OverlayTexture.NO_OVERLAY).setLight(packedLight).setNormal(pose, 0.0F, 1.0F, 0.0F);
-        }
-
-        public ResourceLocation getTextureLocation(DragonFireball entity) {
-            return TEXTURE_LOCATION;
+            consumer.addVertex(pose, x-0.5F, (float)y-0.25F, 0.0F).setColor(-1).setUv((float)u, (float)v).setOverlay(OverlayTexture.NO_OVERLAY).setLight(packedLight).setNormal(pose, 0.0F, 1.0F, 0.0F);
         }
 
         static {

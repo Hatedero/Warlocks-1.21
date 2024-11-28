@@ -1,10 +1,7 @@
 package net.hatedero.warlocksmod.network;
 
 import net.hatedero.warlocksmod.WarlocksMod;
-import net.hatedero.warlocksmod.network.message.PlayerBlinkSyncMessage;
-import net.hatedero.warlocksmod.network.message.PlayerDashSyncMessage;
-import net.hatedero.warlocksmod.network.message.PlayerDoubleJumpSyncMessage;
-import net.hatedero.warlocksmod.network.message.PlayerThunderSnapSyncMessage;
+import net.hatedero.warlocksmod.network.message.*;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
@@ -53,6 +50,14 @@ public class WarlocksModPacketHandler {
                 new DirectionalPayloadHandler<>(
                         PlayerBlinkSyncMessage.ClientPayloadHandler::handleDataOnMain,
                         PlayerBlinkSyncMessage.ServerPayloadHandler::handleDataOnMain
+                )
+        );
+        registrar.playBidirectional(
+                PlayerBlackHoleSyncMessage.TYPE,
+                PlayerBlackHoleSyncMessage.STREAM_CODEC,
+                new DirectionalPayloadHandler<>(
+                        PlayerBlackHoleSyncMessage.ClientPayloadHandler::handleDataOnMain,
+                        PlayerBlackHoleSyncMessage.ServerPayloadHandler::handleDataOnMain
                 )
         );
     }
