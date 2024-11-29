@@ -22,6 +22,15 @@ public class ModEffects {
     public static final Holder<MobEffect> CONSUMED_EFFECT = MOB_EFFECTS.register("consumed",
             () -> new ConsumedEffect(MobEffectCategory.BENEFICIAL, 0x113048));
 
+    public static final Holder<MobEffect> CLIMBING_EFFECT = MOB_EFFECTS.register("climbing",
+            () -> new ConsumedEffect(MobEffectCategory.BENEFICIAL, 0xC1BAA1));
+
+    public static final Holder<MobEffect> ABYSS_GRASP_EFFECT = MOB_EFFECTS.register("abyss_grasp",
+            () -> new ConsumedEffect(MobEffectCategory.BENEFICIAL, 0x5b175d));
+
+    public static final Holder<MobEffect> THUNDER_GRACE_EFFECT = MOB_EFFECTS.register("thunder_grace",
+            () -> new ConsumedEffect(MobEffectCategory.BENEFICIAL, 0xDEFFFE));
+
     public static final Holder<MobEffect> PHOENIX_EFFECT = MOB_EFFECTS.register("phoenix",
             () -> new PhoenixEffect(MobEffectCategory.BENEFICIAL, 0xDAA520)
                     .addAttributeModifier(Attributes.MAX_HEALTH, ResourceLocation.fromNamespaceAndPath(WarlocksMod.MOD_ID, "effect.health"), 20.0, AttributeModifier.Operation.ADD_VALUE));

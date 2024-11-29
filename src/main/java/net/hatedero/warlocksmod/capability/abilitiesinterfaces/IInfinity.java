@@ -29,7 +29,7 @@ public interface IInfinity {
     int getActiveTimeMin();
     void setActiveTimeMin(int n);
     void tick(Player player);
-    List<Entity> detectAllInRange(Player player, Level level);
-    boolean entityInRange(Entity entity, Player player);
+    List<Entity> detectAllInRange(Player player, Level level, int range);
+    boolean entityInRange(Entity entity, Player player, int range);
     void updateInfinityData(Player player);
 }

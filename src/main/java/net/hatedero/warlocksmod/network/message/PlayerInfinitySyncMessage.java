@@ -57,7 +57,6 @@ public record PlayerInfinitySyncMessage(int cooldown, int range, int activeTime,
         public static void handleDataOnMain(final PlayerInfinitySyncMessage data, final IPayloadContext context) {
             context.enqueueWork(() -> {
                 Player player = context.player();
-                player.sendSystemMessage(Component.literal("sent a server packet"));
                 ((IInfinity) player.getData(ModAttachment.PLAYER_INFINITY)).setCooldown(data.cooldown);
                 ((IInfinity) player.getData(ModAttachment.PLAYER_INFINITY)).setRange(data.range);
                 ((IInfinity) player.getData(ModAttachment.PLAYER_INFINITY)).setActiveTime(data.activeTime);
