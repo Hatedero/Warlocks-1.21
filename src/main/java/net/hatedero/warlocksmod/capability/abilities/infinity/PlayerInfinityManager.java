@@ -33,18 +33,18 @@ public class PlayerInfinityManager {
 
     @SubscribeEvent
     public static void onCast(InputEvent.Key event){
-        if (Minecraft.getInstance().player instanceof Player player && INFINITY_KEY.getKey().getValue() == event.getKey()) {
+        if (Minecraft.getInstance().player instanceof Player player && INFINITY_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_INFINITY).getCooldown() <= player.getData(PLAYER_INFINITY).getCooldownMin()) {
             if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
                 player.getData(PLAYER_INFINITY).setActive(!player.getData(PLAYER_INFINITY).getActive());
-                player.sendSystemMessage(Component.literal("press"));
-                if(player.getData(PLAYER_INFINITY).getActive()){
+                PacketDistributor.sendToServer(new PlayerInfinitySyncMessage(player.getData(PLAYER_INFINITY).getCooldown(), player.getData(PLAYER_INFINITY).getRange(), player.getData(PLAYER_INFINITY).getActiveTime(), player.getData(PLAYER_INFINITY).getActive() ? 1:0));
+                player.getData(PLAYER_INFINITY).setCooldown(player.getData(PLAYER_INFINITY).getCooldownMax());
+                if(player.getData(PLAYER_INFINITY).getActive() == true){
                     player.sendSystemMessage(Component.literal("on"));
                 } else {
                     player.sendSystemMessage(Component.literal("off"));
                 }
 
-                //player.getData(PLAYER_INFINITY).setCooldown(player.getData(PLAYER_INFINITY).getCooldownMax());
-                PacketDistributor.sendToServer(new PlayerInfinitySyncMessage(player.getData(PLAYER_INFINITY).getCooldown(), player.getData(PLAYER_INFINITY).getRange(), player.getData(PLAYER_INFINITY).getActiveTime(), player.getData(PLAYER_INFINITY).getActive() ? 1:0));
+                //PacketDistributor.sendToServer(new PlayerInfinitySyncMessage(player.getData(PLAYER_INFINITY).getCooldown(), player.getData(PLAYER_INFINITY).getRange(), player.getData(PLAYER_INFINITY).getActiveTime(), player.getData(PLAYER_INFINITY).getActive() ? 1:0));
             }
         }
     }

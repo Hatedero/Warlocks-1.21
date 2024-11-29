@@ -21,15 +21,15 @@ import java.util.List;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_INFINITY;
 
 public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> {
-    int Range = 10;
+    int Range = 3;
     boolean Active = false;
     List<Entity> Authorized;
-    int cooldownMax = 20;
+    int cooldownMax = 600;
     int cooldownMin = 0;
     int cooldown = cooldownMax;
-    int ActiveTimeMax = 200;
+    int ActiveTimeMax = 2000;
     int ActiveTimeMin = 0;
-    int ActiveTime = ActiveTimeMax;
+    int ActiveTime = ActiveTimeMin;
 
     public PlayerInfinity(){}
 
@@ -45,8 +45,8 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
 
     @Override
     public boolean getActive() {
-        return false;
-    }
+        return this.Active;
+        }
 
     @Override
     public void setActive(boolean n) {
@@ -76,7 +76,7 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
 
     @Override
     public int getCooldown() {
-        return cooldown;
+        return this.cooldown;
     }
 
     @Override
@@ -86,7 +86,7 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
 
     @Override
     public int getCooldownMax() {
-        return cooldownMax;
+        return this.cooldownMax;
     }
 
     @Override
@@ -96,7 +96,7 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
 
     @Override
     public int getCooldownMin() {
-        return cooldownMin;
+        return this.cooldownMin;
     }
 
     @Override
@@ -106,7 +106,7 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
 
     @Override
     public int getActiveTime() {
-        return ActiveTime;
+        return this.ActiveTime;
     }
 
     @Override
@@ -116,7 +116,7 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
 
     @Override
     public int getActiveTimeMax() {
-        return ActiveTimeMax;
+        return this.ActiveTimeMax;
     }
 
     @Override
@@ -126,7 +126,7 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
 
     @Override
     public int getActiveTimeMin() {
-        return ActiveTimeMin;
+        return this.ActiveTimeMin;
     }
 
     @Override
@@ -136,34 +136,45 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
 
     @Override
     public void tick(Player player) {
-        if(player.getData(PLAYER_INFINITY).getActive()){
-            player.sendSystemMessage(Component.literal("on"));
-        } else {
-            player.sendSystemMessage(Component.literal("off"));
-        }
-        if(player.getData(PLAYER_INFINITY).getActive()){
-            List<Entity> all = detectAllInRange(player, player.level());
-            for(Entity e : all){
-                if(e != player){
-                    float newSpeed = player.getData(PLAYER_INFINITY).getRange() - e.distanceTo(player);
-                    e.setDeltaMovement(newSpeed, newSpeed, newSpeed);
-                    e.setNoGravity(entityInRange(e, player));
+//        if(!player.getData(PLAYER_INFINITY).getActive()){
+//            player.sendSystemMessage(Component.literal("on"));
+//        } else {
+//            player.sendSystemMessage(Component.literal("off"));
+//        }
+        //if(player.getData(PLAYER_INFINITY).getActive()){
+//            player.sendSystemMessage(Component.literal("on"));
+
+//        AABB all = new AABB(player.getX()-this.Range, player.getY()-this.Range, player.getZ()-this.Range, player.getX()+this.Range, player.getY()+this.Range, player.getZ()+this.Range);
+//        Level level = player.level();
+//        List<Entity> entities = level.getEntities(player, all);
+//        for(Entity e : entities){
+//            player.sendSystemMessage(e.getName());
+//        }
+
+//            List<Entity> all = detectAllInRange(player, player.getServer().overworld());
+//            for(Entity e : all){
+//                if(e != player){
+                    //float newSpeed = player.getData(PLAYER_INFINITY).getRange() - e.distanceTo(player);
+//                    float newSpeed = 0;
+//                    e.setDeltaMovement(newSpeed, newSpeed, newSpeed);
+//                    e.setNoGravity(entityInRange(e, player));
+                    //player.sendSystemMessage(e.getName());
                 }
             }
-            if(player.getData(PLAYER_INFINITY).getActiveTime() >= player.getData(PLAYER_INFINITY).getActiveTimeMax()){
-                player.getData(PLAYER_INFINITY).setActive(false);
-            } else {
-                player.getData(PLAYER_INFINITY).setActiveTime(player.getData(PLAYER_INFINITY).getActiveTime() + 1);
-            }
-        }
-        else{
-            if(player.getData(PLAYER_INFINITY).getCooldown() > player.getData(PLAYER_INFINITY).getCooldownMin()){
-                player.getData(PLAYER_INFINITY).setCooldown(player.getData(PLAYER_INFINITY).getCooldown() - 1);
-            }
-            if(player.getData(PLAYER_INFINITY).getActiveTime() > player.getData(PLAYER_INFINITY).getActiveTimeMin()){
-                player.getData(PLAYER_INFINITY).setActiveTime(player.getData(PLAYER_INFINITY).getActiveTimeMin());
-            }
-        }
+//            if(player.getData(PLAYER_INFINITY).getActiveTime() >= player.getData(PLAYER_INFINITY).getActiveTimeMax()){
+//                player.getData(PLAYER_INFINITY).setActive(false);
+//            } else {
+//                player.getData(PLAYER_INFINITY).setActiveTime(player.getData(PLAYER_INFINITY).getActiveTime() + 1);
+//            }
+        //}
+//        else{
+//            if(player.getData(PLAYER_INFINITY).getCooldown() > player.getData(PLAYER_INFINITY).getCooldownMin()){
+//                player.getData(PLAYER_INFINITY).setCooldown(player.getData(PLAYER_INFINITY).getCooldown() - 1);
+//            }
+//            if(player.getData(PLAYER_INFINITY).getActiveTime() > player.getData(PLAYER_INFINITY).getActiveTimeMin()){
+//                player.getData(PLAYER_INFINITY).setActiveTime(player.getData(PLAYER_INFINITY).getActiveTimeMin());
+//            }
+//        }
         updateInfinityData(player);
     }
 
@@ -171,6 +182,8 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
     public List<Entity> detectAllInRange(Player player, Level level) {
         AABB all = new AABB(player.getX()-this.Range, player.getY()-this.Range, player.getZ()-this.Range, player.getX()+this.Range, player.getY()+this.Range, player.getZ()+this.Range);
         List<Entity> entities = level.getEntities(player, all);
+        for(Entity e : entities)
+            player.sendSystemMessage(e.getName());
         return entities;
     }
 

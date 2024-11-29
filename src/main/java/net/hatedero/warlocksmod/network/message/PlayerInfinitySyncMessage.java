@@ -7,6 +7,7 @@ import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSn
 import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IInfinity;
 import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IThunderSnap;
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -37,6 +38,7 @@ public record PlayerInfinitySyncMessage(int cooldown, int range, int activeTime,
         public static void handleDataOnMain(final PlayerInfinitySyncMessage message, final IPayloadContext context) {
             context.enqueueWork(() -> {
                 Player player = Minecraft.getInstance().player;
+                //player.sendSystemMessage(Component.literal("sent a client packet"));
                 if (player != null) {
                     IInfinity cap = (IInfinity) player.getData(ModAttachment.PLAYER_INFINITY);
                     cap.setCooldown(message.cooldown);
@@ -55,6 +57,7 @@ public record PlayerInfinitySyncMessage(int cooldown, int range, int activeTime,
         public static void handleDataOnMain(final PlayerInfinitySyncMessage data, final IPayloadContext context) {
             context.enqueueWork(() -> {
                 Player player = context.player();
+                player.sendSystemMessage(Component.literal("sent a server packet"));
                 ((IInfinity) player.getData(ModAttachment.PLAYER_INFINITY)).setCooldown(data.cooldown);
                 ((IInfinity) player.getData(ModAttachment.PLAYER_INFINITY)).setRange(data.range);
                 ((IInfinity) player.getData(ModAttachment.PLAYER_INFINITY)).setActiveTime(data.activeTime);

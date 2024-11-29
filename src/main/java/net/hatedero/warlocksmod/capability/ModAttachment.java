@@ -5,6 +5,7 @@ import net.hatedero.warlocksmod.capability.abilities.blackhole.PlayerBlackHole;
 import net.hatedero.warlocksmod.capability.abilities.blink.PlayerBlink;
 import net.hatedero.warlocksmod.capability.abilities.dash.PlayerDash;
 import net.hatedero.warlocksmod.capability.abilities.doublejump.PlayerDoubleJump;
+//import net.hatedero.warlocksmod.capability.abilities.infinity.PlayerInfinity;
 import net.hatedero.warlocksmod.capability.abilities.infinity.PlayerInfinity;
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnap;
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnapManager;
