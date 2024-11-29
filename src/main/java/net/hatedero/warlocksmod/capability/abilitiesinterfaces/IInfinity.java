@@ -20,17 +20,16 @@ public interface IInfinity {
     void setCooldown(int n);
     int getCooldownMax();
     void setCooldownMax(int n);
-
     int getCooldownMin();
     void setCooldownMin(int n);
     int getActiveTime();
     void setActiveTime(int n);
     int getActiveTimeMax();
     void setActiveTimeMax(int n);
-
     int getActiveTimeMin();
     void setActiveTimeMin(int n);
     void tick(Player player);
     List<Entity> detectAllInRange(Player player, Level level);
+    boolean entityInRange(Entity entity, Player player);
     void updateInfinityData(Player player);
 }

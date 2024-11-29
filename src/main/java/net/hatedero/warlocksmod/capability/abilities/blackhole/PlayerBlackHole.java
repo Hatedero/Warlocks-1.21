@@ -111,16 +111,16 @@ public class PlayerBlackHole implements IBlackHole, INBTSerializable<CompoundTag
         Level level = Minecraft.getInstance().getSingleplayerServer().overworld();
 
         int range = 3;
-        AABB minMax = new AABB(player.getX()-range, player.getY()-range, player.getZ()-range, player.getX()+range, player.getY()+range, player.getZ()+range);
-        List<Entity> ent = level.getEntities(player, minMax);
-        for (Entity entko : ent) {
-            if(entko != player) {
-                //entko.moveTo(player.getOnPos().above(3).getCenter());
-                entko.setNoGravity(true);
-                entko.setDeltaMovement(0, 0, 0);
-                player.sendSystemMessage(entko.getName());
-            }
-        }
+//        AABB minMax = new AABB(player.getX()-range, player.getY()-range, player.getZ()-range, player.getX()+range, player.getY()+range, player.getZ()+range);
+//        List<Entity> ent = level.getEntities(player, minMax);
+//        for (Entity entko : ent) {
+//            if(entko != player) {
+//                //entko.moveTo(player.getOnPos().above(3).getCenter());
+//                entko.setNoGravity(true);
+//                entko.setDeltaMovement(0, 0, 0);
+//                player.sendSystemMessage(entko.getName());
+//            }
+//        }
         updateBlackHoleData(player);
     }
 

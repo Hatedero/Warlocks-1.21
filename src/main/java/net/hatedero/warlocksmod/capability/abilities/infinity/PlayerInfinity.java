@@ -5,6 +5,7 @@ import net.hatedero.warlocksmod.network.message.PlayerInfinitySyncMessage;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -135,8 +136,33 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
 
     @Override
     public void tick(Player player) {
-        if(player.getData(PLAYER_INFINITY).getActiveTime() > player.getData(PLAYER_INFINITY).getActiveTimeMin()){
-            player.getData(PLAYER_INFINITY).setActiveTime(player.getData(PLAYER_INFINITY).getActiveTime() - 1);
+        if(player.getData(PLAYER_INFINITY).getActive()){
+            player.sendSystemMessage(Component.literal("on"));
+        } else {
+            player.sendSystemMessage(Component.literal("off"));
+        }
+        if(player.getData(PLAYER_INFINITY).getActive()){
+            List<Entity> all = detectAllInRange(player, player.level());
+            for(Entity e : all){
+                if(e != player){
+                    float newSpeed = player.getData(PLAYER_INFINITY).getRange() - e.distanceTo(player);
+                    e.setDeltaMovement(newSpeed, newSpeed, newSpeed);
+                    e.setNoGravity(entityInRange(e, player));
+                }
+            }
+            if(player.getData(PLAYER_INFINITY).getActiveTime() >= player.getData(PLAYER_INFINITY).getActiveTimeMax()){
+                player.getData(PLAYER_INFINITY).setActive(false);
+            } else {
+                player.getData(PLAYER_INFINITY).setActiveTime(player.getData(PLAYER_INFINITY).getActiveTime() + 1);
+            }
+        }
+        else{
+            if(player.getData(PLAYER_INFINITY).getCooldown() > player.getData(PLAYER_INFINITY).getCooldownMin()){
+                player.getData(PLAYER_INFINITY).setCooldown(player.getData(PLAYER_INFINITY).getCooldown() - 1);
+            }
+            if(player.getData(PLAYER_INFINITY).getActiveTime() > player.getData(PLAYER_INFINITY).getActiveTimeMin()){
+                player.getData(PLAYER_INFINITY).setActiveTime(player.getData(PLAYER_INFINITY).getActiveTimeMin());
+            }
         }
         updateInfinityData(player);
     }
@@ -149,30 +175,28 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
     }
 
     @Override
-    public void updateInfinityData(Player player) {
-        PacketDistributor.sendToPlayer((ServerPlayer) player, new PlayerInfinitySyncMessage(this.ActiveTime, this.Range), new CustomPacketPayload[0]);
+    public boolean entityInRange(Entity entity, Player player) {
+        if(entity.distanceTo(player) <= player.getData(PLAYER_INFINITY).getRange())
+            return true;
+        return false;
     }
 
-//    int Range = 10;
-//    boolean Active = false;
-//    List<Entity> Authorized;
-//    int cooldownMax = 20;
-//    int cooldownMin = 0;
-//    int cooldown = cooldownMax;
-//    int ActiveTimeMax = 200;
-//    int ActiveTimeMin = 0;
-//    int ActiveTime = ActiveTimeMax;
+    @Override
+    public void updateInfinityData(Player player) {
+        PacketDistributor.sendToPlayer((ServerPlayer) player, new PlayerInfinitySyncMessage(this.cooldown, this.Range, this.ActiveTime, this.getActive() ? 1:0), new CustomPacketPayload[0]);
+    }
+
     @Override
     public @UnknownNullability CompoundTag serializeNBT(HolderLookup.Provider provider) {
         CompoundTag nbt = new CompoundTag();
         nbt.putInt("infinity_range", this.Range);
-        nbt.putInt("infinity_active", this.Active);
-        nbt.putInt("infinity_authorized", this.Authorized);
-        nbt.putInt("infinity_cooldown", this.ActiveTimeMin);
-        nbt.putInt("infinity_cooldown_max", this.ActiveTimeMin);
-        nbt.putInt("infinity_cooldown_min", this.ActiveTimeMin);
-        nbt.putInt("infinity_active_time", this.ActiveTimeMin);
-        nbt.putInt("infinity_active_time_max", this.ActiveTimeMin);
+        nbt.putBoolean("infinity_active", this.Active);
+        //nbt.put("infinity_authorized", this.Authorized);
+        nbt.putInt("infinity_cooldown", this.cooldown);
+        nbt.putInt("infinity_cooldown_max", this.cooldownMax);
+        nbt.putInt("infinity_cooldown_min", this.cooldownMin);
+        nbt.putInt("infinity_active_time", this.ActiveTime);
+        nbt.putInt("infinity_active_time_max", this.ActiveTimeMax);
         nbt.putInt("infinity_active_time_min", this.ActiveTimeMin);
         return nbt;
     }
@@ -180,8 +204,13 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
     @Override
     public void deserializeNBT(HolderLookup.Provider provider, CompoundTag nbt) {
         this.Range = nbt.getInt("infinity_Range");
-        this.ActiveTime = nbt.getInt("infinity_ActiveTime");
-        this.ActiveTimeMax = nbt.getInt("infinity_ActiveTime_max");
-        this.ActiveTimeMin = nbt.getInt("infinity_ActiveTime_min");
+        this.Active = nbt.getBoolean("infinity_active");
+        this.cooldown = nbt.getInt("infinity_cooldown");
+        this.cooldownMax = nbt.getInt("infinity_cooldown_max");
+        this.cooldownMin = nbt.getInt("infinity_cooldown_min");
+        this.ActiveTime = nbt.getInt("infinity_active_time");
+        this.ActiveTimeMax = nbt.getInt("infinity_active_time_max");
+        this.ActiveTimeMin = nbt.getInt("infinity_active_time_min");
+        //this.ActiveTimeMin = nbt.getInt("infinity_authorized");
     }
 }

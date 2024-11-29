@@ -2,6 +2,7 @@ package net.hatedero.warlocksmod.network;
 
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.network.message.*;
+import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
@@ -58,6 +59,14 @@ public class WarlocksModPacketHandler {
                 new DirectionalPayloadHandler<>(
                         PlayerBlackHoleSyncMessage.ClientPayloadHandler::handleDataOnMain,
                         PlayerBlackHoleSyncMessage.ServerPayloadHandler::handleDataOnMain
+                )
+        );
+        registrar.playBidirectional(
+                PlayerInfinitySyncMessage.TYPE,
+                PlayerInfinitySyncMessage.STREAM_CODEC,
+                new DirectionalPayloadHandler<>(
+                        PlayerInfinitySyncMessage.ClientPayloadHandler::handleDataOnMain,
+                        PlayerInfinitySyncMessage.ServerPayloadHandler::handleDataOnMain
                 )
         );
     }
