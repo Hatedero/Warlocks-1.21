@@ -16,10 +16,9 @@ public class ClimbingEffect extends MobEffect {
     @Override
     public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
         if(livingEntity.horizontalCollision) {
-            Minecraft.getInstance().player.sendSystemMessage(Component.literal("o"));
             Vec3 initialVec = livingEntity.getDeltaMovement();
-            Vec3 climbVec = new Vec3(initialVec.x, 0.01D, initialVec.z);
-            livingEntity.setDeltaMovement(climbVec.scale(0.56D));
+            Vec3 climbVec = new Vec3(initialVec.x, 0.08D, initialVec.z);
+            livingEntity.setDeltaMovement(climbVec.scale(0.96D));
 
             return true;
         }

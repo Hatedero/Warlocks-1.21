@@ -8,23 +8,35 @@ import net.hatedero.warlocksmod.entity.client.ModModelLayers;
 import net.hatedero.warlocksmod.entity.custom.BlackHoleEntity;
 import net.hatedero.warlocksmod.item.ModItems;
 import net.hatedero.warlocksmod.item.custom.HammerItem;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.PlayerModelPart;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingEquipmentChangeEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
+import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import static net.minecraft.world.entity.ai.attributes.Attributes.GRAVITY;
 
 //import static net.hatedero.warlocksmod.capability.abilities.dash.PlayerDashProvider.PLAYER_COOLDOWN;
 
@@ -59,14 +71,22 @@ public class ModEvents {
     }
 
 //    @SubscribeEvent
-//    public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
-//        event.registerLayerDefinition(ModModelLayers.BLACK_HOLE, PenguinModel::createBodyLayer);
+//    public static void damageDealtToPlayer(LivingIncomingDamageEvent event){
+//        if(event.getEntity() instanceof Player player){
+//            player.sendSystemMessage(Component.literal("hurt by "));
+//            player.sendSystemMessage(event.getSource().getDirectEntity().getName());
+//            if(event.getSource().getDirectEntity() instanceof LightningBolt l){
+//                player.sendSystemMessage(Component.literal("lightning"));
+//            }
+//        }
 //    }
 
-//    @SubscribeEvent
-//    public static void registerAttributes(EntityAttributeCreationEvent event) {
-//        event.put(ModEntities.BLACK_HOLE.get(), BlackHoleEntity.createAttributes().build());
-//    }
+    @SubscribeEvent
+    public static void playerDealtDamage(LivingIncomingDamageEvent event){
+        if(event.getSource().getDirectEntity() instanceof ServerPlayer player && player.hasEffect(ModEffects.ABYSS_GRASP_EFFECT)){
+            player.heal((float) (event.getOriginalAmount() *0.3));
+        }
+    }
 
     @SubscribeEvent
     public static void equipmentChange(LivingEquipmentChangeEvent event) {

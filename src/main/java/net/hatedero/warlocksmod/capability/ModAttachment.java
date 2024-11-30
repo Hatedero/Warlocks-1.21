@@ -7,9 +7,12 @@ import net.hatedero.warlocksmod.capability.abilities.dash.PlayerDash;
 import net.hatedero.warlocksmod.capability.abilities.doublejump.PlayerDoubleJump;
 //import net.hatedero.warlocksmod.capability.abilities.infinity.PlayerInfinity;
 import net.hatedero.warlocksmod.capability.abilities.infinity.PlayerInfinity;
+import net.hatedero.warlocksmod.capability.abilities.sinkedin.PlayerSinkedIn;
+import net.hatedero.warlocksmod.capability.abilities.sinkedin.PlayerSinkedInManager;
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnap;
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnapManager;
 import net.hatedero.warlocksmod.capability.classes.dawnblade.PlayerDawnBlade;
+import net.hatedero.warlocksmod.capability.gamerules.gravity.PlayerGravity;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -24,7 +27,9 @@ public class ModAttachment {
     public static final Supplier<AttachmentType<PlayerThunderSnap>> PLAYER_THUNDER_SNAP;
     public static final Supplier<AttachmentType<PlayerBlackHole>> PLAYER_BLACK_HOLE;
     public static final Supplier<AttachmentType<PlayerInfinity>> PLAYER_INFINITY;
+    public static final Supplier<AttachmentType<PlayerSinkedIn>> PLAYER_SINKED_IN;
     public static final Supplier<AttachmentType<PlayerBlink>> PLAYER_BLINK;
+    public static final Supplier<AttachmentType<PlayerGravity>> PLAYER_GRAVITY;
 
     public ModAttachment() {
     }
@@ -49,6 +54,12 @@ public class ModAttachment {
         });
         PLAYER_INFINITY = ATTACHMENT_TYPES.register("player_infinity", () -> {
             return AttachmentType.serializable(PlayerInfinity::new).copyOnDeath().build();
+        });
+        PLAYER_SINKED_IN = ATTACHMENT_TYPES.register("player_sinked_in", () -> {
+            return AttachmentType.serializable(PlayerSinkedIn::new).copyOnDeath().build();
+        });
+        PLAYER_GRAVITY = ATTACHMENT_TYPES.register("player_gravity", () -> {
+            return AttachmentType.serializable(PlayerGravity::new).copyOnDeath().build();
         });
     }
 

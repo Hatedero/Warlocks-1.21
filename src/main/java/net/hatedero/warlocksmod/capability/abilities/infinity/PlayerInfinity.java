@@ -23,6 +23,7 @@ import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_INFINITY;
 public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> {
     int Range = 10;
     boolean Active = false;
+    List<Entity> Selected;
     List<Entity> Authorized;
     int cooldownMax = 20;
     int cooldownMin = 0;
@@ -51,6 +52,27 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
     @Override
     public void setActive(boolean n) {
         this.Active = n;
+    }
+
+    @Override
+    public List<Entity> getSelected() {
+        return this.Selected;
+    }
+
+    @Override
+    public void setSelected(List<Entity> n) {
+        this.Selected = n;
+    }
+
+    @Override
+    public void addSelected(Entity n) {
+        this.Selected.add(n);
+    }
+
+    @Override
+    public void addSelected(List<Entity> n) {
+        for(Entity element : n)
+            this.Selected.add(element);
     }
 
     @Override
@@ -142,6 +164,7 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
 //            player.sendSystemMessage(Component.literal("off"));
 //        }
         if(player.getData(PLAYER_INFINITY).getActive()){
+            //player.setInvulnerable(true);
 //            player.sendSystemMessage(Component.literal("on"));
 
 //        AABB all = new AABB(player.getX()-this.Range, player.getY()-this.Range, player.getZ()-this.Range, player.getX()+this.Range, player.getY()+this.Range, player.getZ()+this.Range);
@@ -182,6 +205,9 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
 //                player.getData(PLAYER_INFINITY).setActiveTime(player.getData(PLAYER_INFINITY).getActiveTime() + 1);
 //            }
         }
+        else{
+            player.setInvulnerable(false);
+        }
 //        else{
             if(player.getData(PLAYER_INFINITY).getCooldown() > player.getData(PLAYER_INFINITY).getCooldownMin()){
                 player.getData(PLAYER_INFINITY).setCooldown(player.getData(PLAYER_INFINITY).getCooldown() - 1);
@@ -219,13 +245,17 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
         CompoundTag nbt = new CompoundTag();
         nbt.putInt("infinity_range", this.Range);
         nbt.putBoolean("infinity_active", this.Active);
-        //nbt.put("infinity_authorized", this.Authorized);
         nbt.putInt("infinity_cooldown", this.cooldown);
         nbt.putInt("infinity_cooldown_max", this.cooldownMax);
         nbt.putInt("infinity_cooldown_min", this.cooldownMin);
         nbt.putInt("infinity_active_time", this.ActiveTime);
         nbt.putInt("infinity_active_time_max", this.ActiveTimeMax);
         nbt.putInt("infinity_active_time_min", this.ActiveTimeMin);
+//        nbt.putInt("infinity_nb_selected", this.Selected.size());
+//        for(Entity e : this.Selected)
+//            e.save(nbt);
+//        for(Entity e : this.Authorized)
+//            e.save(nbt);
         return nbt;
     }
 
@@ -240,5 +270,7 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
         this.ActiveTimeMax = nbt.getInt("infinity_active_time_max");
         this.ActiveTimeMin = nbt.getInt("infinity_active_time_min");
         //this.ActiveTimeMin = nbt.getInt("infinity_authorized");
+//        for(int i = 0; i < nbt.getInt("infinity_nb_selected"); i++)
+//            this.Selected.add();
     }
 }

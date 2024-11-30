@@ -94,6 +94,7 @@ public class WarlocksMod {
             event.register(KeyBinding.BLINK_KEY);
             event.register(KeyBinding.BLACK_HOLE_KEY);
             event.register(KeyBinding.INFINITY_KEY);
+            event.register(KeyBinding.GRAVITY_KEY);
         }
     }
 

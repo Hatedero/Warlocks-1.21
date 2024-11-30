@@ -12,6 +12,10 @@ public interface IInfinity {
     void setRange(int n);
     boolean getActive();
     void setActive(boolean n);
+    List<Entity> getSelected();
+    void setSelected(List<Entity> n);
+    void addSelected(Entity n);
+    void addSelected(List<Entity> n);
     List<Entity> getAuthorized();
     void setAuthorized(List<Entity> n);
     void addAuthorized(Entity n);

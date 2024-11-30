@@ -29,7 +29,7 @@ public class PlayerThunderSnap implements IThunderSnap, INBTSerializable<Compoun
 
     @Override
     public void setStrength(int n) {
-
+        this.strength = n;
     }
 
     @Override

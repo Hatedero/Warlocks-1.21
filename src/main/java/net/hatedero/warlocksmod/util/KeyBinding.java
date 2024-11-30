@@ -13,6 +13,7 @@ public class KeyBinding {
     public static final String KEY_MELEE_ABILITY = "key.warlocksmod.meleeability";
     public static final String KEY_BLACK_HOLE = "key.warlocksmod.blackhole";
     public static final String KEY_INFINITY = "key.warlocksmod.infinity";
+    public static final String KEY_GRAVITY = "key.warlocksmod.gravity";
     public static KeyMapping DASH_KEY = new KeyMapping(KEY_DASH, KeyConflictContext.IN_GAME,
             InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_LEFT_SHIFT, KEY_CATEGORIES_WARLOCKS);
 
@@ -30,5 +31,8 @@ public class KeyBinding {
 
     public static KeyMapping INFINITY_KEY = new KeyMapping(KEY_INFINITY, KeyConflictContext.IN_GAME,
             InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_H, KEY_CATEGORIES_WARLOCKS);
+
+    public static KeyMapping GRAVITY_KEY = new KeyMapping(KEY_GRAVITY, KeyConflictContext.IN_GAME,
+            InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_J, KEY_CATEGORIES_WARLOCKS);
 
 }

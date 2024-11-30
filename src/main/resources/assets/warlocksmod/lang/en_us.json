@@ -5,6 +5,7 @@
   "key.warlocksmod.blink": "Blink",
   "key.warlocksmod.blackhole": "Black hole",
   "key.warlocksmod.infinity": "Infinity",
+  "key.warlocksmod.gravity": "Switch gravity mode",
 
   "key.categories.warlocksmod.warlocksmod": "Warlock's",
 
@@ -103,11 +104,16 @@
 
   "effect.warlocksmod.free_flight": "Free flight",
   "effect.warlocksmod.phoenix": "Phoenix force",
+  "effect.warlocksmod.abyss_grasp": "Abyss's grasp",
+  "effect.warlocksmod.thunder_grace": "Thunder's grace",
   "effect.warlocksmod.dash": "Dash",
   "effect.warlocksmod.consumed": "Consumed",
+  "effect.warlocksmod.climbing": "Climbing",
 
   "enchantment.warlocksmod.lightning_striker_bow": "Lightning Striker",
   "enchantment.warlocksmod.lightning_striker_sword": "Lightning Striker",
+  "enchantment.warlocksmod.frost_striker": "Frost Striker",
+  "enchantment.warlocksmod.reap_and_tear": "Reap and tear",
 
   "item.warlocksmod.sulfur_powder": "Sulfur Powder",
   "item.warlocksmod.salt_powder": "Salt",
