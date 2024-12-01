@@ -19,6 +19,7 @@ import net.minecraft.world.phys.HitResult;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.InputEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -44,7 +45,6 @@ public class PlayerInfinityManager {
                     player.sendSystemMessage(Component.literal("off"));
                 }
 
-                //PacketDistributor.sendToServer(new PlayerInfinitySyncMessage(player.getData(PLAYER_INFINITY).getCooldown(), player.getData(PLAYER_INFINITY).getRange(), player.getData(PLAYER_INFINITY).getActiveTime(), player.getData(PLAYER_INFINITY).getActive() ? 1:0));
             }
         }
     }
@@ -63,6 +63,13 @@ public class PlayerInfinityManager {
         if (var2 instanceof ServerPlayer player) {
             ((PlayerInfinity)player.getData(ModAttachment.PLAYER_INFINITY)).setCooldown(player.getData(PLAYER_INFINITY).getCooldownMin());
             //PacketDistributor.sendToServer(new PlayerThunderSnapSyncMessage( player.getData(PLAYER_THUNDER_SNAP).getCooldown(),  player.getData(PLAYER_THUNDER_SNAP).getStrength()));
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerAboutToBeDamaged(LivingDamageEvent.Pre event){
+        if(event.getEntity() instanceof Player player && player.getData(PLAYER_INFINITY).getActive()) {
+            event.setNewDamage(0);
         }
     }
 }

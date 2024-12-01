@@ -12,6 +12,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.UnknownNullability;
@@ -28,7 +29,7 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
     int cooldownMax = 20;
     int cooldownMin = 0;
     int cooldown = cooldownMax;
-    int ActiveTimeMax = 2000;
+    int ActiveTimeMax = 200;
     int ActiveTimeMin = 0;
     int ActiveTime = ActiveTimeMin;
 
@@ -158,73 +159,42 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
 
     @Override
     public void tick(Player player) {
-//        if(!player.getData(PLAYER_INFINITY).getActive()){
-//            player.sendSystemMessage(Component.literal("on"));
-//        } else {
-//            player.sendSystemMessage(Component.literal("off"));
-//        }
+        player.getData(PLAYER_INFINITY).setRange(3);
+        player.getData(PLAYER_INFINITY).setActiveTimeMax(200);
+        if(player.getData(PLAYER_INFINITY).getActiveTime() >= player.getData(PLAYER_INFINITY).getActiveTimeMax()){
+            //player.sendSystemMessage(Component.literal("should turn off"));
+            player.getData(PLAYER_INFINITY).setActive(false);
+            player.getData(PLAYER_INFINITY).setActiveTime(player.getData(PLAYER_INFINITY).getActiveTimeMin());
+        }
+
         if(player.getData(PLAYER_INFINITY).getActive()){
-            //player.setInvulnerable(true);
-//            player.sendSystemMessage(Component.literal("on"));
-
-//        AABB all = new AABB(player.getX()-this.Range, player.getY()-this.Range, player.getZ()-this.Range, player.getX()+this.Range, player.getY()+this.Range, player.getZ()+this.Range);
-//        Level level = Minecraft.getInstance().getSingleplayerServer().overworld();
-//        Player Localplayer = Minecraft.getInstance().player;
-//        List<Entity> entities = level.getEntities(Localplayer, all);
-//        for(Entity e : entities){
-//            if(e != Localplayer)
-//            Localplayer.sendSystemMessage(e.getName());
-//        }
-
-//        Level level = player.level();
-//        int range = 10;
-//        AABB minMax = new AABB(player.getX()-this.Range, player.getY()-this.Range, player.getZ()-this.Range, player.getX()+this.Range, player.getY()+this.Range, player.getZ()+this.Range);
-//        List<Entity> ent = level.getEntities(player, minMax);
-//        for (Entity entko : ent) {
-//            if(entko != player) {
-//                //entko.moveTo(player.getOnPos().above(3).getCenter());
-//                entko.setNoGravity(true);
-//                entko.setDeltaMovement(0, 0, 0);
-//                player.sendSystemMessage(entko.getName());
-//            }
-//        }
-
-            List<Entity> all = detectAllInRange(player, player.level(), 3);
+            List<Entity> all = detectAllInRange(player, player.level(), player.getData(PLAYER_INFINITY).getRange());
             for(Entity e : all){
                 if(e != player){
-                    //float newSpeed = 3 - e.distanceTo(player);
-                    float newSpeed = 0;
-                    e.setDeltaMovement(newSpeed, newSpeed, newSpeed);
-                    e.setNoGravity(entityInRange(e, player, 3));
-                    player.sendSystemMessage(e.getName());
+                    freezeEntity(e);
+                    e.setNoGravity(entityInRange(e, player, player.getData(PLAYER_INFINITY).getRange()));
                 }
             }
-//            if(player.getData(PLAYER_INFINITY).getActiveTime() >= player.getData(PLAYER_INFINITY).getActiveTimeMax()){
-//                player.getData(PLAYER_INFINITY).setActive(false);
-//            } else {
-//                player.getData(PLAYER_INFINITY).setActiveTime(player.getData(PLAYER_INFINITY).getActiveTime() + 1);
-//            }
+            player.getData(PLAYER_INFINITY).setActiveTime(player.getData(PLAYER_INFINITY).getActiveTime() + 1);
         }
+
         else{
-            player.setInvulnerable(false);
+            player.getData(PLAYER_INFINITY).setActiveTime(player.getData(PLAYER_INFINITY).getActiveTimeMin());
         }
-//        else{
-            if(player.getData(PLAYER_INFINITY).getCooldown() > player.getData(PLAYER_INFINITY).getCooldownMin()){
-                player.getData(PLAYER_INFINITY).setCooldown(player.getData(PLAYER_INFINITY).getCooldown() - 1);
-            }
-//            if(player.getData(PLAYER_INFINITY).getActiveTime() > player.getData(PLAYER_INFINITY).getActiveTimeMin()){
-//                player.getData(PLAYER_INFINITY).setActiveTime(player.getData(PLAYER_INFINITY).getActiveTimeMin());
-//            }
-//        }
+
+        if(player.getData(PLAYER_INFINITY).getCooldown() > player.getData(PLAYER_INFINITY).getCooldownMin() && !player.getData(PLAYER_INFINITY).getActive()){
+            player.getData(PLAYER_INFINITY).setCooldown(player.getData(PLAYER_INFINITY).getCooldown() - 1);
+        }
         updateInfinityData(player);
+//        player.sendSystemMessage(Component.literal("cooldown : active time"));
+//        player.sendSystemMessage(Component.literal(String.valueOf(player.getData(PLAYER_INFINITY).getCooldown())));
+//        player.sendSystemMessage(Component.literal(String.valueOf(player.getData(PLAYER_INFINITY).getActiveTime())));
     }
 
     @Override
     public List<Entity> detectAllInRange(Player player, Level level, int range) {
         AABB all = new AABB(player.getX()-range, player.getY()-range , player.getZ()-range, player.getX()+range, player.getY()+range, player.getZ()+range);
         List<Entity> entities = level.getEntities(player, all);
-        for(Entity e : entities)
-            player.sendSystemMessage(e.getName());
         return entities;
     }
 
@@ -233,6 +203,15 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
         if(entity.distanceTo(player) <= range && player.getData(PLAYER_INFINITY).getActive())
             return true;
         return false;
+    }
+
+    @Override
+    public void freezeEntity(Entity e) {
+        float newSpeed = 0;
+        Vec3 t = new Vec3(newSpeed,newSpeed,newSpeed);
+        e.setOnGroundWithMovement(e.onGround(), t);
+        e.setPos(e.xOld, e.yOld, e.zOld);
+        e.setOldPosAndRot();
     }
 
     @Override

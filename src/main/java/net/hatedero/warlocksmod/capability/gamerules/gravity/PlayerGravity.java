@@ -20,7 +20,7 @@ import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_GRAVITY;
 import static net.minecraft.world.entity.ai.attributes.Attributes.GRAVITY;
 
 public class PlayerGravity implements IGravity, INBTSerializable<CompoundTag> {
-    float Intensity = 50F;
+    float Intensity = 0.08F;
     boolean Active = false;
 
     public PlayerGravity(){}

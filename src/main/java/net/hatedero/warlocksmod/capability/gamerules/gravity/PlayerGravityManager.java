@@ -33,7 +33,7 @@ public class PlayerGravityManager {
         if (Minecraft.getInstance().player instanceof Player player && GRAVITY_KEY.getKey().getValue() == event.getKey()) {
             if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
                 //player.getData(PLAYER_GRAVITY).setActive(!player.getData(PLAYER_GRAVITY).getActive());
-                player.getData(PLAYER_GRAVITY).setActive(true);
+                player.getData(PLAYER_GRAVITY).setActive(false);
                 PacketDistributor.sendToServer(new PlayerGravitySyncMessage(player.getData(PLAYER_GRAVITY).getIntensity(), player.getData(PLAYER_GRAVITY).getActive() ? 1 : 0));
             }
         }

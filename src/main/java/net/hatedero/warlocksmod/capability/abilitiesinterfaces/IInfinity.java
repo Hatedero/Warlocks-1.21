@@ -35,5 +35,6 @@ public interface IInfinity {
     void tick(Player player);
     List<Entity> detectAllInRange(Player player, Level level, int range);
     boolean entityInRange(Entity entity, Player player, int range);
+    void freezeEntity(Entity entity);
     void updateInfinityData(Player player);
 }
