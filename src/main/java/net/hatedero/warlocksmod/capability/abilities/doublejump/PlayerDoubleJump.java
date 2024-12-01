@@ -12,7 +12,9 @@ import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.UnknownNullability;
 
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DASH;
+import static net.hatedero.warlocksmod.Config.maxDJC;
+import static net.hatedero.warlocksmod.Config.maxDJN;
+import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DOUBLE_JUMP;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DOUBLE_JUMP;
 
 public class PlayerDoubleJump implements IDoubleJump, INBTSerializable<CompoundTag> {
@@ -100,6 +102,16 @@ public class PlayerDoubleJump implements IDoubleJump, INBTSerializable<CompoundT
     @Override
     public void updateDoubleJumpData(Player player) {
         PacketDistributor.sendToPlayer((ServerPlayer) player, new PlayerDoubleJumpSyncMessage(this.cooldown, this.nbDoubleJump), new CustomPacketPayload[0]);
+    }
+
+    @Override
+    public void resetData(Player player) {
+        player.getData(PLAYER_DOUBLE_JUMP).setNbDoubleJump(0);
+        player.getData(PLAYER_DOUBLE_JUMP).setNbDoubleJumpMax(maxDJN);
+        player.getData(PLAYER_DOUBLE_JUMP).setNbDoubleJumpMin(0);
+        player.getData(PLAYER_DOUBLE_JUMP).setCooldown(maxDJC);
+        player.getData(PLAYER_DOUBLE_JUMP).setCooldownMax(maxDJC);
+        player.getData(PLAYER_DOUBLE_JUMP).setCooldownMin(0);
     }
 
     @Override

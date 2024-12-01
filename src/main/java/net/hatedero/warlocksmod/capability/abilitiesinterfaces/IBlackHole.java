@@ -19,4 +19,5 @@ public interface IBlackHole {
     void setCooldownMin(int n);
     void tick(Player player);
     void updateBlackHoleData(Player player);
+    void resetData(Player player);
 }

@@ -6,6 +6,7 @@ import net.hatedero.warlocksmod.capability.abilities.doublejump.PlayerDoubleJump
 import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.network.message.PlayerDashSyncMessage;
 import net.hatedero.warlocksmod.network.message.PlayerDoubleJumpSyncMessage;
+import net.hatedero.warlocksmod.network.message.PlayerThunderSnapSyncMessage;
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -22,9 +23,9 @@ import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DASH;
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DOUBLE_JUMP;
+import static net.hatedero.warlocksmod.capability.ModAttachment.*;
 import static net.hatedero.warlocksmod.util.KeyBinding.DASH_KEY;
+import static net.hatedero.warlocksmod.util.KeyBinding.RESET_ABILITIES_KEY;
 
 @EventBusSubscriber(modid = WarlocksMod.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class PlayerDashManager {
@@ -46,6 +47,12 @@ public class PlayerDashManager {
                 player.getData(PLAYER_DASH).setCooldown(player.getData(PLAYER_DASH).getCooldownMax());
                 PacketDistributor.sendToServer(new PlayerDashSyncMessage(player.getData(PLAYER_DASH).getCooldown(), player.getData(PLAYER_DASH).getNbDash()));
                 player.resetFallDistance();
+            }
+        }
+        if (Minecraft.getInstance().player instanceof Player player && RESET_ABILITIES_KEY.getKey().getValue() == event.getKey()) {
+            if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
+                player.getData(PLAYER_DASH).resetData(player);
+                PacketDistributor.sendToServer(new PlayerDashSyncMessage(player.getData(PLAYER_DASH).getCooldown(), player.getData(PLAYER_DASH).getNbDash()));
             }
         }
     }

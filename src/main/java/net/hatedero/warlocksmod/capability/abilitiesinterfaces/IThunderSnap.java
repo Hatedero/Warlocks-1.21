@@ -14,4 +14,5 @@ public interface IThunderSnap {
     void setCooldownMin(int n);
     void tick(Player player);
     void updateThunderSnapData(Player player);
+    void resetData(Player player);
 }

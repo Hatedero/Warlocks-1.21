@@ -130,6 +130,11 @@ public class PlayerBlackHole implements IBlackHole, INBTSerializable<CompoundTag
     }
 
     @Override
+    public void resetData(Player player) {
+
+    }
+
+    @Override
     public @UnknownNullability CompoundTag serializeNBT(HolderLookup.Provider provider) {
         CompoundTag nbt = new CompoundTag();
         nbt.putInt("black_hole_strength", this.strength);

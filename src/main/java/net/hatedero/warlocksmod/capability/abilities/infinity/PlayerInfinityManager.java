@@ -24,9 +24,9 @@ import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_INFINITY;
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
+import static net.hatedero.warlocksmod.capability.ModAttachment.*;
 import static net.hatedero.warlocksmod.util.KeyBinding.INFINITY_KEY;
+import static net.hatedero.warlocksmod.util.KeyBinding.RESET_ABILITIES_KEY;
 
 @EventBusSubscriber(modid = WarlocksMod.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class PlayerInfinityManager {
@@ -45,6 +45,12 @@ public class PlayerInfinityManager {
                     player.sendSystemMessage(Component.literal("off"));
                 }
 
+            }
+        }
+        if (Minecraft.getInstance().player instanceof Player player && RESET_ABILITIES_KEY.getKey().getValue() == event.getKey()) {
+            if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
+                player.getData(PLAYER_INFINITY).resetData(player);
+                PacketDistributor.sendToServer(new PlayerInfinitySyncMessage(player.getData(PLAYER_INFINITY).getCooldown(), player.getData(PLAYER_INFINITY).getRange(), player.getData(PLAYER_INFINITY).getActiveTime(), player.getData(PLAYER_INFINITY).getActive() ? 1:0));
             }
         }
     }

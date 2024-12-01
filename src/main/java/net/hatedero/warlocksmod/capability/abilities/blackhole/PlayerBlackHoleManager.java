@@ -33,10 +33,8 @@ import net.neoforged.neoforge.network.PacketDistributor;
 
 import java.util.List;
 
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_BLACK_HOLE;
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
-import static net.hatedero.warlocksmod.util.KeyBinding.BLACK_HOLE_KEY;
-import static net.hatedero.warlocksmod.util.KeyBinding.MELEE_ABILITY_KEY;
+import static net.hatedero.warlocksmod.capability.ModAttachment.*;
+import static net.hatedero.warlocksmod.util.KeyBinding.*;
 
 @EventBusSubscriber(modid = WarlocksMod.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class PlayerBlackHoleManager {
@@ -75,6 +73,12 @@ public class PlayerBlackHoleManager {
 
             player.getData(PLAYER_BLACK_HOLE).setCooldown(player.getData(PLAYER_BLACK_HOLE).getCooldownMax());
             PacketDistributor.sendToServer(new PlayerBlackHoleSyncMessage( player.getData(PLAYER_BLACK_HOLE).getCooldown(),  player.getData(PLAYER_BLACK_HOLE).getStrength(),  player.getData(PLAYER_BLACK_HOLE).getLife()));
+            }
+        }
+        if (Minecraft.getInstance().player instanceof Player player && RESET_ABILITIES_KEY.getKey().getValue() == event.getKey()) {
+            if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
+                player.getData(PLAYER_BLACK_HOLE).resetData(player);
+                PacketDistributor.sendToServer(new PlayerBlackHoleSyncMessage( player.getData(PLAYER_BLACK_HOLE).getCooldown(),  player.getData(PLAYER_BLACK_HOLE).getStrength(),  player.getData(PLAYER_BLACK_HOLE).getLife()));
             }
         }
     }

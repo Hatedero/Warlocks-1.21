@@ -11,6 +11,8 @@ import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.UnknownNullability;
 
+import static net.hatedero.warlocksmod.Config.maxBC;
+import static net.hatedero.warlocksmod.Config.maxBN;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_BLINK;
 
 public class PlayerBlink implements IBlink, INBTSerializable<CompoundTag> {
@@ -85,7 +87,7 @@ public class PlayerBlink implements IBlink, INBTSerializable<CompoundTag> {
 
     @Override
     public void tick(Player player) {
-        if(player.onGround()) {
+        if(player.onGround() || player.getData(PLAYER_BLINK).getCooldown() >= player.getData(PLAYER_BLINK).getCooldownMin()) {
             player.getData(PLAYER_BLINK).setNbBlink(player.getData(PLAYER_BLINK).getNbBlinkMax());
         }
         if(player.getData(PLAYER_BLINK).getCooldown() > player.getData(PLAYER_BLINK).getCooldownMin()){
@@ -97,6 +99,16 @@ public class PlayerBlink implements IBlink, INBTSerializable<CompoundTag> {
     @Override
     public void updateBlinkData(Player player) {
         PacketDistributor.sendToPlayer((ServerPlayer) player, new PlayerBlinkSyncMessage(this.cooldown, this.nbBlink), new CustomPacketPayload[0]);
+    }
+
+    @Override
+    public void resetData(Player player) {
+        player.getData(PLAYER_BLINK).setNbBlink(0);
+        player.getData(PLAYER_BLINK).setNbBlinkMax(maxBN);
+        player.getData(PLAYER_BLINK).setNbBlinkMin(0);
+        player.getData(PLAYER_BLINK).setCooldown(maxBC);
+        player.getData(PLAYER_BLINK).setCooldownMax(maxBC);
+        player.getData(PLAYER_BLINK).setCooldownMin(0);
     }
 
     @Override

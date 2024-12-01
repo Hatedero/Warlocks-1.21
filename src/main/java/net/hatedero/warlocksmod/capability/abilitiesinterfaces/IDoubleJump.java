@@ -23,4 +23,5 @@ public interface IDoubleJump {
 
     void tick(Player player);
     void updateDoubleJumpData(Player player);
+    void resetData(Player player);
 }

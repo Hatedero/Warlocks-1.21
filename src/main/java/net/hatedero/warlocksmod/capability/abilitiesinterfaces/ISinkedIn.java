@@ -19,4 +19,5 @@ public interface ISinkedIn {
     void setActiveTimeMin(int n);
     void tick(Player player);
     void updateSinkedInData(Player player);
+    void resetData(Player player);
 }

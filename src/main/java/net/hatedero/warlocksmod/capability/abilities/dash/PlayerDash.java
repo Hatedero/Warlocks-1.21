@@ -12,8 +12,10 @@ import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.UnknownNullability;
 
+import static net.hatedero.warlocksmod.Config.maxDC;
+import static net.hatedero.warlocksmod.Config.maxDN;
+import static net.hatedero.warlocksmod.capability.ModAttachment.*;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DASH;
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
 
 public class PlayerDash implements IDash, INBTSerializable<CompoundTag> {
     int nbDashMax = 2;
@@ -99,6 +101,16 @@ public class PlayerDash implements IDash, INBTSerializable<CompoundTag> {
     @Override
     public void updateDashData(Player player) {
         PacketDistributor.sendToPlayer((ServerPlayer) player, new PlayerDashSyncMessage(this.cooldown, this.nbDash), new CustomPacketPayload[0]);
+    }
+
+    @Override
+    public void resetData(Player player) {
+        player.getData(PLAYER_DASH).setNbDash(0);
+        player.getData(PLAYER_DASH).setNbDashMax(maxDN);
+        player.getData(PLAYER_DASH).setNbDashMin(0);
+        player.getData(PLAYER_DASH).setCooldown(maxDC);
+        player.getData(PLAYER_DASH).setCooldownMax(maxDC);
+        player.getData(PLAYER_DASH).setCooldownMin(0);
     }
 
     @Override

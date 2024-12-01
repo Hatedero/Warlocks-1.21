@@ -21,4 +21,5 @@ public interface IBlink {
     void setCooldownMin(int n);
     void tick(Player player);
     void updateBlinkData(Player player);
+    void resetData(Player player);
 }

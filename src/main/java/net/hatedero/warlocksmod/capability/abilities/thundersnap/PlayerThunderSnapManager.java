@@ -24,6 +24,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 
 import java.util.List;
 
+import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_BLINK;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
 import static net.hatedero.warlocksmod.util.KeyBinding.*;
 
@@ -33,24 +34,37 @@ public class PlayerThunderSnapManager {
 
     @SubscribeEvent
     public static void onCast(InputEvent.Key event){
-        if (Minecraft.getInstance().player instanceof Player player && MELEE_ABILITY_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_THUNDER_SNAP).getCooldown() <= player.getData(PLAYER_THUNDER_SNAP).getCooldownMin()) {
+        if (Minecraft.getInstance().player instanceof Player player && player.isLocalPlayer() && MELEE_ABILITY_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_THUNDER_SNAP).getCooldown() <= player.getData(PLAYER_THUNDER_SNAP).getCooldownMin()) {
             if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
-            final Minecraft minecraft = Minecraft.getInstance();
-            Entity camera = minecraft.getCameraEntity();
-            HitResult block = camera.pick(30.0, 0.0F, true);
-            Entity entity = minecraft.crosshairPickEntity;
-            if (entity != null) {
-                EntityType.LIGHTNING_BOLT.spawn(Minecraft.getInstance().getSingleplayerServer().overworld(), entity.getOnPos(), MobSpawnType.TRIGGERED).setDamage(player.getData(PLAYER_THUNDER_SNAP).getStrength());
-            }
-            else {
-                BlockPos temp = BlockPos.containing(block.getLocation());
-                EntityType.LIGHTNING_BOLT.spawn(Minecraft.getInstance().getSingleplayerServer().overworld(), temp, MobSpawnType.TRIGGERED).setDamage(player.getData(PLAYER_THUNDER_SNAP).getStrength());
-            }
+                final Minecraft minecraft = Minecraft.getInstance();
+                Entity camera = minecraft.getCameraEntity();
+                HitResult block = camera.pick(30.0, 0.0F, true);
+                Entity entity = minecraft.crosshairPickEntity;
+                if (entity != null) {
+                    EntityType.LIGHTNING_BOLT.spawn(Minecraft.getInstance().getSingleplayerServer().overworld(), entity.getOnPos(), MobSpawnType.TRIGGERED).setDamage(player.getData(PLAYER_THUNDER_SNAP).getStrength());
+                    if(player.getData(PLAYER_THUNDER_SNAP).getStrength() >= 100){
+                        EntityType.TNT.spawn(Minecraft.getInstance().getSingleplayerServer().overworld(), entity.getOnPos(), MobSpawnType.TRIGGERED).setFuse(0);
+                    }
+                }
+                else {
+                    BlockPos temp = BlockPos.containing(block.getLocation());
+                    EntityType.LIGHTNING_BOLT.spawn(Minecraft.getInstance().getSingleplayerServer().overworld(), temp, MobSpawnType.TRIGGERED).setDamage(player.getData(PLAYER_THUNDER_SNAP).getStrength());
+                    player.sendSystemMessage(Component.literal(String.valueOf(player.getData(PLAYER_THUNDER_SNAP).getStrength())));
+                    if(player.getData(PLAYER_THUNDER_SNAP).getStrength() >= 100){
+                        EntityType.TNT.spawn(Minecraft.getInstance().getSingleplayerServer().overworld(), temp, MobSpawnType.TRIGGERED).setFuse(0);
+                    }
+                }
 
-            player.getData(PLAYER_THUNDER_SNAP).setCooldown(player.getData(PLAYER_THUNDER_SNAP).getCooldownMax());
-            PacketDistributor.sendToServer(new PlayerThunderSnapSyncMessage( player.getData(PLAYER_THUNDER_SNAP).getCooldown(),  player.getData(PLAYER_THUNDER_SNAP).getStrength()));
-        }
+                player.getData(PLAYER_THUNDER_SNAP).setCooldown(player.getData(PLAYER_THUNDER_SNAP).getCooldownMax());
+                PacketDistributor.sendToServer(new PlayerThunderSnapSyncMessage( player.getData(PLAYER_THUNDER_SNAP).getCooldown(),  player.getData(PLAYER_THUNDER_SNAP).getStrength()));
             }
+        }
+        if (Minecraft.getInstance().player instanceof Player player && RESET_ABILITIES_KEY.getKey().getValue() == event.getKey()) {
+            if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
+                player.getData(PLAYER_THUNDER_SNAP).resetData(player);
+                PacketDistributor.sendToServer(new PlayerThunderSnapSyncMessage( player.getData(PLAYER_THUNDER_SNAP).getCooldown(),  player.getData(PLAYER_THUNDER_SNAP).getStrength()));
+            }
+        }
     }
 
     @SubscribeEvent

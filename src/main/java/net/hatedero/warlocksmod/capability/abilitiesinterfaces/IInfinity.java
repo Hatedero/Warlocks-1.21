@@ -37,4 +37,5 @@ public interface IInfinity {
     boolean entityInRange(Entity entity, Player player, int range);
     void freezeEntity(Entity entity);
     void updateInfinityData(Player player);
+    void resetData(Player player);
 }

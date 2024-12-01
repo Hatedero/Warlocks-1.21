@@ -12,11 +12,13 @@ import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.UnknownNullability;
 
+import static net.hatedero.warlocksmod.Config.defTSS;
+import static net.hatedero.warlocksmod.Config.maxTSC;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
 
 public class PlayerThunderSnap implements IThunderSnap, INBTSerializable<CompoundTag> {
-    int strength = 10;
-    int cooldownMax = 40;
+    int strength = 100;
+    int cooldownMax = 200;
     int cooldownMin = 0;
     int cooldown = cooldownMax;
 
@@ -73,6 +75,14 @@ public class PlayerThunderSnap implements IThunderSnap, INBTSerializable<Compoun
     @Override
     public void updateThunderSnapData(Player player) {
         PacketDistributor.sendToPlayer((ServerPlayer) player, new PlayerThunderSnapSyncMessage(this.cooldown, this.strength), new CustomPacketPayload[0]);
+    }
+
+    @Override
+    public void resetData(Player player) {
+        player.getData(PLAYER_THUNDER_SNAP).setStrength(defTSS);
+        player.getData(PLAYER_THUNDER_SNAP).setCooldown(maxTSC);
+        player.getData(PLAYER_THUNDER_SNAP).setCooldownMax(maxTSC);
+        player.getData(PLAYER_THUNDER_SNAP).setCooldownMin(0);
     }
 
     @Override

@@ -19,6 +19,7 @@ import org.jetbrains.annotations.UnknownNullability;
 
 import java.util.List;
 
+import static net.hatedero.warlocksmod.Config.*;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_INFINITY;
 
 public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> {
@@ -160,7 +161,7 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
     @Override
     public void tick(Player player) {
         player.getData(PLAYER_INFINITY).setRange(3);
-        player.getData(PLAYER_INFINITY).setActiveTimeMax(200);
+        //player.getData(PLAYER_INFINITY).setActiveTimeMax(200);
         if(player.getData(PLAYER_INFINITY).getActiveTime() >= player.getData(PLAYER_INFINITY).getActiveTimeMax()){
             //player.sendSystemMessage(Component.literal("should turn off"));
             player.getData(PLAYER_INFINITY).setActive(false);
@@ -217,6 +218,18 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
     @Override
     public void updateInfinityData(Player player) {
         PacketDistributor.sendToPlayer((ServerPlayer) player, new PlayerInfinitySyncMessage(this.cooldown, this.Range, this.ActiveTime, this.getActive() ? 1:0), new CustomPacketPayload[0]);
+    }
+
+    @Override
+    public void resetData(Player player) {
+        player.getData(PLAYER_INFINITY).setRange(defIR);
+        player.getData(PLAYER_INFINITY).setActiveTime(0);
+        player.getData(PLAYER_INFINITY).setActiveTimeMax(maxIA);
+        player.getData(PLAYER_INFINITY).setActiveTimeMin(0);
+        player.getData(PLAYER_INFINITY).setActive(false);
+        player.getData(PLAYER_INFINITY).setCooldown(maxIC);
+        player.getData(PLAYER_INFINITY).setCooldownMax(maxIC);
+        player.getData(PLAYER_INFINITY).setCooldownMin(0);
     }
 
     @Override

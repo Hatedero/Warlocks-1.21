@@ -3,6 +3,7 @@ package net.hatedero.warlocksmod.capability.abilities.blink;
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.capability.ModAttachment;
 import net.hatedero.warlocksmod.network.message.PlayerBlinkSyncMessage;
+import net.hatedero.warlocksmod.network.message.PlayerThunderSnapSyncMessage;
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -18,7 +19,9 @@ import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_BLINK;
+import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
 import static net.hatedero.warlocksmod.util.KeyBinding.BLINK_KEY;
+import static net.hatedero.warlocksmod.util.KeyBinding.RESET_ABILITIES_KEY;
 
 @EventBusSubscriber(modid = WarlocksMod.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class PlayerBlinkManager {
@@ -39,6 +42,12 @@ public class PlayerBlinkManager {
                 player.getData(PLAYER_BLINK).setCooldown(player.getData(PLAYER_BLINK).getCooldownMax());
                 PacketDistributor.sendToServer(new PlayerBlinkSyncMessage(player.getData(PLAYER_BLINK).getCooldown(), player.getData(PLAYER_BLINK).getNbBlink()));
                 player.resetFallDistance();
+            }
+        }
+        if (Minecraft.getInstance().player instanceof Player player && RESET_ABILITIES_KEY.getKey().getValue() == event.getKey()) {
+            if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
+                player.getData(PLAYER_BLINK).resetData(player);
+                PacketDistributor.sendToServer(new PlayerBlinkSyncMessage(player.getData(PLAYER_BLINK).getCooldown(), player.getData(PLAYER_BLINK).getNbBlink()));
             }
         }
     }

@@ -21,4 +21,5 @@ public interface IDash {
     void setCooldownMin(int n);
     void tick(Player player);
     void updateDashData(Player player);
+    void resetData(Player player);
 }

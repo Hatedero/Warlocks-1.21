@@ -16,9 +16,9 @@ import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DOUBLE_JUMP;
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
+import static net.hatedero.warlocksmod.capability.ModAttachment.*;
 import static net.hatedero.warlocksmod.util.KeyBinding.DOUBLE_JUMP_KEY;
+import static net.hatedero.warlocksmod.util.KeyBinding.RESET_ABILITIES_KEY;
 
 @EventBusSubscriber(modid = WarlocksMod.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class PlayerDoubleJumpManager {
@@ -36,7 +36,12 @@ public class PlayerDoubleJumpManager {
             player.resetFallDistance();
             }
         }
-
+        if (Minecraft.getInstance().player instanceof Player player && RESET_ABILITIES_KEY.getKey().getValue() == event.getKey()) {
+            if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
+                player.getData(PLAYER_DOUBLE_JUMP).resetData(player);
+                PacketDistributor.sendToServer(new PlayerDoubleJumpSyncMessage( player.getData(PLAYER_DOUBLE_JUMP).getCooldown(),  player.getData(PLAYER_DOUBLE_JUMP).getNbDoubleJump()));
+            }
+        }
     }
 
     @SubscribeEvent

@@ -109,6 +109,11 @@ public class PlayerSinkedIn implements ISinkedIn, INBTSerializable<CompoundTag> 
     }
 
     @Override
+    public void resetData(Player player) {
+
+    }
+
+    @Override
     public @UnknownNullability CompoundTag serializeNBT(HolderLookup.Provider provider) {
         CompoundTag nbt = new CompoundTag();
         nbt.putBoolean("sinked_in_active", this.active);
