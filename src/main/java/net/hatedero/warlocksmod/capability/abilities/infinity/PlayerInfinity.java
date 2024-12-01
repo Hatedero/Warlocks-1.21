@@ -1,14 +1,19 @@
 package net.hatedero.warlocksmod.capability.abilities.infinity;
 
 import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IInfinity;
+import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.network.message.PlayerInfinitySyncMessage;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
@@ -21,6 +26,7 @@ import java.util.List;
 
 import static net.hatedero.warlocksmod.Config.*;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_INFINITY;
+import static net.minecraft.core.particles.ParticleTypes.*;
 
 public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> {
     int Range = 10;
@@ -169,6 +175,8 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
         }
 
         if(player.getData(PLAYER_INFINITY).getActive()){
+            player.level().addParticle(ASH, player.getX() , player.getY() + 5, player.getZ(), 0, 0, 0);
+            //Minecraft.getInstance().particleEngine.add(new Particle(player.level(), player.getX() + 2, player.getY(), player.getZ(), 0, 0, 0));
             List<Entity> all = detectAllInRange(player, player.level(), player.getData(PLAYER_INFINITY).getRange());
             for(Entity e : all){
                 if(e != player){
@@ -208,11 +216,16 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
 
     @Override
     public void freezeEntity(Entity e) {
-        float newSpeed = 0;
-        Vec3 t = new Vec3(newSpeed,newSpeed,newSpeed);
-        e.setOnGroundWithMovement(e.onGround(), t);
-        e.setPos(e.xOld, e.yOld, e.zOld);
-        e.setOldPosAndRot();
+        Vec3 newSpeed = new Vec3(0,0,0);
+        if(e instanceof LivingEntity entity){
+            entity.setNoGravity(true);
+            entity.setOldPosAndRot();
+            entity.setOnGroundWithMovement(entity.onGround(), newSpeed);
+        }
+        else {
+            e.setNoGravity(true);
+            e.setDeltaMovement(newSpeed);
+        }
     }
 
     @Override

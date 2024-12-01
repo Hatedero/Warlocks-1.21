@@ -52,10 +52,10 @@ public class Config
     //INFINITY CONFIG
     private static final ModConfigSpec.IntValue DEF_I_R = BUILDER
             .comment("Default Infinity Range")
-            .defineInRange("defIR", 3, 0, Integer.MAX_VALUE);
+            .defineInRange("defIR", 10, 0, Integer.MAX_VALUE);
     private static final ModConfigSpec.IntValue MAX_I_C = BUILDER
             .comment("Max Infinity Cooldown")
-            .defineInRange("defTSS", 200, 1, Integer.MAX_VALUE);
+            .defineInRange("defIC", 20, 1, Integer.MAX_VALUE);
     private static final ModConfigSpec.IntValue MAX_I_A = BUILDER
             .comment("Max Infinity Active")
             .defineInRange("maxIA", 200, 0, Integer.MAX_VALUE);

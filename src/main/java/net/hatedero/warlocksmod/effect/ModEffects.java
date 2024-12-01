@@ -31,6 +31,9 @@ public class ModEffects {
     public static final Holder<MobEffect> THUNDER_GRACE_EFFECT = MOB_EFFECTS.register("thunder_grace",
             () -> new ThunderGraceEffect(MobEffectCategory.BENEFICIAL, 0xDEFFFE));
 
+    public static final Holder<MobEffect> INFINITY_AFFECTED_EFFECT = MOB_EFFECTS.register("infinity_affected",
+            () -> new InfinityAffectedEffect(MobEffectCategory.BENEFICIAL, 0xFBFBFB));
+
     public static final Holder<MobEffect> PHOENIX_EFFECT = MOB_EFFECTS.register("phoenix",
             () -> new PhoenixEffect(MobEffectCategory.BENEFICIAL, 0xDAA520)
                     .addAttributeModifier(Attributes.MAX_HEALTH, ResourceLocation.fromNamespaceAndPath(WarlocksMod.MOD_ID, "effect.health"), 20.0, AttributeModifier.Operation.ADD_VALUE));

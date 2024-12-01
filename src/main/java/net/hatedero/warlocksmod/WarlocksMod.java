@@ -8,9 +8,18 @@ import net.hatedero.warlocksmod.entity.ModEntities;
 import net.hatedero.warlocksmod.entity.client.BlackHoleRenderer;
 import net.hatedero.warlocksmod.item.ModCreativeModeTabs;
 import net.hatedero.warlocksmod.util.KeyBinding;
+import net.minecraft.client.renderer.entity.CreeperRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.layers.CreeperPowerLayer;
+import net.minecraft.client.renderer.entity.layers.SlimeOuterLayer;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import net.neoforged.neoforge.client.event.RenderPlayerEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -31,6 +40,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.hatedero.warlocksmod.item.ModItems;
 
 import static net.hatedero.warlocksmod.capability.ModAttachment.ATTACHMENT_TYPES;
+import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_INFINITY;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(WarlocksMod.MOD_ID)

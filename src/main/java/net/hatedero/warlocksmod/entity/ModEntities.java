@@ -15,10 +15,6 @@ public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, WarlocksMod.MOD_ID);
 
-//    public static final Supplier<EntityType<PenguinEntity>> PENGUIN =
-//            ENTITY_TYPES.register("penguin", () -> EntityType.Builder.of(PenguinEntity::new, MobCategory.CREATURE)
-//                    .sized(0.75f, 0.95f).build("penguin"));
-
 //    public static final Supplier<EntityType<BlueProjectileEntity>> BLUE_PROJECTILE =
 //            ENTITY_TYPES.register("blue_projectile", () -> EntityType.Builder.of(BlueProjectileEntity::new, MobCategory.CREATURE)
 //                    .sized(0.75f, 0.95f).build("blue_projectile"));

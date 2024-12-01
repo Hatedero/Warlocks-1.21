@@ -49,7 +49,6 @@ public class PlayerThunderSnapManager {
                 else {
                     BlockPos temp = BlockPos.containing(block.getLocation());
                     EntityType.LIGHTNING_BOLT.spawn(Minecraft.getInstance().getSingleplayerServer().overworld(), temp, MobSpawnType.TRIGGERED).setDamage(player.getData(PLAYER_THUNDER_SNAP).getStrength());
-                    player.sendSystemMessage(Component.literal(String.valueOf(player.getData(PLAYER_THUNDER_SNAP).getStrength())));
                     if(player.getData(PLAYER_THUNDER_SNAP).getStrength() >= 100){
                         EntityType.TNT.spawn(Minecraft.getInstance().getSingleplayerServer().overworld(), temp, MobSpawnType.TRIGGERED).setFuse(0);
                     }
