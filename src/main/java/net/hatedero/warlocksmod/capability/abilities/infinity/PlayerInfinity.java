@@ -175,7 +175,7 @@ public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> 
         }
 
         if(player.getData(PLAYER_INFINITY).getActive()){
-            player.level().addParticle(ASH, player.getX() , player.getY() + 5, player.getZ(), 0, 0, 0);
+            //player.level().addParticle(ASH, player.getX() , player.getY() + 5, player.getZ(), 0, 0, 0);
             //Minecraft.getInstance().particleEngine.add(new Particle(player.level(), player.getX() + 2, player.getY(), player.getZ(), 0, 0, 0));
             List<Entity> all = detectAllInRange(player, player.level(), player.getData(PLAYER_INFINITY).getRange());
             for(Entity e : all){
