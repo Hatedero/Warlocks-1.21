@@ -106,6 +106,7 @@ public class WarlocksMod {
             event.register(KeyBinding.INFINITY_KEY);
             event.register(KeyBinding.GRAVITY_KEY);
             event.register(KeyBinding.RESET_ABILITIES_KEY);
+            event.register(KeyBinding.SUPER_KEY);
         }
     }
 

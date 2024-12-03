@@ -15,6 +15,7 @@ public class KeyBinding {
     public static final String KEY_INFINITY = "key.warlocksmod.infinity";
     public static final String KEY_GRAVITY = "key.warlocksmod.gravity";
     public static final String KEY_RESET_ABILITIES = "key.warlocksmod.resetabilities";
+    public static final String KEY_SUPER= "key.warlocksmod.super";
     public static KeyMapping DASH_KEY = new KeyMapping(KEY_DASH, KeyConflictContext.IN_GAME,
             InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_LEFT_SHIFT, KEY_CATEGORIES_WARLOCKS);
 
@@ -37,5 +38,8 @@ public class KeyBinding {
             InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_J, KEY_CATEGORIES_WARLOCKS);
     public static KeyMapping RESET_ABILITIES_KEY = new KeyMapping(KEY_RESET_ABILITIES, KeyConflictContext.IN_GAME,
             InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_R, KEY_CATEGORIES_WARLOCKS);
+
+    public static KeyMapping SUPER_KEY = new KeyMapping(KEY_SUPER, KeyConflictContext.IN_GAME,
+            InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_M, KEY_CATEGORIES_WARLOCKS);
 
 }
