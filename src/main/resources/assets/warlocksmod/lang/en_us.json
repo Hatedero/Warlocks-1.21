@@ -1,12 +1,14 @@
 {
   "key.warlocksmod.dash": "Dash",
   "key.warlocksmod.doublejump": "Double Jump",
-  "key.warlocksmod.meleeability": "Melee Attack",
   "key.warlocksmod.blink": "Blink",
   "key.warlocksmod.blackhole": "Black hole",
   "key.warlocksmod.infinity": "Infinity",
   "key.warlocksmod.gravity": "Switch gravity mode",
   "key.warlocksmod.resetabilities": "Reset abilities to config value",
+  "key.warlocksmod.super": "Super",
+  "key.warlocksmod.melee_ability": "Melee Ability",
+  "key.warlocksmod.movement_ability": "Movement ability",
 
   "key.categories.warlocksmod.warlocksmod": "Warlock's",
 

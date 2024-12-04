@@ -5,7 +5,7 @@ import net.hatedero.warlocksmod.capability.ModAttachment;
 import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.enchantment.ModEnchantmentEffects;
 import net.hatedero.warlocksmod.entity.ModEntities;
-import net.hatedero.warlocksmod.entity.client.BlackHoleRenderer;
+import net.hatedero.warlocksmod.entity.black_hole.BlackHoleRenderer;
 import net.hatedero.warlocksmod.item.ModCreativeModeTabs;
 import net.hatedero.warlocksmod.util.KeyBinding;
 import net.minecraft.client.renderer.entity.CreeperRenderer;
@@ -100,13 +100,14 @@ public class WarlocksMod {
         public static void onKeyRegister(RegisterKeyMappingsEvent event){
             event.register(KeyBinding.DASH_KEY);
             event.register(KeyBinding.DOUBLE_JUMP_KEY);
-            event.register(KeyBinding.MELEE_ABILITY_KEY);
             event.register(KeyBinding.BLINK_KEY);
             event.register(KeyBinding.BLACK_HOLE_KEY);
             event.register(KeyBinding.INFINITY_KEY);
             event.register(KeyBinding.GRAVITY_KEY);
             event.register(KeyBinding.RESET_ABILITIES_KEY);
             event.register(KeyBinding.SUPER_KEY);
+            event.register(KeyBinding.MELEE_ABILITY_KEY);
+            event.register(KeyBinding.MOVEMENT_ABILITY_KEY);
         }
     }
 

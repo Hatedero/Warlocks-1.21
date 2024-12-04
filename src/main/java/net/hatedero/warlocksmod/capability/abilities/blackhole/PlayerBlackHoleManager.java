@@ -4,7 +4,7 @@ import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.capability.ModAttachment;
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnap;
 import net.hatedero.warlocksmod.entity.ModEntities;
-import net.hatedero.warlocksmod.entity.custom.BlackHoleEntity;
+import net.hatedero.warlocksmod.entity.black_hole.BlackHole;
 import net.hatedero.warlocksmod.network.message.PlayerBlackHoleSyncMessage;
 import net.hatedero.warlocksmod.network.message.PlayerThunderSnapSyncMessage;
 import net.minecraft.client.Minecraft;
@@ -51,20 +51,22 @@ public class PlayerBlackHoleManager {
 
                 Level level = Minecraft.getInstance().getSingleplayerServer().overworld();
 
-                AABB minMax = new AABB(player.getX()-10, player.getY()-10, player.getZ()-10, player.getX()+10, player.getY()+10, player.getZ()+10);
-                List<Entity> ent = level.getEntities(player, minMax);
-                for (Entity entko : ent) {
-                    if(entko != player) {
-                        entko.moveTo(player.getOnPos().above(3).getCenter());
-                        player.sendSystemMessage(entko.getName());
-                    }
-                }
+//                AABB minMax = new AABB(player.getX()-10, player.getY()-10, player.getZ()-10, player.getX()+10, player.getY()+10, player.getZ()+10);
+//                List<Entity> ent = level.getEntities(player, minMax);
+//                for (Entity entko : ent) {
+//                    if(entko != player) {
+//                        entko.moveTo(player.getOnPos().above(3).getCenter());
+//                        player.sendSystemMessage(entko.getName());
+//                    }
+//                }
 
 //                //if (!level.isClientSide) {
-//                BlackHoleEntity blue = new BlackHoleEntity(ModEntities.BLACK_HOLE.get(), level, player.getData(PLAYER_BLACK_HOLE).getLifeMax());
-//                level.addFreshEntity(blue);
-//                blue.moveTo(player.getOnPos().getCenter().add(0, 2, 0));
-//                blue.addDeltaMovement(player.getViewVector(1).normalize().multiply(1.5, 1.5, 1.5));
+                BlackHole blue = new BlackHole(player.level(), player);
+                blue.setRadius(200);
+                blue.setDamage(20);
+                blue.moveTo(player.getOnPos().getCenter().add(0, 3, 0));
+                level.addFreshEntity(blue);
+                //blue.addDeltaMovement(player.getViewVector(1).normalize().multiply(1.5, 1.5, 1.5));
 
                     //player.getX(), player.getY(), player.getZ(), player.getViewVector(1).normalize().multiply(1.5, 1.5, 1.5),
                 //level.playSound((Player)null, blue.getX(), blue.getY(), blue.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0F, 1.0F);
