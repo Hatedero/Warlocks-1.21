@@ -85,5 +85,13 @@ public class WarlocksModPacketHandler {
                         PlayerNovaSyncMessage.ServerPayloadHandler::handleDataOnMain
                 )
         );
+        registrar.playBidirectional(
+                PlayerClassSyncMessage.TYPE,
+                PlayerClassSyncMessage.STREAM_CODEC,
+                new DirectionalPayloadHandler<>(
+                        PlayerClassSyncMessage.ClientPayloadHandler::handleDataOnMain,
+                        PlayerClassSyncMessage.ServerPayloadHandler::handleDataOnMain
+                )
+        );
     }
 }

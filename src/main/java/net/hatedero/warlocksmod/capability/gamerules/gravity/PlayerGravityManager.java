@@ -21,7 +21,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DASH;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_GRAVITY;
-import static net.hatedero.warlocksmod.util.KeyBinding.DASH_KEY;
+//import static net.hatedero.warlocksmod.util.KeyBinding.DASH_KEY;
 import static net.hatedero.warlocksmod.util.KeyBinding.GRAVITY_KEY;
 
 @EventBusSubscriber(modid = WarlocksMod.MOD_ID, bus = EventBusSubscriber.Bus.GAME)

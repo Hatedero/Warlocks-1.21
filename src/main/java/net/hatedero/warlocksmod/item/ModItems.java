@@ -15,6 +15,14 @@ public class ModItems {
             () -> new HammerItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
                     .attributes(PickaxeItem.createAttributes(ModToolTiers.ABYSS_SHARD, 1F, -3.5f)), 2));
 
+    public static final DeferredItem<ClassUnlockItem> SUN_FRAGMENT = ITEMS.register("sun_fragment",
+            () -> new ClassUnlockItem(new Item.Properties(), "sun_singer"));
+
+    public static final DeferredItem<ClassUnlockItem> PIECE_OF_ABYSS = ITEMS.register("piece_of_abyss",
+            () -> new ClassUnlockItem(new Item.Properties(), "void_walker"));
+
+    public static final DeferredItem<ClassUnlockItem> STILL_THUNDER = ITEMS.register("still_thunder",
+            () -> new ClassUnlockItem(new Item.Properties(), "storm_caller"));
 
     public static final DeferredItem<Item> ABYSS_SHARD = ITEMS.register("abyss_shard",
             () -> new Item(new Item.Properties()));
@@ -68,6 +76,10 @@ public class ModItems {
             () -> new CleaverItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
                     .attributes(AxeItem.createAttributes(ModToolTiers.ABYSS_SHARD, 17F, -3.2f)).fireResistant()));
 
+    public static final DeferredItem<CleaverItem> STYGIAN_IRON_SWORD = ITEMS.register("stygian_iron_sword",
+            () -> new CleaverItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
+                    .attributes(AxeItem.createAttributes(ModToolTiers.ABYSS_SHARD, 12F, -1f)).fireResistant()));
+
     public static final DeferredItem<DawnbreakerItem> DAWNBREAKER = ITEMS.register("dawnbreaker",
             () -> new DawnbreakerItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
                     .attributes(SwordItem.createAttributes(ModToolTiers.ABYSS_SHARD, 13F, 1f)).fireResistant()));
@@ -82,6 +94,12 @@ public class ModItems {
             () -> new FuelItem(new Item.Properties(), 90000));
 
     public static final DeferredItem<Item> IMPERIAL_GOLD = ITEMS.register("imperial_gold",
+            () -> new Item(new Item.Properties().stacksTo(32)));
+
+    public static final DeferredItem<Item> STYGIAN_IRON = ITEMS.register("stygian_iron",
+            () -> new Item(new Item.Properties().stacksTo(32)));
+
+    public static final DeferredItem<Item> CELESTIAL_BRONZE = ITEMS.register("celestial_bronze",
             () -> new Item(new Item.Properties().stacksTo(32).fireResistant()));
 
 //    public static final DeferredItem<Item> SPEAR = ITEMS.register("spear",

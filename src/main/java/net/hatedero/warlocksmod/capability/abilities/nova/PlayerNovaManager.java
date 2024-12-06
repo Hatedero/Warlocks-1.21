@@ -22,8 +22,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_NOVA;
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
+import static net.hatedero.warlocksmod.capability.ModAttachment.*;
 import static net.hatedero.warlocksmod.util.KeyBinding.*;
 
 @EventBusSubscriber(modid = WarlocksMod.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
@@ -32,7 +31,7 @@ public class PlayerNovaManager {
 
     @SubscribeEvent
     public static void onCast(InputEvent.Key event){
-        if (Minecraft.getInstance().player instanceof Player player && player.isLocalPlayer() && SUPER_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_NOVA).getCooldown() <= 0) {
+        if (Minecraft.getInstance().player instanceof Player player && player.isLocalPlayer() && SUPER_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_CLASS).getClassName().matches("void_walker") && player.getData(PLAYER_NOVA).getCooldown() <= 0) {
             if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
                 if (player.getData(PLAYER_NOVA).getCharge() < player.getData(PLAYER_NOVA).getChargeMax() && player.getData(PLAYER_NOVA).getCharge() != player.getData(PLAYER_NOVA).getChargePrev()) {
                     player.sendSystemMessage(Component.literal("Charging."));

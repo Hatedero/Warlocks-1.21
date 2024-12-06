@@ -17,7 +17,7 @@ public class ModCreativeModeTabs {
 
     public static final Supplier<CreativeModeTab> WARLOCKS_DEV_TAB = CREATIVE_MODE_TAB.register("warlocks_dev_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ABYSS_SHARD.get()))
-                    .title(Component.translatable("creativetab.tutorialmod.warlocks_dev"))
+                    .title(Component.translatable("creativetab.warlocksmod.warlocks_dev"))
                     .displayItems((itemDisplayParameters, output) -> {
 
                         output.accept(ModBlocks.ABYSS_GRASS.get());
@@ -28,9 +28,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ABYSS_REACTOR_BLOCK.get());
                         output.accept(ModBlocks.BOUNCE_UP.get());
 
-
-
-
+                        output.accept(ModItems.SUN_FRAGMENT.get());
+                        output.accept(ModItems.PIECE_OF_ABYSS.get());
+                        output.accept(ModItems.STILL_THUNDER.get());
 
                         output.accept(ModBlocks.SOUL_TREE_LOG.get());
                         output.accept(ModBlocks.SOUL_TREE_WOOD.get());
@@ -134,11 +134,14 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SOULBERRY_SEEDS.get());
 
                         output.accept(ModItems.CLEAVER.get());
+                        output.accept(ModItems.STYGIAN_IRON_SWORD.get());
                         output.accept(ModItems.DAWNBREAKER.get());
                         output.accept(ModItems.DAWNBREAKER_HILT.get());
                         output.accept(ModItems.DAWNBREAKER_BLADE.get());
                         output.accept(ModItems.DAWNBREAKER_TIP.get());
                         output.accept(ModItems.IMPERIAL_GOLD.get());
+                        output.accept(ModItems.STYGIAN_IRON.get());
+                        output.accept(ModItems.CELESTIAL_BRONZE.get());
                         //output.accept(ModItems.SPEAR.get());
 
                         output.accept(ModItems.SALT_POWDER.get());

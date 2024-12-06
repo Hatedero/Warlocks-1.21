@@ -128,8 +128,15 @@
   "item.warlocksmod.lamb_sandwich": "Lamb sandwich",
   "item.warlocksmod.american_sandwich": "American sandwich",
 
+  "item.warlocksmod.sun_fragment": "Sun fragment",
+  "item.warlocksmod.piece_of_abyss": "Piece of the Abyss",
+  "item.warlocksmod.still_thunder": "Still Thunder",
+
   "item.warlocksmod.cleaver": "Cleaver",
+  "item.warlocksmod.stygian_iron_sword": "Stygian iron sword",
   "item.warlocksmod.imperial_gold": "Imperial gold",
+  "item.warlocksmod.stygian_iron": "Stygian iron",
+  "item.warlocksmod.celestial_bronze": "Celestial bronze",
   "item.warlocksmod.dawnbreaker": "Dawn Breaker",
   "item.warlocksmod.dawnbreaker_hilt": "Hilt of the sun god's sword",
   "item.warlocksmod.dawnbreaker_blade": "Broad blade of the sun god's sword",
@@ -165,5 +172,5 @@
 
   "tooltip.warlocksmod.metal_detector.tooltip": "Custom Item test",
 
-  "creativetab.tutorialmod.warlocks_dev": "Warlock's"
+  "creativetab.warlocksmod.warlocks_dev": "Warlock's"
 }

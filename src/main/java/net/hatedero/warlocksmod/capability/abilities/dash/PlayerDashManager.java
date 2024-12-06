@@ -24,8 +24,7 @@ import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 import static net.hatedero.warlocksmod.capability.ModAttachment.*;
-import static net.hatedero.warlocksmod.util.KeyBinding.DASH_KEY;
-import static net.hatedero.warlocksmod.util.KeyBinding.RESET_ABILITIES_KEY;
+import static net.hatedero.warlocksmod.util.KeyBinding.*;
 
 @EventBusSubscriber(modid = WarlocksMod.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class PlayerDashManager {
@@ -33,7 +32,7 @@ public class PlayerDashManager {
 
     @SubscribeEvent
     public static void onDash(InputEvent.Key event){
-        if (Minecraft.getInstance().player instanceof Player player && DASH_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_DASH).getCooldown() <= player.getData(PLAYER_DASH).getCooldownMin() && player.getData(PLAYER_DASH).getNbDash() > player.getData(PLAYER_DASH).getNbDashMin()) {
+        if (Minecraft.getInstance().player instanceof Player player && MOVEMENT_ABILITY_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_CLASS).getClassName().matches("sun_singer") && player.getData(PLAYER_DASH).getCooldown() <= player.getData(PLAYER_DASH).getCooldownMin() && player.getData(PLAYER_DASH).getNbDash() > player.getData(PLAYER_DASH).getNbDashMin()) {
             if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
                 boolean groundedLaunch = player.onGround();
                 float factor = 1.4F;

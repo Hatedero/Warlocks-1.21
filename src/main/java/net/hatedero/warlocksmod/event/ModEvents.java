@@ -4,8 +4,6 @@ package net.hatedero.warlocksmod.event;
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.entity.ModEntities;
-import net.hatedero.warlocksmod.entity.client.ModModelLayers;
-import net.hatedero.warlocksmod.entity.custom.BlackHoleEntity;
 import net.hatedero.warlocksmod.item.ModItems;
 import net.hatedero.warlocksmod.item.custom.HammerItem;
 import net.minecraft.client.player.LocalPlayer;

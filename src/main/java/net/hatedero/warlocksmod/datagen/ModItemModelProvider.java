@@ -57,9 +57,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.DAWNBREAKER_BLADE.get());
         basicItem(ModItems.DAWNBREAKER_TIP.get());
         basicItem(ModItems.IMPERIAL_GOLD.get());
+        basicItem(ModItems.STYGIAN_IRON.get());
+        basicItem(ModItems.CELESTIAL_BRONZE.get());
         //basicItem(ModItems.ABYSSEAN_DUST.get());
 
+        basicItem(ModItems.SUN_FRAGMENT.get());
+        basicItem(ModItems.PIECE_OF_ABYSS.get());
+        basicItem(ModItems.STILL_THUNDER.get());
+
         handheldItem(ModItems.ABYSS_SHARD_HAMMER);
+        handheldItem(ModItems.STYGIAN_IRON_SWORD);
         //handheldItem(ModItems.DAWNBREAKER);
         //handheldItem(ModItems.CLEAVER);
 

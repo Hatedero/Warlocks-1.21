@@ -18,10 +18,8 @@ import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_BLINK;
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
-import static net.hatedero.warlocksmod.util.KeyBinding.BLINK_KEY;
-import static net.hatedero.warlocksmod.util.KeyBinding.RESET_ABILITIES_KEY;
+import static net.hatedero.warlocksmod.capability.ModAttachment.*;
+import static net.hatedero.warlocksmod.util.KeyBinding.*;
 
 @EventBusSubscriber(modid = WarlocksMod.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class PlayerBlinkManager {
@@ -29,7 +27,7 @@ public class PlayerBlinkManager {
 
     @SubscribeEvent
     public static void onBlink(InputEvent.Key event){
-        if (Minecraft.getInstance().player instanceof Player player && BLINK_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_BLINK).getCooldown() <= player.getData(PLAYER_BLINK).getCooldownMin() && player.getData(PLAYER_BLINK).getNbBlink() > player.getData(PLAYER_BLINK).getNbBlinkMin()) {
+        if (Minecraft.getInstance().player instanceof Player player && MOVEMENT_ABILITY_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_CLASS).getClassName().matches("void_walker") && player.getData(PLAYER_BLINK).getCooldown() <= player.getData(PLAYER_BLINK).getCooldownMin() && player.getData(PLAYER_BLINK).getNbBlink() > player.getData(PLAYER_BLINK).getNbBlinkMin()) {
             if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
                 boolean groundedLaunch = player.onGround();
                 final Minecraft minecraft = Minecraft.getInstance();

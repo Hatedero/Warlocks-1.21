@@ -42,7 +42,7 @@ public class PlayerBlackHoleManager {
 
     @SubscribeEvent
     public static void onCast(InputEvent.Key event){
-        if (Minecraft.getInstance().player instanceof Player player && BLACK_HOLE_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_BLACK_HOLE).getCooldown() <= player.getData(PLAYER_BLACK_HOLE).getCooldownMin()) {
+        if (Minecraft.getInstance().player instanceof Player player && MELEE_ABILITY_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_CLASS).getClassName().matches("void_walker") && player.getData(PLAYER_BLACK_HOLE).getCooldown() <= player.getData(PLAYER_BLACK_HOLE).getCooldownMin()) {
             if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
                 //player.sendSystemMessage(Component.literal("spawn a black hole"));
                 final Minecraft minecraft = Minecraft.getInstance();

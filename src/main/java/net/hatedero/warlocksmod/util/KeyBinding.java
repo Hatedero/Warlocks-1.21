@@ -7,28 +7,28 @@ import org.lwjgl.glfw.GLFW;
 
 public class KeyBinding {
     public static final String KEY_CATEGORIES_WARLOCKS = "key.categories.warlocksmod.warlocksmod";
-    public static final String KEY_DASH = "key.warlocksmod.dash";
-    public static final String KEY_BLINK= "key.warlocksmod.blink";
+//    public static final String KEY_DASH = "key.warlocksmod.dash";
+//    public static final String KEY_BLINK= "key.warlocksmod.blink";
     public static final String KEY_DOUBLE_JUMP = "key.warlocksmod.doublejump";
 
-    public static final String KEY_BLACK_HOLE = "key.warlocksmod.blackhole";
+//    public static final String KEY_BLACK_HOLE = "key.warlocksmod.blackhole";
     public static final String KEY_INFINITY = "key.warlocksmod.infinity";
     public static final String KEY_GRAVITY = "key.warlocksmod.gravity";
     public static final String KEY_RESET_ABILITIES = "key.warlocksmod.resetabilities";
     public static final String KEY_SUPER= "key.warlocksmod.super";
     public static final String KEY_MELEE_ABILITY = "key.warlocksmod.melee_ability";
     public static final String KEY_MOVEMENT_ABILITY= "key.warlocksmod.movement_ability";
-    public static KeyMapping DASH_KEY = new KeyMapping(KEY_DASH, KeyConflictContext.IN_GAME,
-            InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_LEFT_SHIFT, KEY_CATEGORIES_WARLOCKS);
+//    public static KeyMapping DASH_KEY = new KeyMapping(KEY_DASH, KeyConflictContext.IN_GAME,
+//            InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_LEFT_SHIFT, KEY_CATEGORIES_WARLOCKS);
 
     public static KeyMapping DOUBLE_JUMP_KEY = new KeyMapping(KEY_DOUBLE_JUMP, KeyConflictContext.IN_GAME,
             InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_SPACE, KEY_CATEGORIES_WARLOCKS);
 
-    public static KeyMapping BLINK_KEY = new KeyMapping(KEY_BLINK, KeyConflictContext.IN_GAME,
-            InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_LEFT_SHIFT, KEY_CATEGORIES_WARLOCKS);
-
-    public static KeyMapping BLACK_HOLE_KEY = new KeyMapping(KEY_BLACK_HOLE, KeyConflictContext.IN_GAME,
-            InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_G, KEY_CATEGORIES_WARLOCKS);
+//    public static KeyMapping BLINK_KEY = new KeyMapping(KEY_BLINK, KeyConflictContext.IN_GAME,
+//            InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_LEFT_SHIFT, KEY_CATEGORIES_WARLOCKS);
+//
+//    public static KeyMapping BLACK_HOLE_KEY = new KeyMapping(KEY_BLACK_HOLE, KeyConflictContext.IN_GAME,
+//            InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_G, KEY_CATEGORIES_WARLOCKS);
 
     public static KeyMapping INFINITY_KEY = new KeyMapping(KEY_INFINITY, KeyConflictContext.IN_GAME,
             InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_H, KEY_CATEGORIES_WARLOCKS);

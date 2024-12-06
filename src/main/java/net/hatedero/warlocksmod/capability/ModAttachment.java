@@ -12,8 +12,8 @@ import net.hatedero.warlocksmod.capability.abilities.sinkedin.PlayerSinkedIn;
 import net.hatedero.warlocksmod.capability.abilities.sinkedin.PlayerSinkedInManager;
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnap;
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnapManager;
-import net.hatedero.warlocksmod.capability.classes.dawnblade.PlayerDawnBlade;
 import net.hatedero.warlocksmod.capability.gamerules.gravity.PlayerGravity;
+import net.hatedero.warlocksmod.capability.player.PlayerClass;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -32,6 +32,7 @@ public class ModAttachment {
     public static final Supplier<AttachmentType<PlayerBlink>> PLAYER_BLINK;
     public static final Supplier<AttachmentType<PlayerGravity>> PLAYER_GRAVITY;
     public static final Supplier<AttachmentType<PlayerNova>> PLAYER_NOVA;
+    public static final Supplier<AttachmentType<PlayerClass>> PLAYER_CLASS;
 
     public ModAttachment() {
     }
@@ -66,6 +67,10 @@ public class ModAttachment {
 
         PLAYER_NOVA = ATTACHMENT_TYPES.register("player_nova", () -> {
             return AttachmentType.serializable(PlayerNova::new).copyOnDeath().build();
+        });
+
+        PLAYER_CLASS = ATTACHMENT_TYPES.register("player_class", () -> {
+            return AttachmentType.serializable(PlayerClass::new).copyOnDeath().build();
         });
     }
 

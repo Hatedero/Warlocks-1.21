@@ -98,10 +98,10 @@ public class WarlocksMod {
 
         @SubscribeEvent
         public static void onKeyRegister(RegisterKeyMappingsEvent event){
-            event.register(KeyBinding.DASH_KEY);
+//            event.register(KeyBinding.DASH_KEY);
             event.register(KeyBinding.DOUBLE_JUMP_KEY);
-            event.register(KeyBinding.BLINK_KEY);
-            event.register(KeyBinding.BLACK_HOLE_KEY);
+//            event.register(KeyBinding.BLINK_KEY);
+//            event.register(KeyBinding.BLACK_HOLE_KEY);
             event.register(KeyBinding.INFINITY_KEY);
             event.register(KeyBinding.GRAVITY_KEY);
             event.register(KeyBinding.RESET_ABILITIES_KEY);

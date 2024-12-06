@@ -24,8 +24,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 
 import java.util.List;
 
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_BLINK;
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_THUNDER_SNAP;
+import static net.hatedero.warlocksmod.capability.ModAttachment.*;
 import static net.hatedero.warlocksmod.util.KeyBinding.*;
 
 @EventBusSubscriber(modid = WarlocksMod.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
@@ -34,7 +33,7 @@ public class PlayerThunderSnapManager {
 
     @SubscribeEvent
     public static void onCast(InputEvent.Key event){
-        if (Minecraft.getInstance().player instanceof Player player && player.isLocalPlayer() && MELEE_ABILITY_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_THUNDER_SNAP).getCooldown() <= player.getData(PLAYER_THUNDER_SNAP).getCooldownMin()) {
+        if (Minecraft.getInstance().player instanceof Player player && player.isLocalPlayer() && MELEE_ABILITY_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_CLASS).getClassName().matches("storm_caller") && player.getData(PLAYER_THUNDER_SNAP).getCooldown() <= player.getData(PLAYER_THUNDER_SNAP).getCooldownMin()) {
             if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
                 final Minecraft minecraft = Minecraft.getInstance();
                 Entity camera = minecraft.getCameraEntity();

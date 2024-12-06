@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "warlocksmod:item/piece_of_abyss"
+  }
+}
