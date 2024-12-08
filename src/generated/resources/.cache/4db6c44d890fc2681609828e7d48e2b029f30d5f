@@ -1,4 +1,4 @@
-// 1.21	2024-12-06T23:53:37.1904796	Item Models: warlocksmod
+// 1.21	2024-12-07T22:35:20.5838227	Item Models: warlocksmod
 8b8adfdd8b28718880f78ac219154005d571e159 assets/warlocksmod/models/item/abyss_shard.json
 8909b64a032fe8e095e78dd8e07e8bd331d815fa assets/warlocksmod/models/item/abyss_shard_boots.json
 8587a6389d985b8d58ffd0b948ad79c2ea8fa727 assets/warlocksmod/models/item/abyss_shard_boots_amethyst_trim.json
@@ -48,6 +48,7 @@ b9deacf9b334e7c9103d0a405f0d21e6d3ae2d4d assets/warlocksmod/models/item/abyss_sh
 20b615a6a4a4a610774a524a43f7599445b50613 assets/warlocksmod/models/item/american_sandwich.json
 69294d14c825168d033b479c1cf0ea9d9cb611af assets/warlocksmod/models/item/beef_sandwich.json
 759fd35018f1d29eba475d0efa840a50381f3ff6 assets/warlocksmod/models/item/celestial_bronze.json
+0712a3022e68251522d295e146f3517f073bd5c2 assets/warlocksmod/models/item/celestial_bronze_sword.json
 996b9af58d596a56d315ce0dcecceff643faa6da assets/warlocksmod/models/item/chicken_sandwich.json
 3e5f7bea43c9bce693984081a14dd4d59b3dc7d8 assets/warlocksmod/models/item/cooked_cured_rotten_flesh.json
 1ea56f162582efae4e83b9a1e36e6b0733cd23e0 assets/warlocksmod/models/item/cured_rotten_flesh.json
@@ -65,6 +66,10 @@ f310806a0dfdb60a4dad1a170b3947f8a8949f1d assets/warlocksmod/models/item/soulberr
 62b5067a5115f30e000dc37552fb7ff68737e6c0 assets/warlocksmod/models/item/soul_tendril.json
 e9eb215056eac582eb932604e8fd0dd49d64a1ac assets/warlocksmod/models/item/still_thunder.json
 a3c0ab0082c516e4d1791cc537240a75a754f975 assets/warlocksmod/models/item/stygian_iron.json
+0ff24c26567dbca7aa8a7f60b710fa12138f9e7c assets/warlocksmod/models/item/stygian_iron_axe.json
+1a1a4e323f0248632a12dd11cb81c35c0b187e1c assets/warlocksmod/models/item/stygian_iron_hoe.json
+b05189b13a3f5987ddfe0b784ebc46299718f270 assets/warlocksmod/models/item/stygian_iron_pickaxe.json
+688ef903a8beffd837b9efffc300c8f161a94e98 assets/warlocksmod/models/item/stygian_iron_shovel.json
 01797ad2482b709308f6d922300532c75e7367a5 assets/warlocksmod/models/item/stygian_iron_sword.json
 a21c2f3d59d5cd2fbe0315a88cc6b18be1c024fe assets/warlocksmod/models/item/sulfur_powder.json
 e9cf44df9ecb601f494ec2038be12bc579866f70 assets/warlocksmod/models/item/sun_fragment.json

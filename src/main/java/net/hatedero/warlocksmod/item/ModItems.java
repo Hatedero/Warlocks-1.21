@@ -3,6 +3,7 @@ package net.hatedero.warlocksmod.item;
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.block.ModBlocks;
 import net.hatedero.warlocksmod.item.custom.*;
+import net.hatedero.warlocksmod.util.ModTags;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -76,13 +77,37 @@ public class ModItems {
             () -> new CleaverItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
                     .attributes(AxeItem.createAttributes(ModToolTiers.ABYSS_SHARD, 17F, -3.2f)).fireResistant()));
 
-    public static final DeferredItem<CleaverItem> STYGIAN_IRON_SWORD = ITEMS.register("stygian_iron_sword",
-            () -> new CleaverItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
-                    .attributes(AxeItem.createAttributes(ModToolTiers.ABYSS_SHARD, 12F, -1f)).fireResistant()));
+    public static final DeferredItem<SwordItem> CELESTIAL_BRONZE_SWORD = ITEMS.register("celestial_bronze_sword",
+            () -> new SwordItem(ModToolTiers.STYGIAN_IRON, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ModToolTiers.STYGIAN_IRON, 7F, -2f)).setNoRepair()));
+
+    public static final DeferredItem<SwordItem> STYGIAN_IRON_SWORD = ITEMS.register("stygian_iron_sword",
+            () -> new SwordItem(ModToolTiers.STYGIAN_IRON, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ModToolTiers.STYGIAN_IRON, 8F, -3f)).setNoRepair()));
+
+    public static final DeferredItem<PickaxeItem> STYGIAN_IRON_PICKAXE = ITEMS.register("stygian_iron_pickaxe",
+            () -> new PickaxeItem(ModToolTiers.STYGIAN_IRON,new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.STYGIAN_IRON, 4F, -3F)).setNoRepair()));
+    public static final DeferredItem<AxeItem> STYGIAN_IRON_AXE = ITEMS.register("stygian_iron_axe",
+            () -> new AxeItem(ModToolTiers.STYGIAN_IRON, new Item.Properties()
+                    .attributes(AxeItem.createAttributes(ModToolTiers.STYGIAN_IRON, 9F, -3.2f)).setNoRepair()));
+
+    public static final DeferredItem<ShovelItem> STYGIAN_IRON_SHOVEL = ITEMS.register("stygian_iron_shovel",
+            () -> new ShovelItem(ModToolTiers.STYGIAN_IRON, new Item.Properties()
+                    .attributes(ShovelItem.createAttributes(ModToolTiers.STYGIAN_IRON, 4F, -3.2f)).setNoRepair()));
+
+    public static final DeferredItem<HoeItem> STYGIAN_IRON_HOE = ITEMS.register("stygian_iron_hoe",
+            () -> new HoeItem(ModToolTiers.STYGIAN_IRON, new Item.Properties()
+                    .attributes(HoeItem.createAttributes(ModToolTiers.STYGIAN_IRON, 4F, -3.2f)).setNoRepair()));
+
+    public static final DeferredItem<ScytheItem> STYGIAN_IRON_SCYTHE = ITEMS.register("stygian_iron_scythe",
+            () -> new ScytheItem(ModToolTiers.STYGIAN_IRON, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ModToolTiers.STYGIAN_IRON, 15F, -3.2f)).setNoRepair()));
+
 
     public static final DeferredItem<DawnbreakerItem> DAWNBREAKER = ITEMS.register("dawnbreaker",
             () -> new DawnbreakerItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(ModToolTiers.ABYSS_SHARD, 13F, 1f)).fireResistant()));
+                    .attributes(SwordItem.createAttributes(ModToolTiers.ABYSS_SHARD, 13F, 0f)).fireResistant()));
 
     public static final DeferredItem<Item> DAWNBREAKER_HILT = ITEMS.register("dawnbreaker_hilt",
             () -> new FuelItem(new Item.Properties(), 90000));

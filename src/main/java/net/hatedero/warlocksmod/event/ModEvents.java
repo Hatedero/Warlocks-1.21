@@ -3,39 +3,28 @@ package net.hatedero.warlocksmod.event;
 
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.effect.ModEffects;
-import net.hatedero.warlocksmod.entity.ModEntities;
 import net.hatedero.warlocksmod.item.ModItems;
 import net.hatedero.warlocksmod.item.custom.HammerItem;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.player.PlayerModelPart;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
-import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
-import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
-import net.neoforged.neoforge.event.entity.living.LivingEquipmentChangeEvent;
-import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
-import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
-import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
+import net.neoforged.neoforge.client.event.RenderPlayerEvent;
+import net.neoforged.neoforge.event.entity.living.*;
 import net.neoforged.neoforge.event.level.BlockEvent;
-import net.neoforged.neoforge.event.tick.EntityTickEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import static net.minecraft.world.entity.ai.attributes.Attributes.GRAVITY;
 
 //import static net.hatedero.warlocksmod.capability.abilities.dash.PlayerDashProvider.PLAYER_COOLDOWN;
 
@@ -69,16 +58,31 @@ public class ModEvents {
         }
     }
 
+    @SubscribeEvent
+    public static void damageDealtToPlayer(LivingIncomingDamageEvent event){
+        if(event.getEntity() instanceof Player player && player.hasEffect(ModEffects.CURSED_EFFECT)){
+            event.setAmount((float) (event.getAmount() * 1.2));
+        }
+    }
+
 //    @SubscribeEvent
-//    public static void damageDealtToPlayer(LivingIncomingDamageEvent event){
-//        if(event.getEntity() instanceof Player player){
-//            player.sendSystemMessage(Component.literal("hurt by "));
-//            player.sendSystemMessage(event.getSource().getDirectEntity().getName());
-//            if(event.getSource().getDirectEntity() instanceof LightningBolt l){
-//                player.sendSystemMessage(Component.literal("lightning"));
-//            }
+//    public static void damageDealtWithStygianIronTool(LivingDamageEvent.Post event){
+//        if(event.getSource().getDirectEntity().getWeaponItem().is(StygianToolItem) == StygianToolItem stygianToolItem){
+//
 //        }
 //    }
+
+//    @SubscribeEvent
+//    public static void tick(EntityTickEvent.Pre event){
+//        if(event.getEntity() instanceof Skeleton) {
+//            event.getEntity().setDeltaMovement(0, 0, 0);
+//        }
+//        if(event.getEntity() instanceof Arrow){
+            //event.getEntity().setDeltaMovement(0,0,0);
+//        }
+//    }
+
+    //THIS IS INTERESTING FOR INFINITY
 
     @SubscribeEvent
     public static void playerDealtDamage(LivingIncomingDamageEvent event){
@@ -101,6 +105,9 @@ public class ModEvents {
             player.getAbilities().mayfly = true;
             player.onUpdateAbilities();
         }
+        if(PStart.getEntity() instanceof Player player && PStart.getEffectInstance().is(ModEffects.CURSED_EFFECT)) {
+            player.getAttribute(Attributes.MAX_HEALTH).setBaseValue(player.getAttribute(Attributes.MAX_HEALTH).getValue() * 0.8);
+        }
     }
 
     @SubscribeEvent
@@ -109,6 +116,9 @@ public class ModEvents {
                 player.getAbilities().mayfly = player.isCreative();
                 player.onUpdateAbilities();
             }
+        if(PEnd.getEntity() instanceof Player player && PEnd.getEffectInstance().is(ModEffects.CURSED_EFFECT)) {
+            player.getAttribute(Attributes.MAX_HEALTH).setBaseValue(player.getAttribute(Attributes.MAX_HEALTH).getValue() * 1.25);
+        }
     }
 
     @SubscribeEvent
@@ -117,5 +127,8 @@ public class ModEvents {
                 player.getAbilities().mayfly = player.isCreative();
                 player.onUpdateAbilities();
             }
+        if(PEnd.getEntity() instanceof Player player && PEnd.getEffectInstance().is(ModEffects.CURSED_EFFECT)) {
+            player.getAttribute(Attributes.MAX_HEALTH).setBaseValue(player.getAttribute(Attributes.MAX_HEALTH).getValue() * 1.25);
+        }
     }
 }

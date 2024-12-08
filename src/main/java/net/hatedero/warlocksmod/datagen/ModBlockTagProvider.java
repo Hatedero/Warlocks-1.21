@@ -2,6 +2,7 @@ package net.hatedero.warlocksmod.datagen;
 
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.block.ModBlocks;
+import net.hatedero.warlocksmod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -18,6 +19,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        this.tag(ModTags.Blocks.NEEDS_STYGIAN_IRON_TOOL)
+                .addTags(BlockTags.NEEDS_DIAMOND_TOOL);
+
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.SULFUR_ORE.get(), ModBlocks.SULFUR_BLOCK.get());
 

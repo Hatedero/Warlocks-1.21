@@ -134,7 +134,13 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SOULBERRY_SEEDS.get());
 
                         output.accept(ModItems.CLEAVER.get());
+                        output.accept(ModItems.CELESTIAL_BRONZE_SWORD.get());
                         output.accept(ModItems.STYGIAN_IRON_SWORD.get());
+                        output.accept(ModItems.STYGIAN_IRON_PICKAXE.get());
+                        output.accept(ModItems.STYGIAN_IRON_AXE.get());
+                        output.accept(ModItems.STYGIAN_IRON_SHOVEL.get());
+                        output.accept(ModItems.STYGIAN_IRON_HOE.get());
+                        output.accept(ModItems.STYGIAN_IRON_SCYTHE.get());
                         output.accept(ModItems.DAWNBREAKER.get());
                         output.accept(ModItems.DAWNBREAKER_HILT.get());
                         output.accept(ModItems.DAWNBREAKER_BLADE.get());

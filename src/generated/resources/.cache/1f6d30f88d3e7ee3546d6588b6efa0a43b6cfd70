@@ -1,4 +1,4 @@
-// 1.21	2024-11-22T17:38:46.1931245	Tags for minecraft:block mod id warlocksmod
+// 1.21	2024-12-07T17:10:33.0679406	Tags for minecraft:block mod id warlocksmod
 577c260d547c433545fb77d979433412d280ffc1 data/minecraft/tags/block/base_stone_overworld.json
 7a6c44259f156c52417f0b4004b0c43918a32217 data/minecraft/tags/block/climbable.json
 b0199eda6518f1492cf5c8f7890db0fb2972278e data/minecraft/tags/block/dirt.json
@@ -7,3 +7,4 @@ dbf4f8e1c166f82eb697f23b3e876561c7e5111d data/minecraft/tags/block/logs_that_bur
 02f4e7b1d6e8877fc9635b718e8d3d56c88cfb8c data/minecraft/tags/block/needs_diamond_tool.json
 d8f0f8e697fa14dae78acbf4ee6fc9c0be49963b data/minecraft/tags/block/needs_stone_tool.json
 e9c1408201376332533cd61e2ca69430a51f8eb3 data/minecraft/tags/block/planks.json
+a249c46329a41538f49a564e1f14338aaf1be5a0 data/warlocksmod/tags/block/needs_stygian_iron_tool.json

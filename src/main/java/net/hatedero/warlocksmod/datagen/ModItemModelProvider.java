@@ -66,7 +66,15 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.STILL_THUNDER.get());
 
         handheldItem(ModItems.ABYSS_SHARD_HAMMER);
+
+        handheldItem(ModItems.CELESTIAL_BRONZE_SWORD);
+
         handheldItem(ModItems.STYGIAN_IRON_SWORD);
+        handheldItem(ModItems.STYGIAN_IRON_PICKAXE);
+        handheldItem(ModItems.STYGIAN_IRON_AXE);
+        handheldItem(ModItems.STYGIAN_IRON_SHOVEL);
+        handheldItem(ModItems.STYGIAN_IRON_HOE);
+        //handheldItem(ModItems.STYGIAN_IRON_SCYTHE);
         //handheldItem(ModItems.DAWNBREAKER);
         //handheldItem(ModItems.CLEAVER);
 

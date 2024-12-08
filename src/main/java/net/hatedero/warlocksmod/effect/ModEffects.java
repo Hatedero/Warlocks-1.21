@@ -32,7 +32,10 @@ public class ModEffects {
             () -> new ThunderGraceEffect(MobEffectCategory.BENEFICIAL, 0xDEFFFE));
 
     public static final Holder<MobEffect> INFINITY_AFFECTED_EFFECT = MOB_EFFECTS.register("infinity_affected",
-            () -> new InfinityAffectedEffect(MobEffectCategory.BENEFICIAL, 0xFBFBFB));
+            () -> new InfinityAffectedEffect(MobEffectCategory.HARMFUL, 0xFBFBFB));
+
+    public static final Holder<MobEffect> CURSED_EFFECT = MOB_EFFECTS.register("cursed",
+            () -> new CursedEffect(MobEffectCategory.HARMFUL, 0xFBFBFB));
 
     public static final Holder<MobEffect> PHOENIX_EFFECT = MOB_EFFECTS.register("phoenix",
             () -> new PhoenixEffect(MobEffectCategory.BENEFICIAL, 0xDAA520)
