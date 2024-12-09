@@ -33,7 +33,7 @@ public class PlayerThunderSnapManager {
 
     @SubscribeEvent
     public static void onCast(InputEvent.Key event){
-        if (Minecraft.getInstance().player instanceof Player player && player.isLocalPlayer() && MELEE_ABILITY_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_CLASS).getClassName().matches("storm_caller") && player.getData(PLAYER_THUNDER_SNAP).getCooldown() <= player.getData(PLAYER_THUNDER_SNAP).getCooldownMin()) {
+        if (Minecraft.getInstance().player instanceof Player player && MELEE_ABILITY_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_CLASS).getClassName().matches("storm_caller") && player.getData(PLAYER_THUNDER_SNAP).getCooldown() <= player.getData(PLAYER_THUNDER_SNAP).getCooldownMin()) {
             if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
                 final Minecraft minecraft = Minecraft.getInstance();
                 Entity camera = minecraft.getCameraEntity();
@@ -57,6 +57,7 @@ public class PlayerThunderSnapManager {
                 PacketDistributor.sendToServer(new PlayerThunderSnapSyncMessage( player.getData(PLAYER_THUNDER_SNAP).getCooldown(),  player.getData(PLAYER_THUNDER_SNAP).getStrength()));
             }
         }
+
         if (Minecraft.getInstance().player instanceof Player player && RESET_ABILITIES_KEY.getKey().getValue() == event.getKey()) {
             if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
                 player.getData(PLAYER_THUNDER_SNAP).resetData(player);

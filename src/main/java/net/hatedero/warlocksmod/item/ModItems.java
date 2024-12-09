@@ -78,8 +78,8 @@ public class ModItems {
                     .attributes(AxeItem.createAttributes(ModToolTiers.ABYSS_SHARD, 17F, -3.2f)).fireResistant()));
 
     public static final DeferredItem<SwordItem> CELESTIAL_BRONZE_SWORD = ITEMS.register("celestial_bronze_sword",
-            () -> new SwordItem(ModToolTiers.STYGIAN_IRON, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(ModToolTiers.STYGIAN_IRON, 7F, -2f)).setNoRepair()));
+        () -> new SwordItem(ModToolTiers.CELESTIAL_BRONZE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ModToolTiers.CELESTIAL_BRONZE, 7F, -2f)).setNoRepair()));
 
     public static final DeferredItem<SwordItem> STYGIAN_IRON_SWORD = ITEMS.register("stygian_iron_sword",
             () -> new SwordItem(ModToolTiers.STYGIAN_IRON, new Item.Properties()
@@ -104,6 +104,9 @@ public class ModItems {
             () -> new ScytheItem(ModToolTiers.STYGIAN_IRON, new Item.Properties()
                     .attributes(SwordItem.createAttributes(ModToolTiers.STYGIAN_IRON, 15F, -3.2f)).setNoRepair()));
 
+    public static final DeferredItem<DawnbreakerItem> OLD_DRAGON_SLAYER_SPEAR = ITEMS.register("old_dragon_slayer_spear_3d",
+            () -> new DawnbreakerItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ModToolTiers.ABYSS_SHARD, 13F, 0f)).fireResistant()));
 
     public static final DeferredItem<DawnbreakerItem> DAWNBREAKER = ITEMS.register("dawnbreaker",
             () -> new DawnbreakerItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()

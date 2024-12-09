@@ -141,6 +141,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.STYGIAN_IRON_SHOVEL.get());
                         output.accept(ModItems.STYGIAN_IRON_HOE.get());
                         output.accept(ModItems.STYGIAN_IRON_SCYTHE.get());
+                        output.accept(ModItems.OLD_DRAGON_SLAYER_SPEAR.get());
                         output.accept(ModItems.DAWNBREAKER.get());
                         output.accept(ModItems.DAWNBREAKER_HILT.get());
                         output.accept(ModItems.DAWNBREAKER_BLADE.get());
