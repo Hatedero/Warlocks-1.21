@@ -2,8 +2,11 @@ package net.hatedero.warlocksmod.item;
 
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.block.ModBlocks;
+import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.item.custom.*;
 import net.hatedero.warlocksmod.util.ModTags;
+import net.minecraft.core.Holder;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -104,9 +107,9 @@ public class ModItems {
             () -> new ScytheItem(ModToolTiers.STYGIAN_IRON, new Item.Properties()
                     .attributes(SwordItem.createAttributes(ModToolTiers.STYGIAN_IRON, 15F, -3.2f)).setNoRepair()));
 
-    public static final DeferredItem<DawnbreakerItem> OLD_DRAGON_SLAYER_SPEAR = ITEMS.register("old_dragon_slayer_spear_3d",
-            () -> new DawnbreakerItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(ModToolTiers.ABYSS_SHARD, 13F, 0f)).fireResistant()));
+    public static final DeferredItem<OldDragonSlayerSpearItem> OLD_DRAGON_SLAYER_SPEAR = ITEMS.register("old_dragon_slayer_spear_3d",
+            () -> new OldDragonSlayerSpearItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ModToolTiers.ABYSS_SHARD, 13F, 0f)).fireResistant(), ));
 
     public static final DeferredItem<DawnbreakerItem> DAWNBREAKER = ITEMS.register("dawnbreaker",
             () -> new DawnbreakerItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
