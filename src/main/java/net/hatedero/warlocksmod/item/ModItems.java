@@ -109,7 +109,7 @@ public class ModItems {
 
     public static final DeferredItem<OldDragonSlayerSpearItem> OLD_DRAGON_SLAYER_SPEAR = ITEMS.register("old_dragon_slayer_spear_3d",
             () -> new OldDragonSlayerSpearItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(ModToolTiers.ABYSS_SHARD, 13F, 0f)).fireResistant(), ));
+                    .attributes(SwordItem.createAttributes(ModToolTiers.ABYSS_SHARD, 13F, 0f)).fireResistant(), null));
 
     public static final DeferredItem<DawnbreakerItem> DAWNBREAKER = ITEMS.register("dawnbreaker",
             () -> new DawnbreakerItem(ModToolTiers.ABYSS_SHARD, new Item.Properties()
