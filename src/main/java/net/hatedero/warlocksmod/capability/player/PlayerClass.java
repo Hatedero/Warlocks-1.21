@@ -6,6 +6,7 @@ import net.hatedero.warlocksmod.network.message.PlayerClassSyncMessage;
 import net.hatedero.warlocksmod.network.message.PlayerDoubleJumpSyncMessage;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -35,7 +36,7 @@ public class PlayerClass implements IClass, INBTSerializable<CompoundTag> {
 
     @Override
     public void tick(Player player) {
-        //nothing
+        updateData(player);
     }
 
     @Override

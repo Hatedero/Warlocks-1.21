@@ -63,7 +63,7 @@ public class Config
     //DOUBLE JUMP CONFIG
     private static final ModConfigSpec.IntValue MAX_DJ_C = BUILDER
             .comment("Max Double Jump Cooldown")
-            .defineInRange("maxDJC", 10, 1, Integer.MAX_VALUE);
+            .defineInRange("maxDJC", 100, 1, Integer.MAX_VALUE);
     private static final ModConfigSpec.IntValue MAX_DJ_N = BUILDER
             .comment("Max Double Jump Number")
             .defineInRange("maxDJN", 2, 0, Integer.MAX_VALUE);

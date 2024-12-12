@@ -29,6 +29,14 @@ public class PlayerClassManager {
     public PlayerClassManager(){}
 
     @SubscribeEvent
+    public static void onPlayerTick(PlayerTickEvent.Pre event){
+        Player player = event.getEntity();
+        if(player instanceof ServerPlayer serverPlayer){
+            ((PlayerClass)serverPlayer.getData(PLAYER_CLASS)).tick(serverPlayer);
+        }
+    }
+
+    @SubscribeEvent
     public static void onJoin(ClientPlayerNetworkEvent.LoggingIn event) {
         //event.getPlayer().getData(PLAYER_CLASS).updateData(event.getPlayer());
         //event.getPlayer().sendSystemMessage(Component.literal(event.getPlayer().getData(PLAYER_CLASS).getClassName()));
