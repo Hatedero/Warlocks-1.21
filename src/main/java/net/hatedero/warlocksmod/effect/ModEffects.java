@@ -37,6 +37,9 @@ public class ModEffects {
     public static final Holder<MobEffect> CURSED_EFFECT = MOB_EFFECTS.register("cursed",
             () -> new CursedEffect(MobEffectCategory.HARMFUL, 0xFBFBFB));
 
+    public static final Holder<MobEffect> STUNNED_EFFECT = MOB_EFFECTS.register("stunned",
+            () -> new StunnedEffect(MobEffectCategory.HARMFUL, 0xFF0000));
+
     public static final Holder<MobEffect> PHOENIX_EFFECT = MOB_EFFECTS.register("phoenix",
             () -> new PhoenixEffect(MobEffectCategory.BENEFICIAL, 0xDAA520)
                     .addAttributeModifier(Attributes.MAX_HEALTH, ResourceLocation.fromNamespaceAndPath(WarlocksMod.MOD_ID, "effect.health"), 20.0, AttributeModifier.Operation.ADD_VALUE));

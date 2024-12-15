@@ -5,17 +5,21 @@ import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.item.ModItems;
 import net.hatedero.warlocksmod.item.custom.HammerItem;
+import net.hatedero.warlocksmod.item.custom.ScytheItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderPlayerEvent;
@@ -53,6 +57,33 @@ public class ModEvents {
 
                 HARVESTED_BLOCKS.add(pos);
                 serverPlayer.gameMode.destroyBlock(pos);
+                HARVESTED_BLOCKS.remove(pos);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onScytheUsage(BlockEvent.BreakEvent event) {
+        Player player = event.getPlayer();
+        ItemStack mainHandItem = player.getMainHandItem();
+
+        if(mainHandItem.getItem() instanceof ScytheItem scythe && player instanceof ServerPlayer serverPlayer) {
+            BlockPos initialBlockPos = event.getPos();
+            if(HARVESTED_BLOCKS.contains(initialBlockPos)) {
+                return;
+            }
+
+            for(BlockPos pos : HammerItem.getBlocksToBeDestroyed(HammerItem.getRange(), initialBlockPos, serverPlayer)) {
+                if(pos == initialBlockPos || !scythe.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
+                    continue;
+                }
+
+                HARVESTED_BLOCKS.add(pos);
+                //serverPlayer.gameMode.destroyBlock(pos);
+//                public UseOnContext(Player player, InteractionHand hand, BlockHitResult hitResult) {
+//                    this(player.level(), player, hand, player.getItemInHand(hand), hitResult);
+//                }
+
                 HARVESTED_BLOCKS.remove(pos);
             }
         }

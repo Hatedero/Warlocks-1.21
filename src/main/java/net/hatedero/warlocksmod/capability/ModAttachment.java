@@ -8,6 +8,7 @@ import net.hatedero.warlocksmod.capability.abilities.doublejump.PlayerDoubleJump
 //import net.hatedero.warlocksmod.capability.abilities.infinity.PlayerInfinity;
 import net.hatedero.warlocksmod.capability.abilities.infinity.PlayerInfinity;
 import net.hatedero.warlocksmod.capability.abilities.nova.PlayerNova;
+import net.hatedero.warlocksmod.capability.abilities.parry.PlayerParry;
 import net.hatedero.warlocksmod.capability.abilities.sinkedin.PlayerSinkedIn;
 import net.hatedero.warlocksmod.capability.abilities.sinkedin.PlayerSinkedInManager;
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnap;
@@ -33,6 +34,7 @@ public class ModAttachment {
     public static final Supplier<AttachmentType<PlayerGravity>> PLAYER_GRAVITY;
     public static final Supplier<AttachmentType<PlayerNova>> PLAYER_NOVA;
     public static final Supplier<AttachmentType<PlayerClass>> PLAYER_CLASS;
+    public static final Supplier<AttachmentType<PlayerParry>> PLAYER_PARRY;
 
     public ModAttachment() {
     }
@@ -71,6 +73,10 @@ public class ModAttachment {
 
         PLAYER_CLASS = ATTACHMENT_TYPES.register("player_class", () -> {
             return AttachmentType.serializable(PlayerClass::new).copyOnDeath().build();
+        });
+
+        PLAYER_PARRY = ATTACHMENT_TYPES.register("player_parry", () -> {
+            return AttachmentType.serializable(PlayerParry::new).copyOnDeath().build();
         });
     }
 
