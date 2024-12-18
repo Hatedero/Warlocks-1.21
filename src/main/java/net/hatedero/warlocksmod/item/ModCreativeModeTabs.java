@@ -26,6 +26,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ABYSS_CORE.get());
                         output.accept(ModBlocks.CRUSHER.get());
                         output.accept(ModBlocks.ABYSS_REACTOR_BLOCK.get());
+                        output.accept(ModBlocks.ARMORY_BLOCK.get());
+                        output.accept(ModBlocks.TEST_BLOCK.get());
                         output.accept(ModBlocks.BOUNCE_UP.get());
 
                         output.accept(ModItems.SUN_FRAGMENT.get());

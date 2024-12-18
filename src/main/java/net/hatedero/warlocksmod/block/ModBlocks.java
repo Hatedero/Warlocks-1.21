@@ -32,6 +32,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ABYSS_GRASS = registerBlock("abyss_grass",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK).sound(SoundType.SCULK)));
 
+    public static final DeferredBlock<ArmoryBlock> ARMORY_BLOCK = registerBlock("armory_block",
+            () -> new ArmoryBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).sound(SoundType.COPPER_GRATE)));
+
     public static final DeferredBlock<Block> ABYSS_DIRT = registerBlock("abyss_dirt",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK).sound(SoundType.SCULK)));
 
@@ -189,6 +192,9 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> CRYSTAL_BLOCK = registerBlock("crystal_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).mapColor(MapColor.GRASS).sound(SoundType.AMETHYST)));
+
+    public static final DeferredBlock<SnowyDirtBlock> TEST_BLOCK = registerBlock("test_block",
+            () -> new SnowyDirtBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).mapColor(MapColor.GRASS).sound(SoundType.AMETHYST)));
 
 
 

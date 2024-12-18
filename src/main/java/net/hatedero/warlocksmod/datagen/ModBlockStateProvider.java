@@ -26,7 +26,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         //blockItem(ModBlocks.ABYSS_GRASS);
+        //blockWithItem(ModBlocks.TEST_BLOCK);
         blockWithItem(ModBlocks.ABYSS_DIRT);
+        //blockWithItem(ModBlocks.ARMORY_BLOCK);
         blockWithItem(ModBlocks.ABYSS_STONE);
         blockWithItem(ModBlocks.BOUNCE_UP);
         //blockItem(ModBlocks.BASIC_CRUSHER);

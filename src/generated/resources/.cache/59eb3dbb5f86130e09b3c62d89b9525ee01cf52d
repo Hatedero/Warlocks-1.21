@@ -1,4 +1,4 @@
-// 1.21	2024-12-07T12:45:03.3042243	Loot Tables
+// 1.21	2024-12-18T21:43:11.6676427	Loot Tables
 c484b37a47dd42ca1e18127619ed6d64ca7cdd7e data/warlocksmod/loot_table/blocks/abyss_chain.json
 237f12e1bcbd0ea43718d5ae0b2024ac03671eee data/warlocksmod/loot_table/blocks/abyss_core.json
 e7743ccf1d705fad183588c34e09bf02d04aa702 data/warlocksmod/loot_table/blocks/abyss_dirt.json
@@ -8,6 +8,7 @@ c6566c3577240efab9c970307edc39682d1eb8ac data/warlocksmod/loot_table/blocks/abys
 f1826bf4aa9eab848f9c610b4df6a59c49ea3167 data/warlocksmod/loot_table/blocks/abyss_reactor_block.json
 83c97b20730878bd525dce7b00d64409d68ead6d data/warlocksmod/loot_table/blocks/abyss_stone.json
 d9f3c094d3c00b23df08e5e4258310465178716a data/warlocksmod/loot_table/blocks/abyss_stone_bricks.json
+5f8c0f5144c868352836f9476310a4d4c222a71a data/warlocksmod/loot_table/blocks/armory_block.json
 00a236cb0f0fb4c02ad26203891883ecc68d8cec data/warlocksmod/loot_table/blocks/backroom_wall.json
 f6c3d1ebb741a6a047c1fbbed7d3a7569aea58ea data/warlocksmod/loot_table/blocks/base_pillar.json
 b1b8d700ed9a6600f04bcd255b293ce59845a54a data/warlocksmod/loot_table/blocks/blight_bricks.json
@@ -42,4 +43,5 @@ caee3be437f659467a46dfe16ce584afc7dcdeeb data/warlocksmod/loot_table/blocks/stri
 efb862f125995b6339b550855874b5e4b6587056 data/warlocksmod/loot_table/blocks/sulfur_block.json
 6575acc6bff46c99a5fff25fef30ee28e2e94aa6 data/warlocksmod/loot_table/blocks/sulfur_ore.json
 c22e2d649e7244ab14ba874fb5c9a6127826c7d0 data/warlocksmod/loot_table/blocks/tall_dracaena.json
+ec214b037b23cc76cb1342f85e201c3dd0ba28a8 data/warlocksmod/loot_table/blocks/test_block.json
 63b901f8ce39d37839a5347c80e4ca4314a68df3 data/warlocksmod/loot_table/blocks/white_test.json
