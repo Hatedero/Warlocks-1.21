@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "warlocksmod:block/uniform_ocean_block"
+      }
+    ]
+  }
+}

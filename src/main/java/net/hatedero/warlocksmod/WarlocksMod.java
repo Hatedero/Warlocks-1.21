@@ -8,6 +8,8 @@ import net.hatedero.warlocksmod.entity.ModEntities;
 import net.hatedero.warlocksmod.entity.black_hole.BlackHoleRenderer;
 import net.hatedero.warlocksmod.item.ModCreativeModeTabs;
 import net.hatedero.warlocksmod.util.KeyBinding;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.entity.CreeperRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -16,7 +18,11 @@ import net.minecraft.client.renderer.entity.layers.CreeperPowerLayer;
 import net.minecraft.client.renderer.entity.layers.SlimeOuterLayer;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.GrassColor;
+import net.minecraft.world.level.material.MapColor;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.event.RenderPlayerEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
@@ -39,6 +45,9 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 import net.hatedero.warlocksmod.item.ModItems;
 
+import java.awt.*;
+
+import static java.lang.Math.pow;
 import static net.hatedero.warlocksmod.capability.ModAttachment.ATTACHMENT_TYPES;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_INFINITY;
 
@@ -94,6 +103,27 @@ public class WarlocksMod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntities.BLACK_HOLE.get(), BlackHoleRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void blockColorHandlerEvent(final RegisterColorHandlersEvent.Block event)
+        {
+            event.register((state, world, pos, tintIndex) -> {
+                //int color = BiomeColors.getAverageWaterColor(Minecraft.getInstance().player.level(), Minecraft.getInstance().player.blockPosition());
+                int color = ModBlocks.UNIFORM_OCEAN_BLOCK.get().getColor();
+                return color;
+            }, ModBlocks.UNIFORM_OCEAN_BLOCK.get());
+        }
+
+        @SubscribeEvent
+        public static void itemColorHandlerEvent(final RegisterColorHandlersEvent.Item event)
+        {
+            event.register((stack, tintIndex) -> {
+                int color = BiomeColors.getAverageWaterColor(Minecraft.getInstance().player.level(), Minecraft.getInstance().player.blockPosition());
+                ModBlocks.UNIFORM_OCEAN_BLOCK.get().setColor(color);
+                return color;
+            }, ModBlocks.UNIFORM_OCEAN_BLOCK);
+
         }
 
         @SubscribeEvent
