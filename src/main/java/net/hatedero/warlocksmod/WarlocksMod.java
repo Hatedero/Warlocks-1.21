@@ -109,15 +109,15 @@ public class WarlocksMod {
         public static void blockColorHandlerEvent(final RegisterColorHandlersEvent.Block event)
         {
             event.register(
-                    //(state, world, pos, tintIndex) -> {
-                //int color = BiomeColors.getAverageWaterColor(Minecraft.getInstance().player.level(), Minecraft.getInstance().player.blockPosition());
-//                int color = ModBlocks.UNIFORM_OCEAN_BLOCK.get().getColor();
-//                return color;
-//            }
                     (state, world, pos, tintIndex) -> {
                         return world != null && pos != null ? BiomeColors.getAverageWaterColor(world, pos) : -1;
                     }
             , ModBlocks.UNIFORM_OCEAN_BLOCK.get());
+            event.register(
+                    (state, world, pos, tintIndex) -> {
+                        return world != null && pos != null ? (int) (pos.getY()/1.5) : -1;
+                    }
+            , ModBlocks.ABYSS_DIRT_BLOCK.get());
         }
 
         @SubscribeEvent
@@ -127,6 +127,10 @@ public class WarlocksMod {
                 int color = BiomeColors.getAverageWaterColor(Minecraft.getInstance().player.level(), Minecraft.getInstance().player.blockPosition());
                 return color;
             }, ModBlocks.UNIFORM_OCEAN_BLOCK);
+            event.register((stack, tintIndex) -> {
+                int color = (int) (Minecraft.getInstance().player.getBlockPos().getY()/1.5);
+                return color;
+            }, ModBlocks.ABYSS_DIRT_BLOCK);
 
         }
 
