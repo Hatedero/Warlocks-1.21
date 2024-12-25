@@ -26,7 +26,6 @@ public class AbyssTakenBlock extends Block {
 
     @Override
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
-        
         super.stepOn(level, pos, state, entity);
     }
 }

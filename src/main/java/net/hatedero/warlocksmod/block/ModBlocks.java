@@ -193,8 +193,8 @@ public class ModBlocks {
     public static final DeferredBlock<Block> CRYSTAL_BLOCK = registerBlock("crystal_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).mapColor(MapColor.GRASS).sound(SoundType.AMETHYST)));
 
-    public static final DeferredBlock<PositionColoredBlock> UNIFORM_OCEAN_BLOCK = registerBlock("uniform_ocean_block",
-            () -> new PositionColoredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).sound(SoundType.AMETHYST), 0x0000FF));
+    public static final DeferredBlock<Block> UNIFORM_OCEAN_BLOCK = registerBlock("uniform_ocean_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).sound(SoundType.AMETHYST)));
 
 
 

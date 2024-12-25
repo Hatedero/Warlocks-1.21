@@ -1,6 +1,7 @@
 package net.hatedero.warlocksmod;
 
 import net.hatedero.warlocksmod.block.ModBlocks;
+import net.hatedero.warlocksmod.block.custom.AbyssTakenBlock;
 import net.hatedero.warlocksmod.capability.ModAttachment;
 import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.enchantment.ModEnchantmentEffects;
@@ -10,22 +11,12 @@ import net.hatedero.warlocksmod.item.ModCreativeModeTabs;
 import net.hatedero.warlocksmod.util.KeyBinding;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.entity.CreeperRenderer;
-import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.client.renderer.entity.layers.CreeperPowerLayer;
-import net.minecraft.client.renderer.entity.layers.SlimeOuterLayer;
-import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.GrassColor;
-import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
-import net.neoforged.neoforge.client.event.RenderPlayerEvent;
-import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -46,10 +37,6 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.hatedero.warlocksmod.item.ModItems;
 
 import java.awt.*;
-
-import static java.lang.Math.pow;
-import static net.hatedero.warlocksmod.capability.ModAttachment.ATTACHMENT_TYPES;
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_INFINITY;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(WarlocksMod.MOD_ID)
@@ -108,29 +95,34 @@ public class WarlocksMod {
         @SubscribeEvent
         public static void blockColorHandlerEvent(final RegisterColorHandlersEvent.Block event)
         {
+            valueCalc t = new valueCalc();
+
             event.register(
                     (state, world, pos, tintIndex) -> {
                         return world != null && pos != null ? BiomeColors.getAverageWaterColor(world, pos) : -1;
                     }
             , ModBlocks.UNIFORM_OCEAN_BLOCK.get());
+
             event.register(
                     (state, world, pos, tintIndex) -> {
-                        return world != null && pos != null ? (int) (pos.getY()/1.5) : -1;
+                        return world != null && pos != null ? t.getAbyssTakenBlockColorFromHeight(pos) : -1;
                     }
-            , ModBlocks.ABYSS_DIRT_BLOCK.get());
+                    , ModBlocks.ABYSS_DIRT.get(), ModBlocks.ABYSS_GRASS.get());
         }
 
         @SubscribeEvent
         public static void itemColorHandlerEvent(final RegisterColorHandlersEvent.Item event)
         {
+            valueCalc t = new valueCalc();
             event.register((stack, tintIndex) -> {
                 int color = BiomeColors.getAverageWaterColor(Minecraft.getInstance().player.level(), Minecraft.getInstance().player.blockPosition());
                 return color;
             }, ModBlocks.UNIFORM_OCEAN_BLOCK);
+
             event.register((stack, tintIndex) -> {
-                int color = (int) (Minecraft.getInstance().player.getBlockPos().getY()/1.5);
+                int color = t.getAbyssTakenBlockColorFromHeight(Minecraft.getInstance().player.blockPosition());
                 return color;
-            }, ModBlocks.ABYSS_DIRT_BLOCK);
+            }, ModBlocks.ABYSS_DIRT, ModBlocks.ABYSS_GRASS);
 
         }
 
