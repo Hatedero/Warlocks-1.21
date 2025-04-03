@@ -1,12 +1,9 @@
 package net.hatedero.warlocksmod.capability.player;
 
-import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IDoubleJump;
-import net.hatedero.warlocksmod.capability.playerinterfaces.IClass;
+import net.hatedero.warlocksmod.capability.playerInterfaces.IClass;
 import net.hatedero.warlocksmod.network.message.PlayerClassSyncMessage;
-import net.hatedero.warlocksmod.network.message.PlayerDoubleJumpSyncMessage;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -14,10 +11,7 @@ import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.UnknownNullability;
 
-import static net.hatedero.warlocksmod.Config.maxDJC;
-import static net.hatedero.warlocksmod.Config.maxDJN;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_CLASS;
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DOUBLE_JUMP;
 
 public class PlayerClass implements IClass, INBTSerializable<CompoundTag> {
     String className = "";

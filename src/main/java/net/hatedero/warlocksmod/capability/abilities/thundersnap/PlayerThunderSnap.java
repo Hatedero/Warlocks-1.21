@@ -1,10 +1,9 @@
 package net.hatedero.warlocksmod.capability.abilities.thundersnap;
 
-import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IThunderSnap;
+import net.hatedero.warlocksmod.capability.abilitiesInterfaces.IThunderSnap;
 import net.hatedero.warlocksmod.network.message.PlayerThunderSnapSyncMessage;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;

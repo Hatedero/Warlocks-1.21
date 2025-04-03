@@ -1,11 +1,9 @@
 package net.hatedero.warlocksmod.capability.abilities.doublejump;
 
-import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IDoubleJump;
+import net.hatedero.warlocksmod.capability.abilitiesInterfaces.IDoubleJump;
 import net.hatedero.warlocksmod.network.message.PlayerDoubleJumpSyncMessage;
-import net.hatedero.warlocksmod.network.message.PlayerThunderSnapSyncMessage;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -15,7 +13,6 @@ import org.jetbrains.annotations.UnknownNullability;
 
 import static net.hatedero.warlocksmod.Config.maxDJC;
 import static net.hatedero.warlocksmod.Config.maxDJN;
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DOUBLE_JUMP;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DOUBLE_JUMP;
 
 public class PlayerDoubleJump implements IDoubleJump, INBTSerializable<CompoundTag> {
@@ -113,6 +110,7 @@ public class PlayerDoubleJump implements IDoubleJump, INBTSerializable<CompoundT
         player.getData(PLAYER_DOUBLE_JUMP).setCooldown(maxDJC);
         player.getData(PLAYER_DOUBLE_JUMP).setCooldownMax(maxDJC);
         player.getData(PLAYER_DOUBLE_JUMP).setCooldownMin(0);
+        this.nbDoubleJumpMax = maxDJN;
     }
 
     @Override

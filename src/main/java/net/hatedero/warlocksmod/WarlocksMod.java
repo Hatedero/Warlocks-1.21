@@ -5,8 +5,6 @@ import net.hatedero.warlocksmod.block.custom.AbyssTakenBlock;
 import net.hatedero.warlocksmod.capability.ModAttachment;
 import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.enchantment.ModEnchantmentEffects;
-import net.hatedero.warlocksmod.entity.ModEntities;
-import net.hatedero.warlocksmod.entity.black_hole.BlackHoleRenderer;
 import net.hatedero.warlocksmod.item.ModCreativeModeTabs;
 import net.hatedero.warlocksmod.util.KeyBinding;
 import net.minecraft.client.Minecraft;
@@ -56,8 +54,6 @@ public class WarlocksMod {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
-        ModEntities.register(modEventBus);
-
         ModEffects.register(modEventBus);
 
         ModEnchantmentEffects.register(modEventBus);
@@ -87,11 +83,6 @@ public class WarlocksMod {
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
-            EntityRenderers.register(ModEntities.BLACK_HOLE.get(), BlackHoleRenderer::new);
-        }
-
         @SubscribeEvent
         public static void blockColorHandlerEvent(final RegisterColorHandlersEvent.Block event)
         {

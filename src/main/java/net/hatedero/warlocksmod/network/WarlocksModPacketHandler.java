@@ -54,14 +54,6 @@ public class WarlocksModPacketHandler {
                 )
         );
         registrar.playBidirectional(
-                PlayerBlackHoleSyncMessage.TYPE,
-                PlayerBlackHoleSyncMessage.STREAM_CODEC,
-                new DirectionalPayloadHandler<>(
-                        PlayerBlackHoleSyncMessage.ClientPayloadHandler::handleDataOnMain,
-                        PlayerBlackHoleSyncMessage.ServerPayloadHandler::handleDataOnMain
-                )
-        );
-        registrar.playBidirectional(
                 PlayerInfinitySyncMessage.TYPE,
                 PlayerInfinitySyncMessage.STREAM_CODEC,
                 new DirectionalPayloadHandler<>(
@@ -78,27 +70,11 @@ public class WarlocksModPacketHandler {
                 )
         );
         registrar.playBidirectional(
-                PlayerNovaSyncMessage.TYPE,
-                PlayerNovaSyncMessage.STREAM_CODEC,
-                new DirectionalPayloadHandler<>(
-                        PlayerNovaSyncMessage.ClientPayloadHandler::handleDataOnMain,
-                        PlayerNovaSyncMessage.ServerPayloadHandler::handleDataOnMain
-                )
-        );
-        registrar.playBidirectional(
                 PlayerClassSyncMessage.TYPE,
                 PlayerClassSyncMessage.STREAM_CODEC,
                 new DirectionalPayloadHandler<>(
                         PlayerClassSyncMessage.ClientPayloadHandler::handleDataOnMain,
                         PlayerClassSyncMessage.ServerPayloadHandler::handleDataOnMain
-                )
-        );
-        registrar.playBidirectional(
-                PlayerParrySyncMessage.TYPE,
-                PlayerParrySyncMessage.STREAM_CODEC,
-                new DirectionalPayloadHandler<>(
-                        PlayerParrySyncMessage.ClientPayloadHandler::handleDataOnMain,
-                        PlayerParrySyncMessage.ServerPayloadHandler::handleDataOnMain
                 )
         );
     }

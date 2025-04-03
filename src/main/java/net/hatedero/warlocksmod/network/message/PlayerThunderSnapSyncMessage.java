@@ -4,20 +4,14 @@ import io.netty.buffer.ByteBuf;
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.capability.ModAttachment;
 import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnap;
-import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IDoubleJump;
-import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IThunderSnap;
+import net.hatedero.warlocksmod.capability.abilitiesInterfaces.IThunderSnap;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
-import org.jetbrains.annotations.NotNull;
 
 public record PlayerThunderSnapSyncMessage(int cooldown, int strength) implements CustomPacketPayload {
     public static final CustomPacketPayload.Type<PlayerThunderSnapSyncMessage> TYPE = new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath(WarlocksMod.MOD_ID, "thunder_snap_sync"));

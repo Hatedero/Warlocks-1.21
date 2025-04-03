@@ -1,17 +1,11 @@
 package net.hatedero.warlocksmod.capability.abilities.infinity;
 
-import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IInfinity;
-import net.hatedero.warlocksmod.effect.ModEffects;
+import net.hatedero.warlocksmod.capability.abilitiesInterfaces.IInfinity;
 import net.hatedero.warlocksmod.network.message.PlayerInfinitySyncMessage;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.Particle;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -26,7 +20,6 @@ import java.util.List;
 
 import static net.hatedero.warlocksmod.Config.*;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_INFINITY;
-import static net.minecraft.core.particles.ParticleTypes.*;
 
 public class PlayerInfinity implements IInfinity, INBTSerializable<CompoundTag> {
     int Range = 10;

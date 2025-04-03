@@ -3,10 +3,8 @@ package net.hatedero.warlocksmod.network.message;
 import io.netty.buffer.ByteBuf;
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.capability.abilities.doublejump.PlayerDoubleJump;
-import net.hatedero.warlocksmod.capability.abilities.thundersnap.PlayerThunderSnap;
-import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IDoubleJump;
+import net.hatedero.warlocksmod.capability.abilitiesInterfaces.IDoubleJump;
 import net.hatedero.warlocksmod.capability.ModAttachment;
-import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IThunderSnap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -14,7 +12,6 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
-import org.jetbrains.annotations.NotNull;
 
 public record PlayerDoubleJumpSyncMessage(int cooldown, int nbDoubleJump) implements CustomPacketPayload {
     public static final CustomPacketPayload.Type<PlayerDoubleJumpSyncMessage> TYPE = new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath(WarlocksMod.MOD_ID, "double_jump_sync"));

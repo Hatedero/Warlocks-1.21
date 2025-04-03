@@ -1,6 +1,5 @@
-// 1.21	2024-12-19T21:02:55.1412269	Tags for minecraft:item mod id warlocksmod
+// 1.21	2025-04-03T19:52:33.7395626	Tags for minecraft:item mod id warlocksmod
 b7a50562c5cc052715a7fcccc8d87969a714ae49 data/minecraft/tags/item/coals.json
-1267ace03f6c69d019dd43582583327b27ac1e84 data/minecraft/tags/item/dyeable.json
 afb1ce78a8cbad3f8046eef6d7fa676640beb3ff data/minecraft/tags/item/enchantable/armor.json
 856abe35c9152055fd48c3f83590949deb53ed19 data/minecraft/tags/item/enchantable/durability.json
 18f9b2caf015a903a959cd03aa49b4f84916a445 data/minecraft/tags/item/enchantable/mining.json

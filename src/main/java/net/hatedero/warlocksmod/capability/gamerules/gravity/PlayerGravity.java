@@ -1,21 +1,16 @@
 package net.hatedero.warlocksmod.capability.gamerules.gravity;
 
-import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IDash;
-import net.hatedero.warlocksmod.capability.gamerulesinterfaces.IGravity;
-import net.hatedero.warlocksmod.network.message.PlayerDashSyncMessage;
+import net.hatedero.warlocksmod.capability.gamerulesInterfaces.IGravity;
 import net.hatedero.warlocksmod.network.message.PlayerGravitySyncMessage;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.UnknownNullability;
 
-import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DASH;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_GRAVITY;
 import static net.minecraft.world.entity.ai.attributes.Attributes.GRAVITY;
 

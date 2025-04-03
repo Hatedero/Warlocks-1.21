@@ -1,6 +1,6 @@
 package net.hatedero.warlocksmod.capability.abilities.blink;
 
-import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IBlink;
+import net.hatedero.warlocksmod.capability.abilitiesInterfaces.IBlink;
 import net.hatedero.warlocksmod.network.message.PlayerBlinkSyncMessage;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;

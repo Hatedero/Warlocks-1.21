@@ -8,6 +8,7 @@ import net.hatedero.warlocksmod.network.message.PlayerDashSyncMessage;
 import net.hatedero.warlocksmod.network.message.PlayerDoubleJumpSyncMessage;
 import net.hatedero.warlocksmod.network.message.PlayerThunderSnapSyncMessage;
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -18,6 +19,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.ComputeFovModifierEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
@@ -35,13 +37,16 @@ public class PlayerDashManager {
         if (Minecraft.getInstance().player instanceof Player player && MOVEMENT_ABILITY_KEY.getKey().getValue() == event.getKey() && player.getData(PLAYER_CLASS).getClassName().matches("sun_singer") && player.getData(PLAYER_DASH).getCooldown() <= player.getData(PLAYER_DASH).getCooldownMin() && player.getData(PLAYER_DASH).getNbDash() > player.getData(PLAYER_DASH).getNbDashMin()) {
             if(!player.hasContainerOpen() && !Minecraft.getInstance().gui.getChat().isChatFocused()) {
                 boolean groundedLaunch = player.onGround();
-                float factor = 1.4F;
+                player.sendSystemMessage(Component.literal(String.valueOf(player.getDeltaMovement().horizontalDistance())));
+                float factor = 1.4F + (((float) player.getDeltaMovement().horizontalDistance()));
                 if (!groundedLaunch)
                     factor += 0.1F;
                 if (player.hasEffect(ModEffects.PHOENIX_EFFECT))
                     factor += 0.2F;
                 Vec3 playerSightLigne = player.getViewVector(1).normalize().multiply(factor, factor, factor);
+                playerSightLigne = playerSightLigne.add(player.getDeltaMovement());
                 player.setDeltaMovement(playerSightLigne);
+                player.sendSystemMessage(Component.literal(String.valueOf(player.getDeltaMovement().horizontalDistance())));
                 player.getData(PLAYER_DASH).setNbDash(player.getData(PLAYER_DASH).getNbDash() - 1);
                 player.getData(PLAYER_DASH).setCooldown(player.getData(PLAYER_DASH).getCooldownMax());
                 PacketDistributor.sendToServer(new PlayerDashSyncMessage(player.getData(PLAYER_DASH).getCooldown(), player.getData(PLAYER_DASH).getNbDash()));
@@ -60,7 +65,7 @@ public class PlayerDashManager {
     public static void onPlayerTick(PlayerTickEvent.Pre event){
         Player player = event.getEntity();
         if(player instanceof ServerPlayer serverPlayer){
-            ((PlayerDash)serverPlayer.getData(ModAttachment.PLAYER_DASH)).tick(serverPlayer);
+            ((PlayerDash)serverPlayer.getData(PLAYER_DASH)).tick(serverPlayer);
         }
     }
 
@@ -68,8 +73,8 @@ public class PlayerDashManager {
     public static void onPlayerDeath(LivingDeathEvent event) {
         LivingEntity var2 = event.getEntity();
         if (var2 instanceof ServerPlayer player) {
-            ((PlayerDash)player.getData(ModAttachment.PLAYER_DASH)).setNbDash(player.getData(PLAYER_DASH).getNbDashMax());
-            ((PlayerDash)player.getData(ModAttachment.PLAYER_DASH)).setCooldown(player.getData(PLAYER_DASH).getCooldownMin());
+            ((PlayerDash)player.getData(PLAYER_DASH)).setNbDash(player.getData(PLAYER_DASH).getNbDashMax());
+            ((PlayerDash)player.getData(PLAYER_DASH)).setCooldown(player.getData(PLAYER_DASH).getCooldownMin());
         }
     }
 }

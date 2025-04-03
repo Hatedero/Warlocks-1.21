@@ -1,4 +1,4 @@
-package net.hatedero.warlocksmod.capability.abilitiesinterfaces;
+package net.hatedero.warlocksmod.capability.abilitiesInterfaces;
 
 public interface ICharge {
     int getCharge();

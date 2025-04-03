@@ -1,4 +1,4 @@
-// 1.21	2024-12-18T21:43:11.6676427	Loot Tables
+// 1.21	2025-04-03T19:52:33.740566	Loot Tables
 c484b37a47dd42ca1e18127619ed6d64ca7cdd7e data/warlocksmod/loot_table/blocks/abyss_chain.json
 237f12e1bcbd0ea43718d5ae0b2024ac03671eee data/warlocksmod/loot_table/blocks/abyss_core.json
 e7743ccf1d705fad183588c34e09bf02d04aa702 data/warlocksmod/loot_table/blocks/abyss_dirt.json
@@ -43,5 +43,5 @@ caee3be437f659467a46dfe16ce584afc7dcdeeb data/warlocksmod/loot_table/blocks/stri
 efb862f125995b6339b550855874b5e4b6587056 data/warlocksmod/loot_table/blocks/sulfur_block.json
 6575acc6bff46c99a5fff25fef30ee28e2e94aa6 data/warlocksmod/loot_table/blocks/sulfur_ore.json
 c22e2d649e7244ab14ba874fb5c9a6127826c7d0 data/warlocksmod/loot_table/blocks/tall_dracaena.json
-ec214b037b23cc76cb1342f85e201c3dd0ba28a8 data/warlocksmod/loot_table/blocks/test_block.json
+dc9edd4684fd16bf7cda4bf9df6d407492f956cb data/warlocksmod/loot_table/blocks/uniform_ocean_block.json
 63b901f8ce39d37839a5347c80e4ca4314a68df3 data/warlocksmod/loot_table/blocks/white_test.json

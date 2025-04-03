@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "warlocksmod:test_block"
+          "name": "warlocksmod:uniform_ocean_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "warlocksmod:blocks/test_block"
+  "random_sequence": "warlocksmod:blocks/uniform_ocean_block"
 }

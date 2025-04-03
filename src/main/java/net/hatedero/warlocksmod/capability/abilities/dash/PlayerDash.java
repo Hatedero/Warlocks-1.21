@@ -1,8 +1,7 @@
 package net.hatedero.warlocksmod.capability.abilities.dash;
 
-import net.hatedero.warlocksmod.capability.abilitiesinterfaces.IDash;
+import net.hatedero.warlocksmod.capability.abilitiesInterfaces.IDash;
 import net.hatedero.warlocksmod.network.message.PlayerDashSyncMessage;
-import net.hatedero.warlocksmod.network.message.PlayerThunderSnapSyncMessage;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -14,7 +13,6 @@ import org.jetbrains.annotations.UnknownNullability;
 
 import static net.hatedero.warlocksmod.Config.maxDC;
 import static net.hatedero.warlocksmod.Config.maxDN;
-import static net.hatedero.warlocksmod.capability.ModAttachment.*;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DASH;
 
 public class PlayerDash implements IDash, INBTSerializable<CompoundTag> {

@@ -1,4 +1,4 @@
-package net.hatedero.warlocksmod.capability.gamerulesinterfaces;
+package net.hatedero.warlocksmod.capability.gamerulesInterfaces;
 
 import net.minecraft.world.entity.player.Player;
 
