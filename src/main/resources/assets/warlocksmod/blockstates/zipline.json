@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "warlocksmod:block/zipline",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "warlocksmod:block/zipline",
+      "x": 90,
+      "y": 180
+    },
+    "facing=east": {
+      "model": "warlocksmod:block/zipline",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west": {
+      "model": "warlocksmod:block/zipline",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

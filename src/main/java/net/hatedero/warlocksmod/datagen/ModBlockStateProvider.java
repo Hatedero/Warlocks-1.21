@@ -31,6 +31,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         //blockWithItem(ModBlocks.ARMORY_BLOCK);
         blockWithItem(ModBlocks.ABYSS_STONE);
         blockWithItem(ModBlocks.BOUNCE_UP);
+        //blockWithItem(ModBlocks.ZIPLINE);
         //blockItem(ModBlocks.BASIC_CRUSHER);
         //blockWithItem(ModBlocks.ABYSS_CORE);
         blockWithItem(ModBlocks.ABYSS_REACTOR_BLOCK);

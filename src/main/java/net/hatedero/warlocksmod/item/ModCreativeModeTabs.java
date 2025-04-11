@@ -30,6 +30,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.UNIFORM_OCEAN_BLOCK.get());
                         output.accept(ModBlocks.BOUNCE_UP.get());
 
+                        output.accept(ModBlocks.ZIPLINE.get());
+
                         output.accept(ModItems.SUN_FRAGMENT.get());
                         output.accept(ModItems.PIECE_OF_ABYSS.get());
                         output.accept(ModItems.STILL_THUNDER.get());

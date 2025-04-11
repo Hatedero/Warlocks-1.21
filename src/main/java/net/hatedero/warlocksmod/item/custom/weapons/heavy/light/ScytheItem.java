@@ -1,10 +1,9 @@
-package net.hatedero.warlocksmod.item.custom;
+package net.hatedero.warlocksmod.item.custom.weapons.heavy.light;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.BlockHitResult;

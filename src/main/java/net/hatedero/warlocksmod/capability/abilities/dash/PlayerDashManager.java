@@ -7,14 +7,23 @@ import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.network.message.PlayerDashSyncMessage;
 import net.hatedero.warlocksmod.network.message.PlayerDoubleJumpSyncMessage;
 import net.hatedero.warlocksmod.network.message.PlayerThunderSnapSyncMessage;
+import net.hatedero.warlocksmod.valueCalc;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -22,8 +31,11 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ComputeFovModifierEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.living.LivingEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
+
+import java.util.Optional;
 
 import static net.hatedero.warlocksmod.capability.ModAttachment.*;
 import static net.hatedero.warlocksmod.util.KeyBinding.*;
@@ -43,9 +55,11 @@ public class PlayerDashManager {
                     factor += 0.1F;
                 if (player.hasEffect(ModEffects.PHOENIX_EFFECT))
                     factor += 0.2F;
+
                 Vec3 playerSightLigne = player.getViewVector(1).normalize().multiply(factor, factor, factor);
                 playerSightLigne = playerSightLigne.add(player.getDeltaMovement());
                 player.setDeltaMovement(playerSightLigne);
+
                 player.sendSystemMessage(Component.literal(String.valueOf(player.getDeltaMovement().horizontalDistance())));
                 player.getData(PLAYER_DASH).setNbDash(player.getData(PLAYER_DASH).getNbDash() - 1);
                 player.getData(PLAYER_DASH).setCooldown(player.getData(PLAYER_DASH).getCooldownMax());

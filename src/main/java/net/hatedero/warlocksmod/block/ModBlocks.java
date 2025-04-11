@@ -2,17 +2,16 @@ package net.hatedero.warlocksmod.block;
 
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.block.custom.*;
+import net.hatedero.warlocksmod.block.custom.arena.zipline.HorizontalZiplineBlock;
 import net.hatedero.warlocksmod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
@@ -20,7 +19,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import java.util.Optional;
 import java.util.function.Supplier;
 
 import static net.minecraft.world.level.block.grower.TreeGrower.*;
@@ -54,7 +52,8 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).sound(SoundType.SCULK_SHRIEKER)));
 
 
-
+    public static final DeferredBlock<Block> ZIPLINE = registerBlock("zipline",
+            () -> new HorizontalZiplineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN).noOcclusion()));
 
 
     public static final DeferredBlock<Block> SOUL_TREE_LOG = registerBlock("soul_tree_log",

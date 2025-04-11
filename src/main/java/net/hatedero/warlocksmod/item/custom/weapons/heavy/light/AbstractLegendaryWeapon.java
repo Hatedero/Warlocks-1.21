@@ -1,6 +1,5 @@
-package net.hatedero.warlocksmod.item.custom;
+package net.hatedero.warlocksmod.item.custom.weapons.heavy.light;
 
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 

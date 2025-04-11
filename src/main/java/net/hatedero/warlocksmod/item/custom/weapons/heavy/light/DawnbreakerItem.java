@@ -1,9 +1,6 @@
-package net.hatedero.warlocksmod.item.custom;
+package net.hatedero.warlocksmod.item.custom.weapons.heavy.light;
 
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
-import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 public class DawnbreakerItem extends AbstractLegendaryWeapon {
 

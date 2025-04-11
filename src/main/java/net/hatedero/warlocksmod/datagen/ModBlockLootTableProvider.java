@@ -42,9 +42,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.UNIFORM_OCEAN_BLOCK.get());
 //        dropSelf(ModBlocks.BASIC_CRUSHER.get());
 
-
-
-
+        dropSelf(ModBlocks.ZIPLINE.get());
 
         dropSelf(ModBlocks.SOUL_TREE_LOG.get());
         dropSelf(ModBlocks.SOUL_TREE_WOOD.get());

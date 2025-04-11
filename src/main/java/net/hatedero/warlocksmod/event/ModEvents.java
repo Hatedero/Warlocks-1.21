@@ -1,31 +1,40 @@
 package net.hatedero.warlocksmod.event;
 
 
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import it.unimi.dsi.fastutil.doubles.DoubleList;
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.item.ModItems;
 import net.hatedero.warlocksmod.item.custom.HammerItem;
-import net.hatedero.warlocksmod.item.custom.ScytheItem;
+import net.hatedero.warlocksmod.item.custom.weapons.heavy.light.ScytheItem;
+import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.LevelRenderer;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
+import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.DiscreteVoxelShape;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.RenderPlayerEvent;
+import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.neoforged.neoforge.event.entity.living.*;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
-import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -59,6 +68,14 @@ public class ModEvents {
                 serverPlayer.gameMode.destroyBlock(pos);
                 HARVESTED_BLOCKS.remove(pos);
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void wallRunEvent(LivingEvent.LivingJumpEvent event){
+        if(event.getEntity() instanceof ServerPlayer player/* && player.getDeltaMovement().horizontalDistance() >= 0.15*/ && player.horizontalCollision) {
+            player.sendSystemMessage(Component.literal("wallrun possible"));
+            player.addDeltaMovement(player.getDeltaMovement().add(0, 0.07, 0));
         }
     }
 

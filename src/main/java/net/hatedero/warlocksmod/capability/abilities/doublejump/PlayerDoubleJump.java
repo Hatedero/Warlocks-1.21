@@ -13,6 +13,7 @@ import org.jetbrains.annotations.UnknownNullability;
 
 import static net.hatedero.warlocksmod.Config.maxDJC;
 import static net.hatedero.warlocksmod.Config.maxDJN;
+import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DASH;
 import static net.hatedero.warlocksmod.capability.ModAttachment.PLAYER_DOUBLE_JUMP;
 
 public class PlayerDoubleJump implements IDoubleJump, INBTSerializable<CompoundTag> {

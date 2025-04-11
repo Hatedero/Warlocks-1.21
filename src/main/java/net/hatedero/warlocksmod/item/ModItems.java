@@ -2,11 +2,11 @@ package net.hatedero.warlocksmod.item;
 
 import net.hatedero.warlocksmod.WarlocksMod;
 import net.hatedero.warlocksmod.block.ModBlocks;
-import net.hatedero.warlocksmod.effect.ModEffects;
 import net.hatedero.warlocksmod.item.custom.*;
-import net.hatedero.warlocksmod.util.ModTags;
-import net.minecraft.core.Holder;
-import net.minecraft.world.effect.MobEffect;
+import net.hatedero.warlocksmod.item.custom.weapons.heavy.light.CleaverItem;
+import net.hatedero.warlocksmod.item.custom.weapons.heavy.light.DawnbreakerItem;
+import net.hatedero.warlocksmod.item.custom.weapons.heavy.light.OldDragonSlayerSpearItem;
+import net.hatedero.warlocksmod.item.custom.weapons.heavy.light.ScytheItem;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;

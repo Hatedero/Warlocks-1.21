@@ -1,4 +1,4 @@
-// 1.21	2024-12-19T21:02:55.1431523	Block States: warlocksmod
+// 1.21	2025-04-08T20:51:49.2103714	Block States: warlocksmod
 8b1db2c1eeef3ad93f9bf5627aaca2374753d6b3 assets/warlocksmod/blockstates/abyss_dirt.json
 9ae865e9da425a991f1bd8d47ba35ff98de50884 assets/warlocksmod/blockstates/abyss_lamp.json
 00a7def01863c1ce896ffd10856baae3e9cd6220 assets/warlocksmod/blockstates/abyss_reactor_block.json
@@ -29,6 +29,7 @@ f1eb9238ca98a7ec026bfb88ff17c7082ed5d7c6 assets/warlocksmod/blockstates/stripped
 0acf773bac80308f72743ae974e5fa3c2cbcb643 assets/warlocksmod/blockstates/sulfur_block.json
 8f360ec0553f60fc8d7e5ddaa3b2b24378ed213e assets/warlocksmod/blockstates/sulfur_ore.json
 475985001ffe5b446ead7406e997368d1d65bdc5 assets/warlocksmod/blockstates/white_test.json
+7caeb1446db5cefebf42fca51921a175037eeda3 assets/warlocksmod/blockstates/zipline.json
 5913aa209f433bfee2d566611f02b734fa3db091 assets/warlocksmod/models/block/abyss_dirt.json
 775a338409c451bc4d30e4064e0da83633f28688 assets/warlocksmod/models/block/abyss_lamp.json
 b628c226004332ab523a21e5f2e8691f6be8f953 assets/warlocksmod/models/block/abyss_reactor_block.json
@@ -72,6 +73,7 @@ c61500c543e84b30ec610629f4cecdbfd37fb0a6 assets/warlocksmod/models/block/strippe
 655062180164b96fc0f6ec8dd527e1e05cf1fba7 assets/warlocksmod/models/block/sulfur_block.json
 58eea48b9d34923f330616c6cfbf7079a2560d84 assets/warlocksmod/models/block/sulfur_ore.json
 85d40ffa8ffb6acd44ae50c57fb1717d1956530d assets/warlocksmod/models/block/white_test.json
+e03d5517fa49d62148c15f94f8aa3b35fbac6595 assets/warlocksmod/models/block/zipline.json
 a934267d765321bf4f6620c70d8cbf679b052147 assets/warlocksmod/models/item/abyss_dirt.json
 239ba83211a7f45f736cb03535c6a7721f5e8941 assets/warlocksmod/models/item/abyss_lamp.json
 ed883046b35bb63e36be243da2374e181219a449 assets/warlocksmod/models/item/abyss_reactor_block.json
@@ -101,3 +103,4 @@ d8970696826ecd963645fbe577fa97e878d409ac assets/warlocksmod/models/item/stripped
 a26dddc98448f038fe0d67f04178d72daa0171b4 assets/warlocksmod/models/item/sulfur_block.json
 f21114a1f88dbaed9626d4ea617104834b166bf6 assets/warlocksmod/models/item/sulfur_ore.json
 a5f9ff7d6647bc8af8e0ee06c117d8fdb2eeeed1 assets/warlocksmod/models/item/white_test.json
+e31565e602468c06416df8ed1bd73f36c125e42a assets/warlocksmod/models/item/zipline.json

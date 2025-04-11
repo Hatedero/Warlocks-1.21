@@ -96,6 +96,10 @@ public class PlayerDash implements IDash, INBTSerializable<CompoundTag> {
         updateDashData(player);
     }
 
+    public void resetDash(Player player) {
+        player.getData(PLAYER_DASH).setNbDash(player.getData(PLAYER_DASH).getNbDashMax());
+    }
+
     @Override
     public void updateDashData(Player player) {
         PacketDistributor.sendToPlayer((ServerPlayer) player, new PlayerDashSyncMessage(this.cooldown, this.nbDash), new CustomPacketPayload[0]);

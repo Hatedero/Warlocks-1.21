@@ -2,6 +2,8 @@ package net.hatedero.warlocksmod;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.phys.Vec3;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.pow;
@@ -32,5 +34,23 @@ public class valueCalc {
             result = 16777215;
 
         return result;
+    }
+
+    public static Vec3 DirectEntityTo(Entity main, Vec3 target){
+        Vec3 r = new Vec3(target.x-main.getX(), target.y-main.getY(), target.z-main.getZ());
+        return r;
+    }
+
+    public static double ziplineSpeed(double init){
+        if (init < 0.1)
+            return init + 0.02;
+        else if (init < 0.3)
+            return init + 0.03;
+        else if (init < 0.8)
+            return init + 0.04;
+        else if (init < 1)
+            return init;
+        else
+            return init - (init * 0.25);
     }
 }
